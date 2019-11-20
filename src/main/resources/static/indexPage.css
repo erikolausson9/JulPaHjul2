@@ -17,6 +17,14 @@ h1 {
     width:100%;
     background-color:red;
 
+.front, th, td {
+    border: 1px solid black;
+    width:10%
+.backgroundImage {
+    background-image:url("../static/backgrond_malmo.jpg");
+    width:100%;
+    background-color:red;
+
 }
 
 .restaurantCard {
