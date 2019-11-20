@@ -44,4 +44,22 @@ public class JulPaHjulController {
         return "login";
     }
 
+    @GetMapping("/logout")
+    String logout(HttpSession session) {
+        session.removeAttribute("username");
+        return "index";
+    }
+
+    @GetMapping("/addRestaurant")
+    String addRestaurant(HttpSession session) {
+        String username = (String)session.getAttribute("username") {
+            if (username != null) {
+                return "addRestaurant";
+            }
+            return "login";
+        }
+
+    }
+
+    
 }
