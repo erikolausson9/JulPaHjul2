@@ -10,8 +10,9 @@
 <body>
 
 <h1>Jul på hjul</h1>
+<div class="backgroundImage"></div>
 
-<p th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</p>
+<div class="restaurantCard" th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</div>
 
 
 </body>

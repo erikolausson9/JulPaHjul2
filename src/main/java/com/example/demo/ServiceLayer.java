@@ -11,7 +11,7 @@ public class ServiceLayer {
     @Autowired
     RestaurantRepository restaurantRepository;
 
-    public ArrayList<Restaurant> getRestaurantList() {
-        return (ArrayList<Restaurant>) restaurantRepository.getRestaurantList();
+    public ArrayList<Restaurant> getRestaurantList(int pageNr, int itemsPerPage) {
+        return (ArrayList<Restaurant>) restaurantRepository.getRestaurantList(pageNr, itemsPerPage);
     }
 }

@@ -20,12 +20,14 @@ public class RestaurantRepository {
     }
 
 
-    //getters and setters
-    public List<Restaurant> getRestaurantList() {
-        return restaurantList;
-    }
+
+
 
     //instance methods
+    public List<Restaurant> getRestaurantList(int pageNr, int itemsPerPage) {
+        //return sublist whose size depends on parameter itemsPerPage
+        return restaurantList.subList(pageNr*itemsPerPage, (pageNr)*itemsPerPage+itemsPerPage);
+    }
     public void addRestaurant(Restaurant restaurantToAdd){
         restaurantList.add(restaurantToAdd);
     }
