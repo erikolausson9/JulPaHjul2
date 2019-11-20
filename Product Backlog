@@ -1,0 +1,87 @@
+Jul på hjul:
+- Julbord
+	- ev. lunchbord
+	- ev. buffé
+
+- För barnvagnar
+	- Skötbord
+	- miljö
+	- plats
+	- microugn
+	- ramper
+
+- För rullstolsburna
+	- ramper
+	- plats
+	- handikapptoalett
+
+- Även fokus på:
+	- Kvalitet av mat
+	- Pris
+	
+Beskrivning av idé:
+Lista på restauranger som har julbord, som antingen är barnvagnsvänliga och/eller rullstolsvänliga med tomterating.
+
+Listan kan vi låtsas om att den är användargenererad 
+
+Användaren kan ge ett betyg/rating (tomterating) på vad de tyckte om restaurangen.
+Snittbetyget kommer då att förändras baserat på rating. 
+
+
+Product Backlog:
+1. Välkomstsida - Erik
+	- sökfunktion med preferenser (barnvagnsvänliga/rullstolsvänliga)
+		- checkbox på detaljerade preferenser:
+			- Skötbord
+			- miljö (t.ex. barnvänligt)
+			- plats
+			- microugn
+			- ramper
+			- handikapptoalett
+	- länk till inloggningssida/bli medlem
+	- lista av restauranger
+	- karta med tomtar - Simon
+		- välj direkt vilken stadsdel
+			- visar restauranger i endast den stadsdelen
+	- Bilder av restauranger
+
+2. Detaljvy - Aga
+	- information om restaurang 
+		- öppettider
+		- checklista på preferenser
+			- symboler av preferenser
+	- ge rating (t.ex. 4 av 5 tomtar)
+		- utifrån de detaljerade prefernserna (barnvagnsvänliga/rullstolsvänliga)
+		- utifrån kvaliteten av maten och priset
+	- visa genomsnittlig tomterating
+		- om man vill lämna en kommentar måste man logga in
+			- länkas till logga in-sidan
+	
+	
+3. Göra inloggade tomtesaker - Felicia
+	- eller bli medlem
+	- lägga till restauranger
+		- information om restaurang
+			- namn
+			- adress
+			- länk till restaurangens hemsida
+			- preferenser 
+			- stadsdel
+			- öppettider
+			- priskategori
+			- ev. övrig info
+			- ge tomterating
+	- Lämna kommentarer om befintliga restauranger		
+
+4. Boka	- Luba
+	- bokningsformulär
+		- namn
+		- datum
+		- antal personer
+		- tid
+		- möjlighet att avboka
+		- lämna mailadress + telefonnummer
+		
+5. Design		
+	- Header 1 
+
