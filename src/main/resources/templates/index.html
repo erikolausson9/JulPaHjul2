@@ -8,14 +8,15 @@
 
 </head>
 <body>
-
 <h1>Jul på hjul</h1>
 
+
+
+
+<img src="../static/bakgrund_malmo.jpg" class="backgroundImage">
 <div class = "front"><ul>
     <li><a href="/login">Login</a></li>
 </ul></div>
-
-<div class="backgroundImage"></div>
 
 <p th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</p>
 
