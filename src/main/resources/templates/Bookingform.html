@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking</title>
+</head>
+<body>
+
+<form action="/Bookingform" method="POST" th:object="${julpahjul}">
+    Name: <input type="text" th:field="*{name}"/>
+    Time: <select th:field="*{time}">
+    <option value="11:30">11:30</option>
+    <option value="12:30">12:30</option>
+    <option value="17:00">17:00</option>
+    <option value="17:30">17:30</option>
+    <option value="18:00">18:00</option>
+    <option value="19:00">19:00</option>
+    <option value="19:30">19:30</option>
+    <option value="20:00">20:00</option>
+    <option value="20:30">20:30</option>
+    <option value="21:00">21:00</option>
+</select>
+    E-post: <input type=" checkbox" th:field="*{e-post}"/>
+    How many are you?: <select th:field="*{how many are you?}">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+    <input type="submit" value="add"/>
+
+
+</form>
+
+
+
+</body>
+</html>
