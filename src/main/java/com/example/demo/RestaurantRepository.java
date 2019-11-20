@@ -2,6 +2,7 @@ package com.example.demo;
 
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,17 @@ public class RestaurantRepository {
             addRestaurant(newRestaurant);
         }
     }
+
+    public Restaurant getRestaurant(int id) {
+        for (Restaurant restaurant : restaurantList) {
+            if (restaurant.getId() == id) {
+                return restaurant;
+            }
+        }
+        return null;
+    }
+
+
 
 
 }

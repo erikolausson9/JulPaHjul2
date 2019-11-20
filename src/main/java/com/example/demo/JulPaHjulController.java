@@ -52,7 +52,7 @@ public class JulPaHjulController {
 
     @GetMapping("/addRestaurant")
     String addRestaurant(HttpSession session) {
-        String username = (String)session.getAttribute("username") {
+        String username = (String)session.getAttribute("username");
             if (username != null) {
                 return "addRestaurant";
             }
@@ -62,4 +62,4 @@ public class JulPaHjulController {
     }
 
     
-}
+

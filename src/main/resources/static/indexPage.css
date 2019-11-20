@@ -11,3 +11,7 @@ h1 {
     padding: 15px;
 
 }
+
+.front, th, td {
+    width:15%
+}
