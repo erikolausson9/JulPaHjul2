@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ServiceLayer {
@@ -11,7 +12,7 @@ public class ServiceLayer {
     @Autowired
     RestaurantRepository restaurantRepository;
 
-    public ArrayList<Restaurant> getRestaurantList(int pageNr, int itemsPerPage) {
-        return (ArrayList<Restaurant>) restaurantRepository.getRestaurantList(pageNr, itemsPerPage);
+    public List<Restaurant> getRestaurantList(int pageNr, int itemsPerPage) {
+        return restaurantRepository.getRestaurantList(pageNr, itemsPerPage);
     }
 }

@@ -21,11 +21,14 @@ public class JulPaHjulController {
     @GetMapping("/")
     String goToIndexPage(Model model, @RequestParam(required = false, defaultValue = "0") String page){
 
-        ArrayList<Restaurant> restaurants = serviceLayer.getRestaurantList();
-        model.addAttribute("restaurants", restaurants);
+        int pageNr = Integer.parseInt(page);
+
+        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10);
+        model.addAttribute("restaurants", selectedRestaurants);
+
         return "index";
     }
-        int pageNr = Integer.parseInt(page);
+
 
 
 
@@ -45,10 +48,7 @@ public class JulPaHjulController {
         }
         return "login";
     }
-        ArrayList<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10);
-        model.addAttribute("restaurants", selectedRestaurants);
-        return "index";
-    }
+
 
 @GetMapping("/logout")
     String logout(HttpSession session) {
