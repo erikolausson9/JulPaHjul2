@@ -4,6 +4,7 @@ package com.example.demo;
 public class Restaurant {
 
     //instance variables
+    private Integer id;
     private String name;
     private String description;
     private double tomterating;
@@ -52,6 +53,11 @@ public class Restaurant {
         this.tomterating = tomterating;
     }
 
+    public Integer getId() {
+        return id;
+    }
 
-
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
