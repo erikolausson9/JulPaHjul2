@@ -11,3 +11,8 @@ h1 {
     padding: 15px;
 
 }
+
+.front, th, td {
+    border: 1px solid black;
+    width:10%
+}
