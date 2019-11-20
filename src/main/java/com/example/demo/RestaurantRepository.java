@@ -1,8 +1,11 @@
 package com.example.demo;
 
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class RestaurantRepository {
 
     //instance variables
@@ -10,7 +13,10 @@ public class RestaurantRepository {
 
     //constructor
     public RestaurantRepository(){
+
         restaurantList = new ArrayList<Restaurant>();
+
+        create20FakeRestaurants(); //TODO: should be replaced by real restaurants
     }
 
 
@@ -22,6 +28,13 @@ public class RestaurantRepository {
     //instance methods
     public void addRestaurant(Restaurant restaurantToAdd){
         restaurantList.add(restaurantToAdd);
+    }
+
+    public void create20FakeRestaurants(){
+        for(int ii=0; ii<20; ii++){
+            Restaurant newRestaurant = new Restaurant("Restaurant" + ii, "Description" + ii, 2.0+ii*0.1);
+            addRestaurant(newRestaurant);
+        }
     }
 
 
