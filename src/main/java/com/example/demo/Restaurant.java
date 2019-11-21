@@ -12,6 +12,9 @@ public class Restaurant {
     private double tomterating;
 
     private String adress;
+    private String stadsdel;
+    private String oppettider;
+    private String priskategori;
     private String linkToWebsite;
 
     private ArrayList<String> tomtar;
@@ -44,7 +47,11 @@ public class Restaurant {
         this.name=name;
         this.description = description;
         this.adress = adress;
+        this.stadsdel = stadsdel;
+        this.oppettider = oppettider;
+        this.priskategori = priskategori;
         this.linkToWebsite = linkToWebsite;
+        this.tomterating = tomterating;
     }
 
 
@@ -128,4 +135,28 @@ public class Restaurant {
     public void clearTomteList(){
         tomtar.clear();
     }
+
+
+    public void setOppettider(String oppettider) {
+        this.oppettider = oppettider;
+    }
+
+    public String getPriskategori() {
+        return priskategori;
+    }
+
+    public void setPriskategori(String priskategori) {
+        this.priskategori = priskategori;
+    }
+
+    public void setStrollerOk(boolean strollerOk) {
+        this.strollerOk = strollerOk;
+    }
+
+    public void setWheelchairOk(boolean wheelchairOk) {
+        this.wheelchairOk = wheelchairOk;
+    }
+}
+
+}
 }
