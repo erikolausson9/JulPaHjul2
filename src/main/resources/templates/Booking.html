@@ -2,12 +2,17 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="indexPage.css">
+    <link rel="stylesheet" href="../static/indexPage.css" th:href="'/indexPage.css'">
     <title>Booking</title>
 </head>
-<body>
+<STYLE>A {text-decoration: none;} </STYLE>
 
-<form action="/booking" method="POST" th:object="${booking}">
+<body>
+<div class="booking">
+    <span><a href="/">Back to Home page</a></span>
+<center><h1 id="headerbooking"> Booking page </h1></center></div>
+
+<center><form action="/booking" method="POST" th:object="${booking}">
 
     People: <select th:field="*{people}">
     <option value="1">1</option>
@@ -54,16 +59,16 @@
 
 <h2>Complete your reservation</h2>
 
-    E-mail:<br>
-    <input type="text" th:field="*{email}">
-    <br>
+
     First name:<br>
     <input type="text" th:field="*{firstname}">
     <br>
     Last name:<br>
     <input type="text" th:field="*{lastname}">
     <br>
-
+    E-mail:<br>
+    <input type="text" th:field="*{email}">
+    <br>
     Phonenumber: <br>
     <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="+46-274 21 37">
      <br>
@@ -71,6 +76,7 @@
     <input type="submit" value="Reserve now"/> <br>
 
 </form>
+</center>
 
 
 
