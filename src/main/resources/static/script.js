@@ -21,7 +21,7 @@ map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
 var initialLocation = new google.maps.LatLng(55.605132, 13.003091);
 map.setCenter(initialLocation);
-map.setZoom(12);
+map.setZoom(13);
 
 getDat();
 
@@ -46,7 +46,7 @@ function resturantMarkers(resloc) {
       '<br>Longitude: ' + resloc.lng()
     });
 
-  infowindow.open(map,marker);
+//  infowindow.open(map,marker);
 
 }
 
