@@ -54,7 +54,7 @@ public class JulPaHjulController {
     }
 
 
-    List<Restaurant> restaurants = new ArrayList<>();
+
 
     @GetMapping("/addRestaurant")
     String addRestaurant() {
@@ -62,9 +62,19 @@ public class JulPaHjulController {
     }
 
     @PostMapping("/addRestaurant")
-    String addRestaurant(@RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite, Model model) {
-        restaurants.add(new Restaurant(name, description, adress, linkToWebsite));
-        model.addAttribute("restaurants", restaurants);
+    String addRestaurant(HttpSession session, @RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite) {
+        List<String> restaurants = (List<String>)session.getAttribute("restaurants");
+
+        if (restaurants == null) {
+            restaurants = new ArrayList<>();
+            session.setAttribute("restaurants", restaurants);
+        }
+
+        restaurants.add(name);
+        restaurants.add(description);
+        restaurants.add(adress);
+        restaurants.add(linkToWebsite);
+
         return "addRestaurant";
     }
 
@@ -103,4 +113,3 @@ public class JulPaHjulController {
         return "booking";
     }
 }
-  

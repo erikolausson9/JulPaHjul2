@@ -7,22 +7,18 @@
 </head>
 <body>
 <form action="/addRestaurant" method="POST">
-    <input type="text" name="name"  placeholder="Name of restaurant"/><br>
-    <input type="text" name="description" placeholder="Description of restaurant"/><br>
-    <input type="text" name="adress" placeholder="Adress"/><br>
-    <input type="text" name="linkToWebsite" placeholder="Link to website"/><br>
-    <input type="submit" value="Add restaurant to list"/>
+    <input type="text" name="name"  placeholder="Namn på restaurant"/><br>
+    <input type="text" name="description" placeholder="Beskrivning av restaurang"/><br>
+    <input type="text" name="adress" placeholder="Address"/><br>
+    <input type="text" name="linkToWebsite" placeholder="Länk till hemsida"/><br>
+    <input type="submit" value="Lägg till restaurang"/>
 </form>
 
 <br>
 
-<div th:each="restaurant : ${restaurants}" th:if="${restaurants != null}">
-        <span th:text="${'Name: ' + restaurant.name}"></span><br>
-        <span th:text="${'Description of restaurant: ' + restaurant.description}"></span><br>
-        <span th:text="${'adress: '+ restaurant.adress}"></span><br>
-        <span th:text="${'Link to website: '+ restaurant.linkToWebsite}"></span><br>
+<ul th:each="name : ${session.restaurants}" th:text="${name}">
+    <li th:text="${name}"></li>
+</ul>
 
-    <br>
-</div>
 </body>
 </html>
