@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class Restaurant {
 
-    //instance variables
     private Integer id;
     private String name;
     private String description;
@@ -21,9 +20,9 @@ public class Restaurant {
 
     private boolean strollerOk;
     private boolean wheelchairOk;
+    private double lat;
+    private double lng;
 
-
-    //constructors with 0 ore more arguments
     public Restaurant(){
     }
 
@@ -54,14 +53,15 @@ public class Restaurant {
         this.tomterating = tomterating;
     }
 
-
-    public Restaurant(String name, String description, double tomterating, boolean strollerOk, boolean wheelchairOk){
+    public Restaurant(String name, String description, double tomterating, boolean strollerOk, boolean wheelchairOk, double lat, double lng){
         this.name=name;
         this.description = description;
         this.tomterating = tomterating;
         this.strollerOk = strollerOk;
         this.wheelchairOk = wheelchairOk;
         this.tomtar = new ArrayList<String>();
+        this.lat = lat;
+        this.lng = lng;
     }
 
 
@@ -123,15 +123,22 @@ public class Restaurant {
         this.linkToWebsite = linkToWebsite;
     }
 
+    public double getLat() {
+        return lat;
     public ArrayList<String> getTomtar() {
         return tomtar;
     }
 
+    public double getLng() {
+        return lng;
     //instance methods
     public void addTomte(){
         tomtar.add("\\uD83C\\uDF85");
     }
 
+    public void setLatLng(double lat, double lng) {
+        this.lat = lat;
+        this.lng = lng;
     public void clearTomteList(){
         tomtar.clear();
     }
