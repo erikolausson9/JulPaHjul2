@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>startPage</title>
 
-    <link rel="stylesheet" href="../static/indexPage.css" th:href="'/indexPage.css'">
+    <link rel="stylesheet" href="indexPage.css" th:href="'/indexPage.css'">
 
 </head>
+<STYLE>A {text-decoration: none;} </STYLE>
 <body>
 
 <div class = "front">
@@ -45,8 +46,8 @@
     <h2>Malmös högst rankade julbord just nu:</h2>
 
     <form action="/filter_restaurants" method="post">
-        <input type="checkbox" name="stroller">Visa endast barnvagnsvänliga
-        <input type="checkbox" name="wheelchar">Visa endast rullstolsvänliga
+        <input type="checkbox" name="stroller" value="true">Visa endast barnvagnsvänliga
+        <input type="checkbox" name="wheelchair" value="true">Visa endast rullstolsvänliga
         <input type="submit" text="Filtrera">
 
 
@@ -57,7 +58,8 @@
         <div class="restaurantCard">
             <span th:text="${restaurant.name}"></span> <br>
             <span th:text="${restaurant.description}"></span> <br>
-            <span th:text="${restaurant.tomterating}"></span>
+            <span th:each="tomte:${restaurant.tomtar}">🎅</span>
+            <span th:text="${restaurant.tomterating}"></span><br>
             <span th:text="${restaurant.strollerOk}"></span>
             <span th:text="${restaurant.wheelchairOk}"></span>
 

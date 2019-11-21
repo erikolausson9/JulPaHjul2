@@ -26,6 +26,10 @@ public class JulPaHjulController {
         int pageNr = Integer.parseInt(page);
 
         List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10, false, false);
+
+
+
+
         model.addAttribute("restaurants", selectedRestaurants);
 
         return "index";
@@ -63,7 +67,7 @@ public class JulPaHjulController {
     }
 
     @PostMapping("/addRestaurant")
-    String addRestaurant(HttpSession session, @RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite) {
+    String addRestaurant(HttpSession session, @RequestParam String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, double tomterating) {
         List<String> restaurants = (List<String>)session.getAttribute("restaurants");
 
         if (restaurants == null) {
@@ -74,14 +78,19 @@ public class JulPaHjulController {
         restaurants.add(name);
         restaurants.add(description);
         restaurants.add(adress);
+        restaurants.add(stadsdel);
+        restaurants.add(oppettider);
+        restaurants.add(priskategori);
         restaurants.add(linkToWebsite);
-
+        restaurants.add(Double.toString(tomterating));
         return "addRestaurant";
     }
 
 
     @PostMapping("/filter_restaurants")
     String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
+
+
 
         boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
         boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
@@ -95,8 +104,7 @@ public class JulPaHjulController {
     }
 
     @GetMapping("/booking")
-    String getbooking(Model model){
-        model.addAttribute("booking", new Booking());
+    String getbooking(){
         return "booking";
     }
 

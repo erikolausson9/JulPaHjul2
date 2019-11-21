@@ -79,12 +79,28 @@ img {
 
 .login {
     display:block;
-
     #width:100%;
     margin:auto;
     background-color: #c21f1f;
 }
 
 #headerlogin {
+    color:#ffffff;
+}
+
+
+
+.addRestaurant {
+        display:block;
+        #width:100%;
+        margin:auto;
+        background-color: #c21f1f;
+}
+
+#headeraddrestaurant {
+    color:#ffffff;
+}
+
+a {
     color:#ffffff;
 }

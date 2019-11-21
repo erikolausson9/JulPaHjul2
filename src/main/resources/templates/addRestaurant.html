@@ -5,20 +5,32 @@
     <link rel="stylesheet" href="indexPage.css">
     <title>Add Restaurant</title>
 </head>
+<STYLE>A {text-decoration: none;} </STYLE>
 <body>
-<form action="/addRestaurant" method="POST">
-    <input type="text" name="name"  placeholder="Namn på restaurant"/><br>
+
+<div class="addRestaurant">
+    <span><a href="/">Back to Home page</a></span>
+    <center><h1 id="headeraddrestaurant"> Add Restaurant</h1></center></div>
+<center><form action="/addRestaurant" method="POST">
+    <input type="text" name="name"  placeholder="Namn på restaurang"/><br>
     <input type="text" name="description" placeholder="Beskrivning av restaurang"/><br>
     <input type="text" name="adress" placeholder="Address"/><br>
+    <input type="text" name="stadsdel" placeholder="Stadsdel"/><br>
+    <input type="text" name="oppettider" placeholder="Öppettider"/><br>
+    <input type="text" name="priskategori" placeholder="Priskategori"/><br>
     <input type="text" name="linkToWebsite" placeholder="Länk till hemsida"/><br>
+    <input type="text" name="tomterating" placeholder="Ge tomterating (t.ex. 4.5)"/><br>
     <input type="submit" value="Lägg till restaurang"/>
 </form>
+</center>
 
 <br>
-
+<center>
 <ul th:each="name : ${session.restaurants}" th:text="${name}">
     <li th:text="${name}"></li>
 </ul>
+
+</center>
 
 </body>
 </html>

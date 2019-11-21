@@ -13,6 +13,6 @@ public class ServiceLayer {
     RestaurantRepository restaurantRepository;
 
     public List<Restaurant> getRestaurantList(int pageNr, int itemsPerPage, boolean onlyStrollerFriendly, boolean onlyWheelchairFriendly) {
-        return restaurantRepository.getRestaurantList(pageNr, itemsPerPage, onlyStrollerFriendly, onlyStrollerFriendly);
+        return restaurantRepository.getRestaurantList(pageNr, itemsPerPage, onlyStrollerFriendly, onlyWheelchairFriendly);
     }
 }
