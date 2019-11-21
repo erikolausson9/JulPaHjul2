@@ -23,27 +23,27 @@ public class Restaurant implements Comparable {
     private double lat;
     private double lng;
 
-    public Restaurant(){
+    public Restaurant() {
     }
 
-    public Restaurant(String name){
-        this.name=name;
+    public Restaurant(String name) {
+        this.name = name;
     }
 
-    public Restaurant(String name, String description){
-        this.name=name;
+    public Restaurant(String name, String description) {
+        this.name = name;
         this.description = description;
     }
 
-    public Restaurant(String name, String description, double tomterating){
-        this.name=name;
+    public Restaurant(String name, String description, double tomterating) {
+        this.name = name;
         this.description = description;
         this.tomterating = tomterating;
     }
 
 
-    public Restaurant(String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, double tomterating){
-        this.name=name;
+    public Restaurant(String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, double tomterating) {
+        this.name = name;
         this.description = description;
         this.adress = adress;
         this.stadsdel = stadsdel;
@@ -53,8 +53,8 @@ public class Restaurant implements Comparable {
         this.tomterating = tomterating;
     }
 
-    public Restaurant(String name, String description, double tomterating, boolean strollerOk, boolean wheelchairOk, double lat, double lng){
-        this.name=name;
+    public Restaurant(String name, String description, double tomterating, boolean strollerOk, boolean wheelchairOk, double lat, double lng) {
+        this.name = name;
         this.description = description;
         this.tomterating = tomterating;
         this.strollerOk = strollerOk;
@@ -63,7 +63,6 @@ public class Restaurant implements Comparable {
         this.lat = lat;
         this.lng = lng;
     }
-
 
 
     //getters and setters
@@ -127,6 +126,7 @@ public class Restaurant implements Comparable {
         return lat;
 
     }
+
     public ArrayList<String> getTomtar() {
         return tomtar;
     }
@@ -135,7 +135,8 @@ public class Restaurant implements Comparable {
         return lng;
         //instance methods
     }
-    public void addTomte(){
+
+    public void addTomte() {
         tomtar.add("\\uD83C\\uDF85");
     }
 
@@ -143,7 +144,8 @@ public class Restaurant implements Comparable {
         this.lat = lat;
         this.lng = lng;
     }
-    public void clearTomteList(){
+
+    public void clearTomteList() {
         tomtar.clear();
     }
 
@@ -170,17 +172,40 @@ public class Restaurant implements Comparable {
 
 
     @Override
-    public int compareTo(Object o){
-        Restaurant restaurant = (Restaurant)o;
-        if(this.tomterating<restaurant.tomterating){
+    public int compareTo(Object o) {
+        Restaurant restaurant = (Restaurant) o;
+        if (this.tomterating < restaurant.tomterating) {
             return 1;
-        }
-        else if(this.tomterating>restaurant.tomterating){
-        return -1;
-        }
-        else{
+        } else if (this.tomterating > restaurant.tomterating) {
+            return -1;
+        } else {
             return 0;
         }
     }
+
+    public String getStadsdel() {
+        return stadsdel;
+    }
+
+    public void setStadsdel(String stadsdel) {
+        this.stadsdel = stadsdel;
+    }
+
+    public String getOppettider() {
+        return oppettider;
+    }
+
+    public void setTomtar(ArrayList<String> tomtar) {
+        this.tomtar = tomtar;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
+}
 
 
