@@ -4,7 +4,7 @@ var mydataresponse;
 var map;
 
 async function getDat() {
-    const response = await fetch('http://127.0.0.1:8080/test');
+    const response = await fetch('http://127.0.0.1:8080/resturantData');
     mydataresponse = await response.json();
     console.log(mydataresponse);
 
@@ -23,7 +23,7 @@ var initialLocation = new google.maps.LatLng(55.605132, 13.003091);
 map.setCenter(initialLocation);
 map.setZoom(12);
 
-//getDat();
+getDat();
 
 //google.maps.event.addListener(map, 'click', function(event) {
 //  placeMarker(map, event.latLng);
