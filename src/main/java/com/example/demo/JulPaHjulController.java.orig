@@ -104,7 +104,12 @@ public class JulPaHjulController {
     }
 
     @GetMapping("/booking")
+<<<<<<< HEAD
+    String getbooking(Model model){
+        model.addAttribute("booking", new Booking());
+=======
     String getbooking(){
+>>>>>>> 8aeca3c68af7cc12c52629c6308744981183ecd0
         return "booking";
     }
 
