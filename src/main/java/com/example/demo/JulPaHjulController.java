@@ -23,7 +23,7 @@ public class JulPaHjulController {
 
         int pageNr = Integer.parseInt(page);
 
-        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10);
+        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10, false, false);
         model.addAttribute("restaurants", selectedRestaurants);
 
         return "index";
@@ -67,7 +67,19 @@ public class JulPaHjulController {
             return "login";
         }
 
+
+    @PostMapping("/filter_restaurants")
+    String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair){
+
+        boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
+        boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
+
+        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(0, 10, onlyStrollerFriendly,onlyWheelchairFriendly);
+
+        model.addAttribute("restaurants", selectedRestaurants);
+
+
+    return "index";
     }
 
-    
-
+}

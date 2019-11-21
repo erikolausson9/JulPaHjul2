@@ -25,9 +25,33 @@ public class RestaurantRepository {
 
 
     //instance methods
-    public List<Restaurant> getRestaurantList(int pageNr, int itemsPerPage) {
+    public List<Restaurant> getRestaurantList(int pageNr, int itemsPerPage, boolean onlyStrollerFriendly, boolean onlyWheelchairFriendly ) {
         //return sublist whose size depends on parameter itemsPerPage
-        return restaurantList.subList(pageNr*itemsPerPage, (pageNr)*itemsPerPage+itemsPerPage);
+        List<Restaurant> subList = new ArrayList<Restaurant>();
+        for(int ii=0; ii<itemsPerPage; ii++){
+
+            Restaurant restaurant = restaurantList.get(pageNr+ii);
+
+            if(onlyStrollerFriendly&&onlyWheelchairFriendly){//if this flag is set, only restaurants that are both stroller- and wheelchairfriendly
+                if(restaurant.isStrollerOk()&&restaurant.isWheelchairOk()){
+                    subList.add(restaurant);
+                }
+            }else if(onlyStrollerFriendly){
+                if(restaurant.isStrollerOk()){
+                    subList.add(restaurant);
+                }
+            }else if(onlyWheelchairFriendly){
+                if(restaurant.isWheelchairOk()){
+                    subList.add(restaurant);
+                }
+            }
+            else {
+                subList.add(restaurant);
+            }
+
+
+        }
+        return subList;
     }
     public void addRestaurant(Restaurant restaurantToAdd){
         restaurantList.add(restaurantToAdd);
@@ -35,7 +59,18 @@ public class RestaurantRepository {
 
     public void create20FakeRestaurants(){
         for(int ii=0; ii<20; ii++){
-            Restaurant newRestaurant = new Restaurant("Restaurant" + ii, "Description" + ii, 2.0+ii*0.1);
+            boolean strollerOk = true;
+            boolean wheelchairOk = true;
+            if(ii%2==0){
+                strollerOk = false;
+            }
+
+            if(ii%3==0){
+                wheelchairOk = false;
+            }
+
+
+            Restaurant newRestaurant = new Restaurant("Restaurant" + ii, "Description" + ii, 2.0+ii*0.1, strollerOk, wheelchairOk);
             addRestaurant(newRestaurant);
         }
     }

@@ -8,6 +8,8 @@ public class Restaurant {
     private String name;
     private String description;
     private double tomterating;
+    private boolean strollerOk;
+    private boolean wheelchairOk;
 
     //constructors with 0 ore more arguments
     public Restaurant(){
@@ -27,6 +29,15 @@ public class Restaurant {
         this.description = description;
         this.tomterating = tomterating;
     }
+
+    public Restaurant(String name, String description, double tomterating, boolean strollerOk, boolean wheelchairOk){
+        this.name=name;
+        this.description = description;
+        this.tomterating = tomterating;
+        this.strollerOk = strollerOk;
+        this.wheelchairOk = wheelchairOk;
+    }
+
 
     //getters and setters
     public String getName() {
@@ -51,6 +62,14 @@ public class Restaurant {
 
     public void setTomterating(double tomterating) {
         this.tomterating = tomterating;
+    }
+
+    public boolean isStrollerOk() {
+        return strollerOk;
+    }
+
+    public boolean isWheelchairOk() {
+        return wheelchairOk;
     }
 
     public Integer getId() {
