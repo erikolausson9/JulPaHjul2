@@ -79,7 +79,6 @@ img {
 
 .login {
     display:block;
-
     #width:100%;
     margin:auto;
     background-color: #c21f1f;
@@ -89,6 +88,19 @@ img {
     color:#ffffff;
 }
 
-.preferences {
-    font-size:48px;color:red;
+
+
+.addRestaurant {
+        display:block;
+        #width:100%;
+        margin:auto;
+        background-color: #c21f1f;
+}
+
+#headeraddrestaurant {
+    color:#ffffff;
+}
+
+a {
+    color:#ffffff;
 }

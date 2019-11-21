@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="indexPage.css">
+    <title>Booking</title>
+</head>
+<body>
+
+<form action="/booking" method="POST" th:object="${booking}">
+
+    People: <select th:field="*{people}">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+
+    Day: <select th:field="*{day}">
+    <option value="2019-11-21">2019-11-21</option>
+    <option value="2019-11-21">2019-11-21</option>
+    <option value="2019-11-21">2019-11-21</option>
+    <option value="2019-11-21">2019-11-21</option>
+    <option value="2019-11-21">2019-11-21</option>
+    <option value="2019-11-21">2019-11-21</option>
+    <option value="2019-11-21">2019-11-21</option>
+    <option value="2019-11-21">2019-11-21</option>
+    <option value="2019-11-21">2019-11-21</option>
+    <option value="12019-11-21">2019-11-21</option>
+</select>
+
+
+    Choose a Time: <select th:field="*{time}">
+    <option value="11:30">11:30</option>
+    <option value="12:30">12:30</option>
+    <option value="17:00">17:00</option>
+    <option value="17:30">17:30</option>
+    <option value="18:00">18:00</option>
+    <option value="19:00">19:00</option>
+    <option value="19:30">19:30</option>
+    <option value="20:00">20:00</option>
+    <option value="20:30">20:30</option>
+    <option value="21:00">21:00</option> <br>
+</select>
+    </br>
+
+
+<h2>Complete your reservation</h2>
+
+    E-mail:<br>
+    <input type="text" th:field="*{email}">
+    <br>
+    First name:<br>
+    <input type="text" th:field="*{firstname}">
+    <br>
+    Last name:<br>
+    <input type="text" th:field="*{lastname}">
+    <br>
+
+    Phonenumber: <br>
+    <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="+46-274 21 37">
+     <br>
+
+    <input type="submit" value="Reserve now"/> <br>
+
+</form>
+
+<div th:if="${booking != null}">
+    <p th:text="${booking.email}"></p>
+    <p th:text="${booking.firstname}"></p>
+    <p th:text="${booking.lastname}"></p>
+    <p th:text="${booking.phonenumber}"></p>
+</div>
+
+
+</body>
+</html>
