@@ -11,7 +11,7 @@
 <<<<<<< HEAD
 <div class = "front">
     <span th:if="${username == null}"><a href="/login">Login</a></span>
-    <span th:if="${username != null}"><a href="/logout">Logout</a></span>
+    <span th:unless="${username != null}"><a href="/logout">Logout</a></span>
     <br><span><a href="/addRestaurant">Add Restaurant</a></span>
 </div>
 <h1>Jul på hjul</h1>
