@@ -42,7 +42,7 @@ public class Restaurant {
     }
 
 
-    public Restaurant(String name, String description, String adress, String linkToWebsite){
+    public Restaurant(String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, double tomterating){
         this.name=name;
         this.description = description;
         this.adress = adress;
@@ -166,6 +166,30 @@ public class Restaurant {
 
     public void setWheelchairOk(boolean wheelchairOk) {
         this.wheelchairOk = wheelchairOk;
+    }
+
+    public String getStadsdel() {
+        return stadsdel;
+    }
+
+    public void setStadsdel(String stadsdel) {
+        this.stadsdel = stadsdel;
+    }
+
+    public String getOppettider() {
+        return oppettider;
+    }
+
+    public void setTomtar(ArrayList<String> tomtar) {
+        this.tomtar = tomtar;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 }
 

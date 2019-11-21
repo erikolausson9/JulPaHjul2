@@ -25,12 +25,21 @@
 </center>
 
 <br>
-<center>
-<ul th:each="name : ${session.restaurants}" th:text="${name}">
-    <li th:text="${name}"></li>
-</ul>
 
+<center>
+<ul th:each="restaurant : ${session.restaurants}">
+    <h2>Tack för ditt bidrag!</h2>
+    <br><span th:text="${'Namn: ' + restaurant.name}"></span><br><br>
+    <span th:text="${'Beskrivning av restaurang: ' + restaurant.description}"></span><br><br>
+    <span th:text="${'Address: ' + restaurant.adress}"></span><br><br>
+    <span th:text="${'Stadsdel: ' + restaurant.stadsdel}"></span><br><br>
+    <span th:text="${'Öppettider: ' + restaurant.oppettider}"></span><br><br>
+    <span th:text="${'Priskategori: ' + restaurant.priskategori}"></span><br><br>
+    <span th:text="${'Länk till hemsida: ' + restaurant.linkToWebsite}"></span><br><br>
+    <span th:text="${'Tomterating: ' + restaurant.tomterating}"></span>
+</ul>
 </center>
+
 
 </body>
 </html>
