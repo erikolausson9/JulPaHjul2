@@ -88,6 +88,10 @@ public class RestaurantRepository {
         }
     }
 
+    public List<Restaurant> getRestaurantList() {
+        return restaurantList;
+    }
+
     public Restaurant getRestaurant(int id) {
         for (Restaurant restaurant : restaurantList) {
             if (restaurant.getId() == id) {
@@ -95,6 +99,8 @@ public class RestaurantRepository {
             }
         }
         return null;
+
+
     }
 
 
