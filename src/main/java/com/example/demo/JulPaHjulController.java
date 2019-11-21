@@ -19,7 +19,6 @@ public class JulPaHjulController {
     ServiceLayer serviceLayer;
 
 
-
     @GetMapping("/")
     String goToIndexPage(Model model, @RequestParam(required = false, defaultValue = "0") String page) {
 
@@ -56,13 +55,14 @@ public class JulPaHjulController {
 
 
     List<Restaurant> restaurants = new ArrayList<>();
+
     @GetMapping("/addRestaurant")
     String addRestaurant() {
-            return "addRestaurant";
-        }
+        return "addRestaurant";
+    }
 
     @PostMapping("/addRestaurant")
-    String addRestaurant(@RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite, Model model){
+    String addRestaurant(@RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite, Model model) {
         restaurants.add(new Restaurant(name, description, adress, linkToWebsite));
         model.addAttribute("restaurants", restaurants);
         return "addRestaurant";
@@ -88,17 +88,19 @@ public class JulPaHjulController {
     }
 
 
-        @PostMapping("/booking")
+    @PostMapping("/booking")
     String postBooking(HttpSession session, @RequestParam String restaurant) {
         session.setAttribute("restaurant", restaurant);
         return "booking";
     }
 
     @GetMapping("/confirmation")
-    public String reserve(HttpSession session, @RequestParam String Email,@RequestParam String Firstname,@RequestParam String Lastname,@RequestParam String Phonenumber){
-    //(String)session.getAttribute("");
+    public String reserve(HttpSession session, @RequestParam String Email, @RequestParam String Firstname, @RequestParam String Lastname, @RequestParam String Phonenumber) {
+        //(String)session.getAttribute("");
         if (Email != null) {
             return "confirmation";
         }
         return "booking";
     }
+}
+  
