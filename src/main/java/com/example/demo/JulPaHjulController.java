@@ -77,7 +77,7 @@ public class JulPaHjulController {
 
         return "addRestaurant";
     }
-    
+
 
     @PostMapping("/filter_restaurants")
     String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
