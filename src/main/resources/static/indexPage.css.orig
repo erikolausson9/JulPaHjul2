@@ -109,6 +109,15 @@ a {
     color:#ffffff;
 }
 
+<<<<<<< HEAD
+.preferences {
+    font-size: 30px;
+    color: #c21f1f;
+}
+
+.checked {
+  color: #c21f1f;
+=======
 .booking {
     display:block;
     #width:100%;
@@ -118,13 +127,5 @@ a {
 
 #headerbooking {
     color:#ffffff;
-}
-
-.preferences {
-    font-size: 30px;
-    color: #c21f1f;
-}
-
-.checked {
-  color: #c21f1f;
+>>>>>>> 7ec3ca247b0a984ac15bf0013a68a574132a8246
 }
