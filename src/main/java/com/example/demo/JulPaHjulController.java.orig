@@ -55,19 +55,34 @@ public class JulPaHjulController {
     }
 
 
+<<<<<<< HEAD
     List<Restaurant> restaurants = new ArrayList<>();
     @GetMapping("/addRestaurant")
     String addRestaurant() {
+=======
+    @GetMapping("/addRestaurant")
+    String addRestaurant(HttpSession session) {
+        String username = (String) session.getAttribute("username");
+        if (username != null) {
+>>>>>>> 2b0bd28c9d8ca7a1ca4b83c70d2376f53e3daab4
             return "addRestaurant";
         }
+        return "login";
+    }
 
+    @GetMapping("/booking")
+    String getBooking() {
+        return "booking";
+
+    }
+
+<<<<<<< HEAD
     @PostMapping("/addRestaurant")
     String addRestaurant(@RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite, Model model) {
         restaurants.add(new Restaurant(name, description, adress, linkToWebsite));
         model.addAttribute("restaurants", restaurants);
         return "addRestaurant";
-    }
-
+=======
     @PostMapping("/booking")
     String postBooking(HttpSession session, @RequestParam String restaurant) {
         session.setAttribute("restaurant", restaurant);
@@ -80,7 +95,10 @@ public class JulPaHjulController {
             return "confirmation";
         }
         return "booking";
+>>>>>>> 2b0bd28c9d8ca7a1ca4b83c70d2376f53e3daab4
     }
+}
+
 }
 
     
