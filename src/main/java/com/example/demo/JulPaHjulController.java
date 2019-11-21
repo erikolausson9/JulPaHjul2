@@ -82,6 +82,8 @@ public class JulPaHjulController {
     @PostMapping("/filter_restaurants")
     String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
 
+
+
         boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
         boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
 
