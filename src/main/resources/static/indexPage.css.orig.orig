@@ -110,14 +110,11 @@ a {
 }
 
 <<<<<<< HEAD
-.preferences {
-    font-size: 30px;
-    color: #c21f1f;
-}
-
-.checked {
-  color: #c21f1f;
 =======
+<<<<<<< HEAD
+
+=======
+>>>>>>> d825ae6bd5cdd4d31c902496925fe090b30d93d0
 .booking {
     display:block;
     #width:100%;
@@ -127,6 +124,7 @@ a {
 
 #headerbooking {
     color:#ffffff;
+<<<<<<< HEAD
 }
 <<<<<<< HEAD
 .confirmation{
@@ -147,4 +145,16 @@ a {
 .checked {
   color: #c21f1f;
 >>>>>>> f68467f0f9fb6ba964a4572ae2e470e3826070a0
+=======
+>>>>>>> d825ae6bd5cdd4d31c902496925fe090b30d93d0
 }
+
+.preferences {
+    font-size: 30px;
+    color: #c21f1f;
+}
+
+.checked {
+  color: #c21f1f;
+}
+>>>>>>> f68467f0f9fb6ba964a4572ae2e470e3826070a0

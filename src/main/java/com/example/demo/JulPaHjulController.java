@@ -64,21 +64,14 @@ public class JulPaHjulController {
 
     @PostMapping("/addRestaurant")
     String addRestaurant(HttpSession session, @RequestParam String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, double tomterating) {
-        List<String> restaurants = (List<String>) session.getAttribute("restaurants");
+        List<Restaurant> restaurants = (List<Restaurant>) session.getAttribute("restaurants");
 
         if (restaurants == null) {
             restaurants = new ArrayList<>();
-            session.setAttribute("restaurants", restaurants);
         }
 
-        restaurants.add(name);
-        restaurants.add(description);
-        restaurants.add(adress);
-        restaurants.add(stadsdel);
-        restaurants.add(oppettider);
-        restaurants.add(priskategori);
-        restaurants.add(linkToWebsite);
-        restaurants.add(Double.toString(tomterating));
+        restaurants.add(new Restaurant(name, description, adress, stadsdel, oppettider, priskategori, linkToWebsite, tomterating));
+        session.setAttribute("restaurants", restaurants);
         return "addRestaurant";
     }
 
