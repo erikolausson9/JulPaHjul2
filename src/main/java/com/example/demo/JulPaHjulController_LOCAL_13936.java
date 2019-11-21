@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class JulPaHjulController{
+public class JulPaHjulController {
 
     @Autowired
     ServiceLayer serviceLayer;
@@ -54,23 +54,29 @@ public class JulPaHjulController{
     }
 
 
-    List<Restaurant> restaurants = new ArrayList<>();
 
-   @GetMapping("/addRestaurant")
-    String addRestaurant(HttpSession session) {
-        String username = (String) session.getAttribute("username");
-        if (username != null) {
-            return "addRestaurant";
-        }
-        return "login";
-    }
-    @PostMapping("/addRestaurant")
-    String addRestaurant(@RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite, Model model) {
-        restaurants.add(new Restaurant(name, description, adress, linkToWebsite));
-        model.addAttribute("restaurants", restaurants);
+
+    @GetMapping("/addRestaurant")
+    String addRestaurant() {
         return "addRestaurant";
     }
 
+    @PostMapping("/addRestaurant")
+    String addRestaurant(HttpSession session, @RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite) {
+        List<String> restaurants = (List<String>)session.getAttribute("restaurants");
+
+        if (restaurants == null) {
+            restaurants = new ArrayList<>();
+            session.setAttribute("restaurants", restaurants);
+        }
+
+        restaurants.add(name);
+        restaurants.add(description);
+        restaurants.add(adress);
+        restaurants.add(linkToWebsite);
+
+        return "addRestaurant";
+    }
 
     @PostMapping("/filter_restaurants")
     String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
@@ -107,4 +113,3 @@ public class JulPaHjulController{
         return "booking";
     }
 }
-  

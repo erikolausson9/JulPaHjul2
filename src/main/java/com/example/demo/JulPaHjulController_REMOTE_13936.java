@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class JulPaHjulController{
+public class JulPaHjulController {
 
     @Autowired
     ServiceLayer serviceLayer;
@@ -56,7 +56,7 @@ public class JulPaHjulController{
 
     List<Restaurant> restaurants = new ArrayList<>();
 
-   @GetMapping("/addRestaurant")
+    @GetMapping("/addRestaurant")
     String addRestaurant(HttpSession session) {
         String username = (String) session.getAttribute("username");
         if (username != null) {
@@ -64,13 +64,9 @@ public class JulPaHjulController{
         }
         return "login";
     }
-    @PostMapping("/addRestaurant")
-    String addRestaurant(@RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite, Model model) {
-        restaurants.add(new Restaurant(name, description, adress, linkToWebsite));
-        model.addAttribute("restaurants", restaurants);
-        return "addRestaurant";
-    }
-
+    @GetMapping("/booking")
+    String getBooking() {
+        return "booking";
 
     @PostMapping("/filter_restaurants")
     String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
@@ -89,8 +85,8 @@ public class JulPaHjulController{
     @GetMapping("/booking")
     String getBooking() {
         return "booking";
-    }
 
+    }
 
     @PostMapping("/booking")
     String postBooking(HttpSession session, @RequestParam String restaurant) {
