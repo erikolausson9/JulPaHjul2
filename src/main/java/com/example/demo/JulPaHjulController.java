@@ -94,21 +94,23 @@ public class JulPaHjulController {
         return "index";
     }
 
-    @GetMapping("/")
-    String getbooking(){
+    @GetMapping("/booking")
+    String getbooking(Model model){
+        model.addAttribute("booking", new Booking());
         return "booking";
     }
 
 
     @PostMapping("/booking")
-    String reserve(Model model, @RequestParam String Email, @RequestParam String Firstname, @RequestParam String Lastname, @RequestParam String Phonenumber){
-        new Booking( Email,Firstname, Lastname,Phonenumber);
-        return "booking";
+    String reserve(Model model, @ModelAttribute Booking booking){
+
+model.addAttribute("booking", booking);
+        return "confirmation";
 
     }
 
     @GetMapping("/confirmation")
-    public String reserve(HttpSession session, @RequestParam String Email, @RequestParam String Firstname, @RequestParam String Lastname, @RequestParam String Phonenumber) {
+    public String reserve(HttpSession session, @RequestParam String People, @RequestParam String Day,@RequestParam String Time, @RequestParam String Email, @RequestParam String Firstname, @RequestParam String Lastname, @RequestParam String Phonenumber) {
         //(String)session.getAttribute("");
         if (Email != null) {
             return "confirmation";
