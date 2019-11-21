@@ -77,9 +77,7 @@ public class JulPaHjulController {
 
         return "addRestaurant";
     }
-    @GetMapping("/booking")
-    String getBooking() {
-        return "booking";
+    
 
     @PostMapping("/filter_restaurants")
     String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
