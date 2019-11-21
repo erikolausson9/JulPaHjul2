@@ -8,16 +8,44 @@
 
 </head>
 <body>
+<<<<<<< HEAD
 <div class = "front">
     <span><a href="/login">Login</a></span><br>
     <span><a href="/addRestaurant">Add Restaurant</a></span>
 </div>
 <h1>Jul på hjul</h1>
+=======
+<div class="title">
+    <img src="../static/title.jpg" id="title">
+</div>
+>>>>>>> deb76997932cb6c22d9bdc436374f786e4a8eca7
 
 
 
 <img src="bakgrund_malmo.jpg" class="backgroundImage">
 
+<<<<<<< HEAD
+=======
+
+<img src="../static/bakgrund_malmofaded.jpg" class="backgroundImage">
+
+<form action="/mapChange" method="post" class="selectArea">
+    Var vill du äta julbord?
+    <select>
+        <option>Centrum</option>
+        <option>Slottsstaden</option>
+        <option>Värnhem</option>
+        <option>Hyllie</option>
+        <option>Lorensborg</option>
+
+    </select>
+
+</form>
+
+<div class = "front"><ul>
+    <li><a href="/login">Login</a></li>
+</ul></div>
+>>>>>>> deb76997932cb6c22d9bdc436374f786e4a8eca7
 
 <p th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</p>
 
