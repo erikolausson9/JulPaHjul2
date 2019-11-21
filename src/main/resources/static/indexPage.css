@@ -48,13 +48,10 @@ img {
    }
 
 .front {
-      font-family: "Questa Grande", "Palatino Linotype", serif;
-        font-size: 15px;
-        display:block;
-        background-color: #c21f1f;
-        color: white;
-        padding: 15px;
-        margin:0px;
+       display:block;
+          #width:100%;
+          margin:auto;
+          background-color: #c21f1f;
     }
 
 
