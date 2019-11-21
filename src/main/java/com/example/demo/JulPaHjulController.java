@@ -125,4 +125,11 @@ model.addAttribute("booking", booking);
         }
         return "booking";
     }
+
+    @GetMapping("/view")
+    public String view(Model model, @RequestParam int id) {
+        Restaurant restaurant = serviceLayer.getRestaurant(id);
+        model.addAttribute("restaurant", restaurant);
+        return "view";
+    }
 }
