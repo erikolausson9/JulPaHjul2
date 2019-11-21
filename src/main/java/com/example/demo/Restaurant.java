@@ -125,13 +125,16 @@ public class Restaurant {
 
     public double getLat() {
         return lat;
+
+    }
     public ArrayList<String> getTomtar() {
         return tomtar;
     }
 
     public double getLng() {
         return lng;
-    //instance methods
+        //instance methods
+    }
     public void addTomte(){
         tomtar.add("\\uD83C\\uDF85");
     }
@@ -139,6 +142,7 @@ public class Restaurant {
     public void setLatLng(double lat, double lng) {
         this.lat = lat;
         this.lng = lng;
+    }
     public void clearTomteList(){
         tomtar.clear();
     }
