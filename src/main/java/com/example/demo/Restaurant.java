@@ -8,6 +8,9 @@ public class Restaurant {
     private String name;
     private String description;
     private double tomterating;
+    private String adress;
+    private String linkToWebsite;
+
 
     //constructors with 0 ore more arguments
     public Restaurant(){
@@ -26,6 +29,13 @@ public class Restaurant {
         this.name=name;
         this.description = description;
         this.tomterating = tomterating;
+    }
+
+    public Restaurant(String name, String description, String adress, String linkToWebsite){
+        this.name=name;
+        this.description = description;
+        this.adress = adress;
+        this.linkToWebsite = linkToWebsite;
     }
 
     //getters and setters
@@ -59,5 +69,21 @@ public class Restaurant {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getLinkToWebsite() {
+        return linkToWebsite;
+    }
+
+    public void setLinkToWebsite(String linkToWebsite) {
+        this.linkToWebsite = linkToWebsite;
     }
 }

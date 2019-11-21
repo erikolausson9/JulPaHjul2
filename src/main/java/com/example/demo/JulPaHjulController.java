@@ -18,6 +18,8 @@ public class JulPaHjulController {
     @Autowired
     ServiceLayer serviceLayer;
 
+
+
     @GetMapping("/")
     String goToIndexPage(Model model, @RequestParam(required = false, defaultValue = "0") String page){
 
@@ -58,17 +60,20 @@ public class JulPaHjulController {
     }
 
 
-
+    List<Restaurant> restaurants = new ArrayList<>();
     @GetMapping("/addRestaurant")
-    String addRestaurant(HttpSession session) {
-        String username = (String)session.getAttribute("username");
-            if (username != null) {
-                return "addRestaurant";
-            }
-            return "login";
+    String addRestaurant() {
+            return "addRestaurant";
         }
 
+    @PostMapping("/addRestaurant")
+    String addRestaurant(@RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite, Model model) {
+        restaurants.add(new Restaurant(name, description, adress, linkToWebsite));
+        model.addAttribute("restaurants", restaurants);
+        return "addRestaurant";
     }
+
+}
 
     
 

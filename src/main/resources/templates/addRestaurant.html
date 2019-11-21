@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="indexPage.css">
     <title>Add Restaurant</title>
 </head>
 <body>
+<form action="/addRestaurant" method="POST">
+    <input type="text" name="name"  placeholder="Name of restaurant"/><br>
+    <input type="text" name="description" placeholder="Description of restaurant"/><br>
+    <input type="text" name="adress" placeholder="Adress"/><br>
+    <input type="text" name="linkToWebsite" placeholder="Link to website"/><br>
+    <input type="submit" value="Add restaurant to list"/>
+</form>
 
+<br>
+
+<div th:each="restaurant : ${restaurants}" th:if="${restaurants != null}">
+        <span th:text="${'Name: ' + restaurant.name}"></span><br>
+        <span th:text="${'Description of restaurant: ' + restaurant.description}"></span><br>
+        <span th:text="${'adress: '+ restaurant.adress}"></span><br>
+        <span th:text="${'Link to website: '+ restaurant.linkToWebsite}"></span><br>
+   
+    <br>
+</div>
 </body>
 </html>
