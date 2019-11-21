@@ -4,7 +4,6 @@ public class Booking {
     private String people;
     private String day;
     private String time;
-
     private String email;
     private String firstname;
     private String lastname;

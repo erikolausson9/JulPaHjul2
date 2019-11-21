@@ -28,8 +28,6 @@ public class JulPaHjulController {
         List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10, false, false);
 
 
-
-
         model.addAttribute("restaurants", selectedRestaurants);
 
         return "index";
@@ -59,8 +57,6 @@ public class JulPaHjulController {
     }
 
 
-
-
     @GetMapping("/addRestaurant")
     String addRestaurant() {
         return "addRestaurant";
@@ -68,7 +64,7 @@ public class JulPaHjulController {
 
     @PostMapping("/addRestaurant")
     String addRestaurant(HttpSession session, @RequestParam String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, double tomterating) {
-        List<String> restaurants = (List<String>)session.getAttribute("restaurants");
+        List<String> restaurants = (List<String>) session.getAttribute("restaurants");
 
         if (restaurants == null) {
             restaurants = new ArrayList<>();
@@ -91,7 +87,6 @@ public class JulPaHjulController {
     String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
 
 
-
         boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
         boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
 
@@ -99,30 +94,21 @@ public class JulPaHjulController {
 
         model.addAttribute("restaurants", selectedRestaurants);
 
-
         return "index";
     }
 
     @GetMapping("/booking")
-    String getbooking(){
+    String getbooking(Model model, @ModelAttribute Booking booking) {
+        model.addAttribute("booking", booking);
         return "booking";
     }
 
-
     @PostMapping("/booking")
-    String reserve(Model model, @ModelAttribute Booking booking){
-
-model.addAttribute("booking", booking);
+    String reserve(Model model, @ModelAttribute Booking booking) {
+        model.addAttribute("booking", booking);
         return "confirmation";
 
     }
-
-    @GetMapping("/confirmation")
-    public String reserve(HttpSession session, @RequestParam String People, @RequestParam String Day,@RequestParam String Time, @RequestParam String Email, @RequestParam String Firstname, @RequestParam String Lastname, @RequestParam String Phonenumber) {
-        //(String)session.getAttribute("");
-        if (Email != null) {
-            return "confirmation";
-        }
-        return "booking";
-    }
 }
+
+
