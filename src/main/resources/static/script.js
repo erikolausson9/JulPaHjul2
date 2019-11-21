@@ -10,7 +10,9 @@ async function getDat() {
 
     for (var i = 0; i < mydataresponse.length; i++) {
        var resloc = new google.maps.LatLng(mydataresponse[i].lat, mydataresponse[i].lng);
-       resturantMarkers(resloc);
+       var name = mydataresponse[i].name;
+       console.log(name);
+       resturantMarkers(resloc, name);
     }
 }
 
@@ -31,7 +33,7 @@ getDat();
 
 
 
-function resturantMarkers(resloc) {
+function resturantMarkers(resloc, name) {
 
   var icon = iconOne();
 
@@ -42,33 +44,15 @@ function resturantMarkers(resloc) {
     });
 
     var infowindow = new google.maps.InfoWindow({
-      content: 'Latitude: ' + resloc.lat() +
-      '<br>Longitude: ' + resloc.lng()
+      content: 'Latitude: ' + name
     });
 
-//  infowindow.open(map,marker);
-
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
 }
 
-function placeMarker(location) {
-
-  var icon = iconOne();
-
-  var marker = new google.maps.Marker({
-    position: location,
-    map: map,
-    icon: icon
-  });
-
-  var infowindow = new google.maps.InfoWindow({
-    content: 'Latitude: ' + location.lat() +
-    '<br>Longitude: ' + location.lng()
-  });
-
-  infowindow.open(map,marker);
-}
-
- function initMap() {
+ /*function initMap() {
   navigator.geolocation.getCurrentPosition(function(position) {
     var initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     map.setCenter(initialLocation);
@@ -87,7 +71,7 @@ function placeMarker(location) {
       });
     });
 
-}
+}*/
 
 function iconOne(){
 
