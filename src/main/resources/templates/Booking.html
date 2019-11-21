@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<form action="/Booking" method="POST" th:object="${booking}">
+<form action="/booking" method="POST" th:object="${booking}">
 
-    People: <select th:field="*{People}">
+    People: <select th:field="*{people}">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -51,23 +51,21 @@
 </select>
     </br>
 
-</form>
 
 <h2>Complete your reservation</h2>
 
-<form action="/action_page.php">
     E-mail:<br>
-    <input type="text" name="E-mail:">
+    <input type="text" th:field="*{email}">
     <br>
     First name:<br>
-    <input type="text" name="firstname">
+    <input type="text" th:field="*{firstname}">
     <br>
     Last name:<br>
-    <input type="text" name="lastname">
+    <input type="text" th:field="*{lastname}">
     <br>
 
     Phonenumber: <br>
-    <input id="telNo" name="telNo" type="tel" placeholder="+46-274 21 37">
+    <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="+46-274 21 37">
      <br>
 
     <input type="submit" value="Reserve now"/> <br>

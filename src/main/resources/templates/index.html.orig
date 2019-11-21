@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <title>startPage</title>
 
+<<<<<<< HEAD
+    <link rel="stylesheet" href="../static/indexPage.css" th:href ="'/indexPage.css'">
+=======
     <link rel="stylesheet" href="../static/indexPage.css" th:href="'/indexPage.css'">
     <script type="text/javascript" src="script.js"></script>
+>>>>>>> 463ffdc7105d42014e01f4b414c695e3be7da84e
 
 </head>
 <STYLE>A {text-decoration: none;} </STYLE>
