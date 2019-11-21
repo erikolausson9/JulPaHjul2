@@ -39,6 +39,7 @@ public class JulPaHjulController {
     String postLogin(HttpSession session, @RequestParam String username, @RequestParam String password) {
         if (username.equals("admin") && password.equals("12345")) {
             session.setAttribute("username", username);
+            System.out.println("You are now logged in");
             return "index";
         }
         return "login";

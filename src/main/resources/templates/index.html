@@ -8,18 +8,62 @@
 
 </head>
 <body>
-<h1>Jul på hjul</h1>
+
+<div class = "front">
+
+</div>
+
+<div class="title">
+    <span th:if="${session.username == null}"><a href="/login">Login</a></span>
+    <span th:if="${session.username != null}"><a href="/logout">Logout</a></span>
+    <br><span th:if="${session.username != null}"><a href="/addRestaurant">Add Restaurant</a></span>
+    <img src="../static/title.jpg" id="title" th:src="${'/title.jpg'}">
+</div>
 
 
 
 
-<img src="../static/bakgrund_malmo.jpg" class="backgroundImage">
-<div class = "front"><ul>
-    <li><a href="/login">Login</a></li>
-</ul></div>
+<img src="../static/bakgrund_malmo_smalare.jpg" class="backgroundImage" th:src="${'/bakgrund_malmo_smalare.jpg'}">
 
-<p th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</p>
 
+<form action="/mapChange" method="post" class="selectArea">
+    Var vill du äta julbord?
+    <select>
+        <option>Centrum</option>
+        <option>Slottsstaden</option>
+        <option>Värnhem</option>
+        <option>Hyllie</option>
+        <option>Lorensborg</option>
+
+    </select>
+
+</form>
+
+
+
+<div class="cardContainer">
+    <h2>Malmös högst rankade julbord just nu:</h2>
+
+    <form action="/filter_restaurants" method="post">
+        <input type="checkbox" name="stroller">Visa endast barnvagnsvänliga
+        <input type="checkbox" name="wheelchar">Visa endast rullstolsvänliga
+
+
+
+    </form>
+
+    <div class="restaurantCard" th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</div>
+
+
+    <div class="restaurantCard">Restaurant 1</div>
+    <div class="restaurantCard">Restaurant 2</div>
+    <div class="restaurantCard">Restaurant 3</div>
+
+</div>
+
+<div class="mapContainer">
+    Place map here
+</div>
 
 </body>
 </html>
