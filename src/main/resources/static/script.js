@@ -4,7 +4,7 @@ var mydataresponse;
 var map;
 
 async function getDat() {
-    const response = await fetch('http://127.0.0.1:8080/resturantData');
+    const response = await fetch('/resturantData');
     mydataresponse = await response.json();
     console.log(mydataresponse);
 
