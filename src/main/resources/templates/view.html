@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="indexPage.css">
+    <link rel="stylesheet" href="../static/indexPage.css" th:href ="'/indexPage.css'">
     <title>Restaurant details</title>
 </head>
 <!-- Font Awesome Icon Library -->
@@ -15,13 +15,13 @@
     <span><a href="/login">Login</a></span><br>
     <span><a href="/Bookingsform">Book a table</a></span>
 </div>
-<h1>Sankt Gertrud</h1>
+<h1 th:text ="${restaurant.name}"></h1>
 <div class="rating">
     <span class="fa fa-star checked"></span>
     <span class="fa fa-star checked"></span>
     <span class="fa fa-star checked"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="far fa-star"></span>
     <span class="rating_count">(345 recensioner)</span>
 </div>
 <br>
@@ -46,7 +46,7 @@
     julbordsfantasten som för den som hellre vill ha ett grönare julbord. Sillar med lök,
     senap och dill står bredvid de veganska sillalternativen. Laxar i alla smaker tillsammans med getostpatéer,
     kikärtsbullar och allehanda syltor, korvar för alla, köttbullar och både vanlig och vegansk Jansson.
-        Och en hel massa annat gott, grönt och sött.</strong></p>
+    Och en hel massa annat gott, grönt och sött.</strong></p>
     <p>På våra kullerstensgårdar mitt i Malmö, bara ett stenkast från Centralen, blir julstämningen påtaglig.
     Under granrisgirlanger mellan de gamla korsvirkeslängorna kan du njuta av glöggen först och därefter
     smaka dig runt bland alla våra hemmalagade godsaker under kristallkronor och takbjälkar.</p>
@@ -56,7 +56,10 @@
     Onsdagar till lördagar serverar vi våra julbord.<br><br>Varmt välkomna hem till oss på Sankt Gertrud!</p>
     <p>Pris:<strong> 555 kr</strong> (inkl. moms)</p>
     <em>Varmt välkommen!</em>
-    <p><img src="https://julbordsguiden.se/images/2018_Julbord/Loggor/Sankt_Gertrud_logotyp.png" alt="Sankt Gertrud logotyp"></p>
+
+</div>
+<div class="logo">
+    <p><img src="https://julbordsguiden.se/images/2018_Julbord/Loggor/Sankt_Gertrud_logotyp.png" width="200" height="100" alt="Sankt Gertrud logotyp"></p>
 </div>
 
 <h3>Tomterating</h3>

@@ -3,9 +3,9 @@ package com.example.demo;
 
 import java.util.ArrayList;
 
-public class Restaurant {
+public class Restaurant implements Comparable {
 
-    private Integer id;
+    private int id;
     private String name;
     private String description;
     private double tomterating;
@@ -99,11 +99,11 @@ public class Restaurant {
         return wheelchairOk;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -167,6 +167,22 @@ public class Restaurant {
     public void setWheelchairOk(boolean wheelchairOk) {
         this.wheelchairOk = wheelchairOk;
     }
+
+
+    @Override
+    public int compareTo(Object o){
+        Restaurant restaurant = (Restaurant)o;
+        if(this.tomterating<restaurant.tomterating){
+            return 1;
+        }
+        else if(this.tomterating>restaurant.tomterating){
+        return -1;
+        }
+        else{
+            return 0;
+        }
+    }
+
 }
 
 
