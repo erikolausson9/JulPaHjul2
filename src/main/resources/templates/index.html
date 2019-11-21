@@ -8,29 +8,23 @@
 
 </head>
 <body>
-<<<<<<< HEAD
+
 <div class = "front">
-    <span><a href="/login">Login</a></span><br>
-    <span><a href="/addRestaurant">Add Restaurant</a></span>
+
 </div>
-<h1>Jul på hjul</h1>
-=======
+
 <div class="title">
-    <img src="title.jpg" id="title">
-    <!-- "../static/title.jpg" -->
+    <span th:if="${username == null}"><a href="/login">Login</a></span>
+    <span th:if="${username != null}"><a href="/logout">Logout</a></span>
+    <br><span><a href="/addRestaurant">Add Restaurant</a></span>
+    <img src="../static/title.jpg" id="title" th:src="${'/title.jpg'}">
 </div>
->>>>>>> deb76997932cb6c22d9bdc436374f786e4a8eca7
 
 
 
-<img src="bakgrund_malmo.jpg" class="backgroundImage">
-<!-- "../static/bakgrund_malmo.jpg" -->
 
-<<<<<<< HEAD
-=======
+<img src="../static/bakgrund_malmo_smalare.jpg" class="backgroundImage" th:src="${'/bakgrund_malmo_smalare.jpg'}">
 
-<img src="bakgrund_malmofaded.jpg" class="backgroundImage">
-<!--"../static/bakgrund_malmofaded.jpg"-->
 
 <form action="/mapChange" method="post" class="selectArea">
     Var vill du äta julbord?
@@ -45,10 +39,31 @@
 
 </form>
 
->>>>>>> deb76997932cb6c22d9bdc436374f786e4a8eca7
 
-<p th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</p>
 
+<div class="cardContainer">
+    <h2>Malmös högst rankade julbord just nu:</h2>
+
+    <form action="/filter_restaurants" method="post">
+        <input type="checkbox" name="stroller">Visa endast barnvagnsvänliga
+        <input type="checkbox" name="wheelchar">Visa endast rullstolsvänliga
+
+
+
+    </form>
+
+    <div class="restaurantCard" th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</div>
+
+
+    <div class="restaurantCard">Restaurant 1</div>
+    <div class="restaurantCard">Restaurant 2</div>
+    <div class="restaurantCard">Restaurant 3</div>
+
+</div>
+
+<div class="mapContainer">
+    Place map here
+</div>
 
 </body>
 </html>
