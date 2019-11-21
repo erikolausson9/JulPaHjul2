@@ -88,3 +88,7 @@ img {
 #headerlogin {
     color:#ffffff;
 }
+
+.preferences {
+    font-size:48px;color:red;
+}
