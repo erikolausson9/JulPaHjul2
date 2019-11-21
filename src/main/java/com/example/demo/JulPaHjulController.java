@@ -25,7 +25,7 @@ public class JulPaHjulController {
 
         int pageNr = Integer.parseInt(page);
 
-        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10, false, false);
+        List<Restaurant> selectedRestaurants = serviceLayer.getSortedRestaurantList(pageNr, 20, false, false);
 
 
         model.addAttribute("restaurants", selectedRestaurants);
@@ -83,7 +83,7 @@ public class JulPaHjulController {
         boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
         boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
 
-        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(0, 10, onlyStrollerFriendly, onlyWheelchairFriendly);
+        List<Restaurant> selectedRestaurants = serviceLayer.getSortedRestaurantList(0, 20, onlyStrollerFriendly, onlyWheelchairFriendly);
 
         model.addAttribute("restaurants", selectedRestaurants);
 
@@ -102,6 +102,20 @@ public class JulPaHjulController {
         return "confirmation";
 
     }
+
+    @GetMapping("/confirmation")
+    public String reserve(HttpSession session, @RequestParam String People, @RequestParam String Day,@RequestParam String Time, @RequestParam String Email, @RequestParam String Firstname, @RequestParam String Lastname, @RequestParam String Phonenumber) {
+        //(String)session.getAttribute("");
+        if (Email != null) {
+            return "confirmation";
+        }
+        return "booking";
+    }
+
+    @GetMapping("/view")
+    public String view(Model model, @RequestParam int id) {
+        Restaurant restaurant = serviceLayer.getRestaurant(id);
+        model.addAttribute("restaurant", restaurant);
+        return "view";
+    }
 }
-
-

@@ -50,6 +50,10 @@ img {
     font-weight:bold;
 }
 
+#checkboxes {
+ font-weight:bold;
+ color:#c21f1f;
+}
 
 
 .cardContainer {
@@ -88,10 +92,6 @@ img {
     color:#ffffff;
 }
 
-<<<<<<< HEAD
-.preferences {
-    font-size:48px;color:red;
-=======
 
 
 .addRestaurant {
@@ -107,5 +107,28 @@ img {
 
 a {
     color:#ffffff;
->>>>>>> 3a4eb0d543a93a301ebd143985845f42b6192601
 }
+
+<<<<<<< HEAD
+
+=======
+.booking {
+    display:block;
+    #width:100%;
+    margin:auto;
+    background-color: #c21f1f;
+}
+
+#headerbooking {
+    color:#ffffff;
+}
+
+.preferences {
+    font-size: 30px;
+    color: #c21f1f;
+}
+
+.checked {
+  color: #c21f1f;
+}
+>>>>>>> f68467f0f9fb6ba964a4572ae2e470e3826070a0

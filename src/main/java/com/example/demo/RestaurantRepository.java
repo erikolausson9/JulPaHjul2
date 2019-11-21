@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -25,7 +26,7 @@ public class RestaurantRepository {
 
 
     //instance methods
-    public List<Restaurant> getRestaurantList(int pageNr, int itemsPerPage, boolean onlyStrollerFriendly, boolean onlyWheelchairFriendly ) {
+    public List<Restaurant> getSortedRestaurantList(int pageNr, int itemsPerPage, boolean onlyStrollerFriendly, boolean onlyWheelchairFriendly ) {
         //return sublist whose size depends on parameter itemsPerPage
         List<Restaurant> subList = new ArrayList<Restaurant>();
 
@@ -59,6 +60,7 @@ public class RestaurantRepository {
 
 
         }
+        Collections.sort(subList);
         return subList;
     }
     public void addRestaurant(Restaurant restaurantToAdd){
@@ -91,6 +93,7 @@ public class RestaurantRepository {
             double lng = (double)lngResult / 1000000;
 
             Restaurant newRestaurant = new Restaurant("Restaurant" + ii, "Description" + ii, 2.0+ii*0.1, strollerOk, wheelchairOk, lat, lng);
+            newRestaurant.setId(ii);
             addRestaurant(newRestaurant);
         }
     }

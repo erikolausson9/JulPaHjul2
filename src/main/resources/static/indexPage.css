@@ -50,6 +50,10 @@ img {
     font-weight:bold;
 }
 
+#checkboxes {
+ font-weight:bold;
+ color:#c21f1f;
+}
 
 
 .cardContainer {
@@ -105,4 +109,22 @@ a {
     color:#ffffff;
 }
 
+.booking {
+    display:block;
+    #width:100%;
+    margin:auto;
+    background-color: #c21f1f;
+}
 
+#headerbooking {
+    color:#ffffff;
+}
+
+.preferences {
+    font-size: 30px;
+    color: #c21f1f;
+}
+
+.checked {
+  color: #c21f1f;
+}

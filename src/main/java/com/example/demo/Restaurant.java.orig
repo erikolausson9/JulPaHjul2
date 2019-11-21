@@ -168,6 +168,31 @@ public class Restaurant implements Comparable {
         this.wheelchairOk = wheelchairOk;
     }
 
+<<<<<<< HEAD
+    public String getStadsdel() {
+        return stadsdel;
+    }
+
+    public void setStadsdel(String stadsdel) {
+        this.stadsdel = stadsdel;
+    }
+
+    public String getOppettider() {
+        return oppettider;
+    }
+
+    public void setTomtar(ArrayList<String> tomtar) {
+        this.tomtar = tomtar;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
+=======
 
     @Override
     public int compareTo(Object o){
@@ -182,5 +207,8 @@ public class Restaurant implements Comparable {
             return 0;
         }
     }
+
+>>>>>>> f68467f0f9fb6ba964a4572ae2e470e3826070a0
+}
 
 

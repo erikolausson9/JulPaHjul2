@@ -18,7 +18,11 @@
         <input type="submit" value="login"/>
     </form>
 </center>
+<<<<<<< HEAD
+=======
+
 <body>
+>>>>>>> f68467f0f9fb6ba964a4572ae2e470e3826070a0
 
 </body>
 </html>
