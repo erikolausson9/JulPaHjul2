@@ -19,7 +19,7 @@ public class JulPaHjulController {
     ServiceLayer serviceLayer;
 
     @GetMapping("/")
-    String goToIndexPage(Model model, @RequestParam(required = false, defaultValue = "0") String page){
+    String goToIndexPage(Model model, @RequestParam(required = false, defaultValue = "0") String page) {
 
         int pageNr = Integer.parseInt(page);
 
@@ -28,11 +28,6 @@ public class JulPaHjulController {
 
         return "index";
     }
-
-
-
-
-
 
 
     @GetMapping("/login")
@@ -44,29 +39,33 @@ public class JulPaHjulController {
     String postLogin(HttpSession session, @RequestParam String username, @RequestParam String password) {
         if (username.equals("admin") && password.equals("12345")) {
             session.setAttribute("username", username);
+            System.out.println("You are now logged in");
             return "index";
         }
         return "login";
     }
 
 
-@GetMapping("/logout")
+    @GetMapping("/logout")
     String logout(HttpSession session) {
         session.removeAttribute("username");
         return "index";
     }
 
 
-
     @GetMapping("/addRestaurant")
     String addRestaurant(HttpSession session) {
-        String username = (String)session.getAttribute("username");
-            if (username != null) {
-                return "addRestaurant";
-            }
-            return "login";
+        String username = (String) session.getAttribute("username");
+        if (username != null) {
+            return "addRestaurant";
         }
+        return "login";
+    }
 
+    }
+    @GetMapping("/booking")
+    String getBooking() {
+        return "booking";
 
     @PostMapping("/filter_restaurants")
     String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair){
@@ -82,4 +81,19 @@ public class JulPaHjulController {
     return "index";
     }
 
+    @PostMapping("/booking")
+    String postBooking(HttpSession session, @RequestParam String restaurant) {
+        session.setAttribute("restaurant", restaurant);
+        return "booking";
+    }
+    @GetMapping("/confirmation")
+    public String reserve(HttpSession session, @RequestParam String Email,@RequestParam String Firstname,@RequestParam String Lastname,@RequestParam String Phonenumber){
+    //(String)session.getAttribute("");
+        if (Email != null) {
+            return "confirmation";
+        }
+        return "booking";
+    }
 }
+    
+

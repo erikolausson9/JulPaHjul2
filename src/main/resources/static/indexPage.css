@@ -51,10 +51,6 @@ img {
 }
 
 
-.front, th, td {
-    border: 1px solid black;
-    width:10%
-    }
 
 .cardContainer {
     width:49%;
@@ -79,4 +75,16 @@ img {
     margin:20px;
     padding:20px;
     float:left;
+}
+
+.login {
+    display:block;
+
+    #width:100%;
+    margin:auto;
+    background-color: #c21f1f;
+}
+
+#headerlogin {
+    color:#ffffff;
 }
