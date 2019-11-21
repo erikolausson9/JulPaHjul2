@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -95,16 +96,17 @@ public class JulPaHjulController {
         return "index";
     }
 
-    @GetMapping("/booking")
-    String getBooking() {
+    @GetMapping("/")
+    String getbooking(){
         return "booking";
-
     }
 
+
     @PostMapping("/booking")
-    String postBooking(HttpSession session, @RequestParam String restaurant) {
-        session.setAttribute("restaurant", restaurant);
+    String reserve(Model model, @RequestParam String Email, @RequestParam String Firstname, @RequestParam String Lastname, @RequestParam String Phonenumber){
+        new Booking( Email,Firstname, Lastname,Phonenumber);
         return "booking";
+
     }
 
     @GetMapping("/confirmation")

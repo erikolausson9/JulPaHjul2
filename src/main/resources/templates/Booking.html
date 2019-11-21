@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form action="/Bookingform" method="POST" th:object="${julpahjul}">
+<form action="/Booking" method="POST" th:object="${booking}">
 
     People: <select th:field="*{People}">
     <option value="1">1</option>
@@ -37,7 +37,7 @@
 </select>
 
 
-    Choose a Time: <select th:field="*{choose a time}">
+    Choose a Time: <select th:field="*{time}">
     <option value="11:30">11:30</option>
     <option value="12:30">12:30</option>
     <option value="17:00">17:00</option>
@@ -72,11 +72,15 @@
 
     <input type="submit" value="Reserve now"/> <br>
 
-
-
-
-
 </form>
+
+<div th:if="${booking != null}">
+    <p th:text="${booking.email}"></p>
+    <p th:text="${booking.firstname}"></p>
+    <p th:text="${booking.lastname}"></p>
+    <p th:text="${booking.phonenumber}"></p>
+</div>
+
 
 </body>
 </html>
