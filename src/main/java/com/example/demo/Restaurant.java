@@ -3,21 +3,17 @@ package com.example.demo;
 
 public class Restaurant {
 
-    //instance variables
     private Integer id;
     private String name;
     private String description;
     private double tomterating;
-//<<<<<<< HEAD
     private String adress;
     private String linkToWebsite;
-
-//=======
     private boolean strollerOk;
     private boolean wheelchairOk;
-//>>>>>>> da3c8e67095f6c717d83c196f96b0e4d9957e047
+    private double lat;
+    private double lng;
 
-    //constructors with 0 ore more arguments
     public Restaurant(){
     }
 
@@ -36,7 +32,6 @@ public class Restaurant {
         this.tomterating = tomterating;
     }
 
-//<<<<<<< HEAD
     public Restaurant(String name, String description, String adress, String linkToWebsite){
         this.name=name;
         this.description = description;
@@ -44,17 +39,17 @@ public class Restaurant {
         this.linkToWebsite = linkToWebsite;
     }
 
-//=======
-    public Restaurant(String name, String description, double tomterating, boolean strollerOk, boolean wheelchairOk){
+    public Restaurant(String name, String description, double tomterating, boolean strollerOk, boolean wheelchairOk, double lat, double lng){
         this.name=name;
         this.description = description;
         this.tomterating = tomterating;
         this.strollerOk = strollerOk;
         this.wheelchairOk = wheelchairOk;
+        this.lat = lat;
+        this.lng = lng;
     }
 
 
-//>>>>>>> da3c8e67095f6c717d83c196f96b0e4d9957e047
     //getters and setters
     public String getName() {
         return name;
@@ -111,4 +106,18 @@ public class Restaurant {
     public void setLinkToWebsite(String linkToWebsite) {
         this.linkToWebsite = linkToWebsite;
     }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLatLng(double lat, double lng) {
+        this.lat = lat;
+        this.lng = lng;
+    }
+
 }
