@@ -62,10 +62,10 @@ public class JulPaHjulController {
         return "login";
     }
 
-    }
-    @GetMapping("/booking")
-    String getBooking() {
-        return "booking";
+
+
+
+
 
     @PostMapping("/filter_restaurants")
     String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair){
@@ -79,6 +79,12 @@ public class JulPaHjulController {
 
 
     return "index";
+    }
+
+    @GetMapping("/booking")
+    String getBooking() {
+        return "booking";
+
     }
 
     @PostMapping("/booking")
