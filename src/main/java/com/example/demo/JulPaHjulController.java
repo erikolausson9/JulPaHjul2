@@ -25,7 +25,7 @@ public class JulPaHjulController {
 
         int pageNr = Integer.parseInt(page);
 
-        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10, false, false);
+        List<Restaurant> selectedRestaurants = serviceLayer.getSortedRestaurantList(pageNr, 20, false, false);
 
 
         model.addAttribute("restaurants", selectedRestaurants);
@@ -90,7 +90,7 @@ public class JulPaHjulController {
         boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
         boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
 
-        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(0, 10, onlyStrollerFriendly, onlyWheelchairFriendly);
+        List<Restaurant> selectedRestaurants = serviceLayer.getSortedRestaurantList(0, 20, onlyStrollerFriendly, onlyWheelchairFriendly);
 
         model.addAttribute("restaurants", selectedRestaurants);
 

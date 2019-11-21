@@ -3,7 +3,7 @@ package com.example.demo;
 
 import java.util.ArrayList;
 
-public class Restaurant {
+public class Restaurant implements Comparable {
 
     private int id;
     private String name;
@@ -167,6 +167,22 @@ public class Restaurant {
     public void setWheelchairOk(boolean wheelchairOk) {
         this.wheelchairOk = wheelchairOk;
     }
+
+
+    @Override
+    public int compareTo(Object o){
+        Restaurant restaurant = (Restaurant)o;
+        if(this.tomterating<restaurant.tomterating){
+            return 1;
+        }
+        else if(this.tomterating>restaurant.tomterating){
+        return -1;
+        }
+        else{
+            return 0;
+        }
+    }
+
 }
 
 
