@@ -26,6 +26,10 @@ public class JulPaHjulController {
         int pageNr = Integer.parseInt(page);
 
         List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10, false, false);
+
+
+
+
         model.addAttribute("restaurants", selectedRestaurants);
 
         return "index";

@@ -1,6 +1,8 @@
 package com.example.demo;
 
 
+import java.util.ArrayList;
+
 public class Restaurant {
 
     //instance variables
@@ -8,14 +10,15 @@ public class Restaurant {
     private String name;
     private String description;
     private double tomterating;
-//<<<<<<< HEAD
+
     private String adress;
     private String linkToWebsite;
 
-//=======
+    private ArrayList<String> tomtar;
+
     private boolean strollerOk;
     private boolean wheelchairOk;
-//>>>>>>> da3c8e67095f6c717d83c196f96b0e4d9957e047
+
 
     //constructors with 0 ore more arguments
     public Restaurant(){
@@ -36,7 +39,7 @@ public class Restaurant {
         this.tomterating = tomterating;
     }
 
-//<<<<<<< HEAD
+
     public Restaurant(String name, String description, String adress, String linkToWebsite){
         this.name=name;
         this.description = description;
@@ -44,17 +47,18 @@ public class Restaurant {
         this.linkToWebsite = linkToWebsite;
     }
 
-//=======
+
     public Restaurant(String name, String description, double tomterating, boolean strollerOk, boolean wheelchairOk){
         this.name=name;
         this.description = description;
         this.tomterating = tomterating;
         this.strollerOk = strollerOk;
         this.wheelchairOk = wheelchairOk;
+        this.tomtar = new ArrayList<String>();
     }
 
 
-//>>>>>>> da3c8e67095f6c717d83c196f96b0e4d9957e047
+
     //getters and setters
     public String getName() {
         return name;
@@ -110,5 +114,18 @@ public class Restaurant {
 
     public void setLinkToWebsite(String linkToWebsite) {
         this.linkToWebsite = linkToWebsite;
+    }
+
+    public ArrayList<String> getTomtar() {
+        return tomtar;
+    }
+
+    //instance methods
+    public void addTomte(){
+        tomtar.add("\\uD83C\\uDF85");
+    }
+
+    public void clearTomteList(){
+        tomtar.clear();
     }
 }

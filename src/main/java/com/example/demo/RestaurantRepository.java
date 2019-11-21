@@ -32,6 +32,13 @@ public class RestaurantRepository {
 
             Restaurant restaurant = restaurantList.get(pageNr+ii);
 
+            //update the list of tomtar used for displaying the tomte rating on the front page
+            restaurant.clearTomteList();
+            for(int jj=0; jj<(int)Math.round(restaurant.getTomterating()); jj++){
+             restaurant.addTomte();
+            }
+
+
             if(onlyStrollerFriendly&&onlyWheelchairFriendly){//if this flag is set, only restaurants that are both stroller- and wheelchairfriendly
                 if(restaurant.isStrollerOk()&&restaurant.isWheelchairOk()){
                     subList.add(restaurant);

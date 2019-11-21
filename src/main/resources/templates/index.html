@@ -57,7 +57,8 @@
         <div class="restaurantCard">
             <span th:text="${restaurant.name}"></span> <br>
             <span th:text="${restaurant.description}"></span> <br>
-            <span th:text="${restaurant.tomterating}"></span>
+            <span th:each="tomte:${restaurant.tomtar}">🎅</span>
+            <span th:text="${restaurant.tomterating}"></span><br>
             <span th:text="${restaurant.strollerOk}"></span>
             <span th:text="${restaurant.wheelchairOk}"></span>
 
