@@ -104,3 +104,12 @@ img {
 a {
     color:#ffffff;
 }
+
+.preferences {
+    font-size: 30px;
+    color: #c21f1f;
+}
+
+.checked {
+  color: #c21f1f;
+}

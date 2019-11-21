@@ -91,6 +91,7 @@ public class RestaurantRepository {
             double lng = (double)lngResult / 1000000;
 
             Restaurant newRestaurant = new Restaurant("Restaurant" + ii, "Description" + ii, 2.0+ii*0.1, strollerOk, wheelchairOk, lat, lng);
+            newRestaurant.setId(ii);
             addRestaurant(newRestaurant);
         }
     }

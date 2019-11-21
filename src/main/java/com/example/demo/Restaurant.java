@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Restaurant {
 
-    private Integer id;
+    private int id;
     private String name;
     private String description;
     private double tomterating;
@@ -99,11 +99,11 @@ public class Restaurant {
         return wheelchairOk;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
