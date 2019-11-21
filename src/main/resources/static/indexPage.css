@@ -123,15 +123,18 @@ a {
 .preferences {
     font-size: 30px;
     color: #c21f1f;
+    }
+  .checked {
+    color: #c21f1f;
+    }
+
 .confirmation{
    display:block;
     #width:100%;
     margin:auto;
     background-color: #c21f1f;
 }
-
-.checked {
-  color: #c21f1f;
 #headerbooking {
     color:#ffffff;
 }
+
