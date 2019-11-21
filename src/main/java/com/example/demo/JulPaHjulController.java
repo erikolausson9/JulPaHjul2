@@ -61,39 +61,39 @@ public class JulPaHjulController {
             return "addRestaurant";
         }
 
+    @PostMapping("/addRestaurant")
+    String addRestaurant(@RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite, Model model){
+        restaurants.add(new Restaurant(name, description, adress, linkToWebsite));
+        model.addAttribute("restaurants", restaurants);
+        return "addRestaurant";
     }
-    @GetMapping("/booking")
-    String getBooking() {
-        return "booking";
 
     @PostMapping("/filter_restaurants")
-    String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair){
+    String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
 
         boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
         boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
 
-        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(0, 10, onlyStrollerFriendly,onlyWheelchairFriendly);
+        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(0, 10, onlyStrollerFriendly, onlyWheelchairFriendly);
 
         model.addAttribute("restaurants", selectedRestaurants);
 
 
-    return "index";
-    @PostMapping("/addRestaurant")
-    String addRestaurant(@RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite, Model model) {
-        restaurants.add(new Restaurant(name, description, adress, linkToWebsite));
-        model.addAttribute("restaurants", restaurants);
-        return "addRestaurant";
+        return "index";
+    }
+
     @GetMapping("/booking")
     String getBooking() {
         return "booking";
-
     }
 
-    @PostMapping("/booking")
+
+        @PostMapping("/booking")
     String postBooking(HttpSession session, @RequestParam String restaurant) {
         session.setAttribute("restaurant", restaurant);
         return "booking";
     }
+
     @GetMapping("/confirmation")
     public String reserve(HttpSession session, @RequestParam String Email,@RequestParam String Firstname,@RequestParam String Lastname,@RequestParam String Phonenumber){
     //(String)session.getAttribute("");
@@ -102,6 +102,3 @@ public class JulPaHjulController {
         }
         return "booking";
     }
-}
-    
-
