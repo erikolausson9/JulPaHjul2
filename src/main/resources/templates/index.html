@@ -9,14 +9,18 @@
 </head>
 <body>
 <div class="title">
-    <img src="../static/title.jpg" id="title">
+    <img src="../static/title.jpg" id="title" th:src="${'/title.jpg'}">
 </div>
 
 
 
 
 
-<img src="../static/bakgrund_malmofaded.jpg" class="backgroundImage">
+<img src="../static/bakgrund_malmo_smalare.jpg" class="backgroundImage" th:src="${'/bakgrund_malmo_smalare.jpg'}">
+
+<div class = "front"><ul>
+    <li><a href="/login">Login</a></li>
+</ul></div>
 
 <form action="/mapChange" method="post" class="selectArea">
     Var vill du äta julbord?
@@ -31,12 +35,31 @@
 
 </form>
 
-<div class = "front"><ul>
-    <li><a href="/login">Login</a></li>
-</ul></div>
 
-<p th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</p>
 
+<div class="cardContainer">
+    <h2>Malmös högst rankade julbord just nu:</h2>
+
+    <form action="/filter_restaurants" method="post">
+        <input type="checkbox" name="stroller">Visa endast barnvagnsvänliga
+        <input type="checkbox" name="wheelchar">Visa endast rullstolsvänliga
+
+
+
+    </form>
+
+    <div class="restaurantCard" th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</div>
+
+
+    <div class="restaurantCard">Restaurant 1</div>
+    <div class="restaurantCard">Restaurant 2</div>
+    <div class="restaurantCard">Restaurant 3</div>
+
+</div>
+
+<div class="mapContainer">
+    Place map here
+</div>
 
 </body>
 </html>
