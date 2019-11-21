@@ -63,7 +63,7 @@ public class JulPaHjulController {
     }
 
     @PostMapping("/addRestaurant")
-    String addRestaurant(HttpSession session, @RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite) {
+    String addRestaurant(HttpSession session, @RequestParam String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, double tomterating) {
         List<String> restaurants = (List<String>)session.getAttribute("restaurants");
 
         if (restaurants == null) {
@@ -74,8 +74,11 @@ public class JulPaHjulController {
         restaurants.add(name);
         restaurants.add(description);
         restaurants.add(adress);
+        restaurants.add(stadsdel);
+        restaurants.add(oppettider);
+        restaurants.add(priskategori);
         restaurants.add(linkToWebsite);
-
+        restaurants.add(Double.toString(tomterating));
         return "addRestaurant";
     }
 
@@ -94,7 +97,7 @@ public class JulPaHjulController {
         return "index";
     }
 
-    @GetMapping("/")
+    @GetMapping("/booking")
     String getbooking(){
         return "booking";
     }
