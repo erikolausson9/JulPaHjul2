@@ -96,7 +96,7 @@ public class JulPaHjulController {
         return "index";
     }
 
-    @GetMapping("/")
+    @GetMapping("/booking")
     String getbooking(){
         return "booking";
     }
