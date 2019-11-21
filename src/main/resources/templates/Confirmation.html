@@ -2,13 +2,19 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="indexPage.css">
+    <link rel="stylesheet" href="../static/indexPage.css" th:href="'/indexPage.css'">
     <title>Confirmation</title>
 </head>
-<body>
 
-<h2> Thank you for your reservation </h2>
-<h3 th:text="${booking.firstname}" ></h3>
+<STYLE>A {text-decoration: none;} </STYLE>
+
+<body>
+<div class="confirmation">
+<span><a href="/">Back to Home page</a></span>
+<center><h1 id="headerbooking"> Booking page </h1></center></div>
+
+<center ><h2> Thank you for your reservation </h2>
+<h3 th:text="${booking.firstname}" ></h3></center>
 
 </body>
 </html>
