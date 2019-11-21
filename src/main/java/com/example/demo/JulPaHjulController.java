@@ -19,12 +19,13 @@ public class JulPaHjulController {
     @Autowired
     ServiceLayer serviceLayer;
 
+
     @GetMapping("/")
     String goToIndexPage(Model model, @RequestParam(required = false, defaultValue = "0") String page) {
 
         int pageNr = Integer.parseInt(page);
 
-        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10);
+        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(pageNr, 10, false, false);
         model.addAttribute("restaurants", selectedRestaurants);
 
         return "index";
@@ -54,13 +55,43 @@ public class JulPaHjulController {
     }
 
 
+
+
     @GetMapping("/addRestaurant")
-    String addRestaurant(HttpSession session) {
-        String username = (String) session.getAttribute("username");
-        if (username != null) {
-            return "addRestaurant";
+    String addRestaurant() {
+        return "addRestaurant";
+    }
+
+    @PostMapping("/addRestaurant")
+    String addRestaurant(HttpSession session, @RequestParam String name, @RequestParam String description, @RequestParam String adress, @RequestParam String linkToWebsite) {
+        List<String> restaurants = (List<String>)session.getAttribute("restaurants");
+
+        if (restaurants == null) {
+            restaurants = new ArrayList<>();
+            session.setAttribute("restaurants", restaurants);
         }
-        return "login";
+
+        restaurants.add(name);
+        restaurants.add(description);
+        restaurants.add(adress);
+        restaurants.add(linkToWebsite);
+
+        return "addRestaurant";
+    }
+
+
+    @PostMapping("/filter_restaurants")
+    String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
+
+        boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
+        boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
+
+        List<Restaurant> selectedRestaurants = serviceLayer.getRestaurantList(0, 10, onlyStrollerFriendly, onlyWheelchairFriendly);
+
+        model.addAttribute("restaurants", selectedRestaurants);
+
+
+        return "index";
     }
 
     @GetMapping("/")
@@ -76,9 +107,12 @@ public class JulPaHjulController {
 
     }
 
-
-
+    @GetMapping("/confirmation")
+    public String reserve(HttpSession session, @RequestParam String Email, @RequestParam String Firstname, @RequestParam String Lastname, @RequestParam String Phonenumber) {
+        //(String)session.getAttribute("");
+        if (Email != null) {
+            return "confirmation";
+        }
+        return "booking";
+    }
 }
-
-    
-

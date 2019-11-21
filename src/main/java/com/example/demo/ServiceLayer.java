@@ -12,7 +12,7 @@ public class ServiceLayer {
     @Autowired
     RestaurantRepository restaurantRepository;
 
-    public List<Restaurant> getRestaurantList(int pageNr, int itemsPerPage) {
-        return restaurantRepository.getRestaurantList(pageNr, itemsPerPage);
+    public List<Restaurant> getRestaurantList(int pageNr, int itemsPerPage, boolean onlyStrollerFriendly, boolean onlyWheelchairFriendly) {
+        return restaurantRepository.getRestaurantList(pageNr, itemsPerPage, onlyStrollerFriendly, onlyStrollerFriendly);
     }
 }

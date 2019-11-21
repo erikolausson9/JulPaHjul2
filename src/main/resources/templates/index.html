@@ -47,12 +47,24 @@
     <form action="/filter_restaurants" method="post">
         <input type="checkbox" name="stroller">Visa endast barnvagnsvänliga
         <input type="checkbox" name="wheelchar">Visa endast rullstolsvänliga
+        <input type="submit" text="Filtrera">
 
 
 
     </form>
 
-    <div class="restaurantCard" th:each="restaurant:${restaurants}" th:text="${restaurant.name}">This should be replaced by restaurant names</div>
+    <div th:each="restaurant:${restaurants}">
+        <div class="restaurantCard">
+            <span th:text="${restaurant.name}"></span> <br>
+            <span th:text="${restaurant.description}"></span> <br>
+            <span th:text="${restaurant.tomterating}"></span>
+            <span th:text="${restaurant.strollerOk}"></span>
+            <span th:text="${restaurant.wheelchairOk}"></span>
+
+        </div>
+
+
+    </div>
 
 
     <div class="restaurantCard">Restaurant 1</div>
