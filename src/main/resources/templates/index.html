@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>startPage</title>
 
-    <link rel="stylesheet" href="indexPage.css" th:href="'/indexPage.css'">
+    <link rel="stylesheet" href="../static/indexPage.css" th:href="'/indexPage.css'">
+    <script type="text/javascript" src="script.js"></script>
 
 </head>
 <STYLE>A {text-decoration: none;} </STYLE>
@@ -75,9 +76,8 @@
 
 </div>
 
-<div class="mapContainer">
-    Place map here
-</div>
+<div class="mapContainer" id="googleMap"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJOvuSQIBXS0IpOR-y16oLoByabvW-_k&callback=myMap"></script>
 
 </body>
 </html>
