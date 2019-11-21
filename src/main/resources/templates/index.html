@@ -8,12 +8,29 @@
 
 </head>
 <body>
-<h1>Jul på hjul</h1>
+<div class="title">
+    <img src="../static/title.jpg" id="title">
+</div>
 
 
 
 
-<img src="../static/bakgrund_malmo.jpg" class="backgroundImage">
+
+<img src="../static/bakgrund_malmofaded.jpg" class="backgroundImage">
+
+<form action="/mapChange" method="post" class="selectArea">
+    Var vill du äta julbord?
+    <select>
+        <option>Centrum</option>
+        <option>Slottsstaden</option>
+        <option>Värnhem</option>
+        <option>Hyllie</option>
+        <option>Lorensborg</option>
+
+    </select>
+
+</form>
+
 <div class = "front"><ul>
     <li><a href="/login">Login</a></li>
 </ul></div>
