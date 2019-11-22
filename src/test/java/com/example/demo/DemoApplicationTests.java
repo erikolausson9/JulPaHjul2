@@ -10,4 +10,12 @@ class DemoApplicationTests {
 	void contextLoads() {
 	}
 
+
+	@Test
+	void testAddRestaurantAndSort(){
+		
+
+	}
+
+
 }

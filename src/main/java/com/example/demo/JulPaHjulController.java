@@ -111,4 +111,5 @@ public class JulPaHjulController {
         model.addAttribute("restaurant", restaurant);
         return "view";
     }
+
 }
