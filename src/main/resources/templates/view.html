@@ -19,7 +19,7 @@
 <!-- Font Awesome Icon Library -->
 <body>
 
-<div>
+
 
 <div class="title">
     &nbsp;<span><a href="/">Tillbaka till startsidan</a></span><br>
@@ -29,73 +29,48 @@
 </div>
 
     <!--<h1>Sankt Gertrud</h1>-->
-    <center><h1 th:text ="${restaurant.name}" id="restName"></h1>
-    <div class="rating">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="far fa-star"></span>
-        <span class="rating_count">(345 recensioner)</span>
-    </div>
-    <br>
-    <div class="restaurant_address">Östergatan 7B,  211 25 Malmö</div>
-    <br></center>
+    <div class="leftColumn">
 
+        <h1 th:text ="${restaurant.name}" id="restName"></h1>
+        <div class="rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="far fa-star"></span>
+            <span class="rating_count">(345 recensioner)</span>
+        </div>
 
-    <div class="picture">
-        <img src="https://sanktgertrud.se/_files/200000384-afc99b0c46/450/6ce7ch.jpg">
-    </div>
-    <div class="mapContainer" id="googleMap"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJOvuSQIBXS0IpOR-y16oLoByabvW-_k&callback=myMap"></script>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <div class="preferences">
-        <i class="fas fa-baby-carriage"></i>
-        <i class="fas fa-wheelchair"></i>
-    </div>
+        <br>
 
-<div class="openHours">
-    <h3>Öppettider</h3>
-    <p>Mondag - Fredag: 11:30-14:00</p>
-    <b>Startdatum: </b> 20 november 2019<br>
-    <b>Sista datum: </b> 21 december 2019<br>
-    <b>Hemsida: </b><a id="links" href="https://www.sanktgertrud.se/">www.sanktgertrud.se</a>
-</div>
+        <span class="restaurant_address">Östergatan 7B,  211 25 Malmö</span>
+        <br><br>
+       <h3>Öppettider</h3>
+       <p>Mondag - Fredag: 11:30-14:00</p>
+       <b>Startdatum: </b> 20 november 2019<br>
+       <b>Sista datum: </b> 21 december 2019<br>
+       <b>Hemsida: </b><a id="links" href="https://www.sanktgertrud.se/">www.sanktgertrud.se</a>
 
-<!-- Preferences -->
+        <div class="picture">
+            <img src="https://sanktgertrud.se/_files/200000384-afc99b0c46/450/6ce7ch.jpg">
+        </div>
+       
+        <div class="preferences">
+            <i class="fas fa-baby-carriage"></i>
+            <i class="fas fa-wheelchair"></i>
+        </div>
 
+       <div class="description" >
+        <p><strong>På Sankt Gertrud serverar vi ett julbord som smakar precis lika bra för den klassiska<br>julbordsfantasten som för den som hellre vill ha ett grönare julbord. Sillar med lök, senap och dill står bredvid de veganska sillalternativen. Laxar i alla smaker tillsammans med getostpatéer, kikärtsbullar och allehanda syltor, korvar för alla, köttbullar och både vanlig och vegansk Jansson. Och en hel massa annat gott, grönt och sött.</strong>På våra kullerstensgårdar mitt i Malmö, bara ett stenkast från Centralen, blir julstämningen påtaglig. Under granrisgirlanger mellan de gamla korsvirkeslängorna kan du njuta av glöggen först och därefter smaka dig runt bland alla våra hemmalagade godsaker under kristallkronor och takbjälkar. Oavsett om ni är fyra eller tvåhundra som vill spisa julmat tillsammans ordnar vi detta. Och vill ni ha en alldeles egen lokal för er grupp har vi många att välja mellan. Vi öppnar upp vår juliga gård och julskrudade lokaler den 20 november och avslutar den 21 december. Onsdagar till lördagar serverar vi våra julbord.<br><br>Varmt välkomna hem till oss på Sankt Gertrud!</p>
 
-
-
-    <!--description th:text="${restaurant.description}"-->
-   <br><br><div class="description" >
-        <p><strong>På Sankt Gertrud serverar vi ett julbord som smakar precis lika bra för den klassiska
-            julbordsfantasten som för den som hellre vill ha ett grönare julbord. Sillar med lök,
-            senap och dill står bredvid de veganska sillalternativen. Laxar i alla smaker tillsammans med getostpatéer,
-            kikärtsbullar och allehanda syltor, korvar för alla, köttbullar och både vanlig och vegansk Jansson.
-            Och en hel massa annat gott, grönt och sött.</strong></p>
-        <p>På våra kullerstensgårdar mitt i Malmö, bara ett stenkast från Centralen, blir julstämningen påtaglig.
-            Under granrisgirlanger mellan de gamla korsvirkeslängorna kan du njuta av glöggen först och därefter
-            smaka dig runt bland alla våra hemmalagade godsaker under kristallkronor och takbjälkar.</p>
-        <p>Oavsett om ni är fyra eller tvåhundra som vill spisa julmat tillsammans ordnar vi detta.
-            Och vill ni ha en alldeles egen lokal för er grupp har vi många att välja mellan.<p>
-        <p>Vi öppnar upp vår juliga gård och julskrudade lokaler den 20 november och avslutar den 21 december.
-            Onsdagar till lördagar serverar vi våra julbord.<br><br>Varmt välkomna hem till oss på Sankt Gertrud!</p>
         <p>Pris:<strong> 555 kr</strong> (inkl. moms)</p>
+
         <em>Varmt välkommen!</em>
     </div>
 
 
-<center>
-    <div class="logo">
-        <p><img src="https://julbordsguiden.se/images/2018_Julbord/Loggor/Sankt_Gertrud_logotyp.png" width="200" height="100" alt="Sankt Gertrud logotyp"></p>
-    </div>
-
-    <h3>Tomterating</h3>
-    <span class="starRating">
+        <h3>Tomterating</h3>
+        <span class="starRating">
   <input id="rating5" type="radio" name="rating" value="5">
   <label for="rating5">🎅🎅🎅🎅🎅</label><br>
   <input id="rating4" type="radio" name="rating" value="4">
@@ -109,6 +84,33 @@
 </span>
 
 </div>
+
+    <br><br>
+    <div class="mapContainer" id="googleMap"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJOvuSQIBXS0IpOR-y16oLoByabvW-_k&callback=myMap"></script>
+
+
+
+
+
+
+
+
+<!-- Preferences -->
+
+
+
+
+    <!--description th:text="${restaurant.description}"-->
+
+
+
+
+
+
+
+
+
 
 
 
