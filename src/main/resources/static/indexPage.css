@@ -133,10 +133,12 @@ a {
 }
 
 .confirmation{
-   display:block;
-    #width:100%;
-    margin:auto;
-    background-color: #c21f1f;
+   font-family: "Questa Grande", "Palatino Linotype", serif;
+   font-size: 15px;
+     display:block;
+     #width:100%;
+     margin:auto;
+     background-color: #c21f1f;
 }
 #headerbooking {
     color:#ffffff;
@@ -148,7 +150,19 @@ a {
 }
 
 .select{
-border: 2px solid #039C31;
+font-family: "Questa Grande", "Palatino Linotype", serif;
+    font-size: 18px;
+    #text-align: center;
+
+    #display:block;
+    #background-color: #c21f1f;
+    color: black;
+    #padding: 15px;
+    #margin:0px;
 }
+
+
+
+
 
 
