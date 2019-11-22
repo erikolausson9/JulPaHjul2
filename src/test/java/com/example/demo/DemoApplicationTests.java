@@ -13,7 +13,7 @@ class DemoApplicationTests {
 
 	@Test
 	void testAddRestaurantAndSort(){
-		Restaurant restaurant = new Restaurant("TestRestaurang", "Denna restaurant serverar ett julbord med alla delikatesser.", "5.5", )
+		Restaurant restaurant = new Restaurant("TestRestaurang", "Denna restaurant serverar ett julbord med alla delikatesser.", 5.5,true, true, 55.604640, 12.996836);
 
 	}
 
