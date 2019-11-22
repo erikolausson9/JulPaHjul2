@@ -25,12 +25,14 @@
 
 
 
+<div id="frontImage">
 
 <img src="../static/bakgrund_malmo_smalare.jpg" class="backgroundImage" th:src="${'/bakgrund_malmo_smalare.jpg'}">
 
 
 <form action="/mapChange" method="post" class="selectArea">
     Var vill du äta julbord?
+    <br>
     <select id="showMapFocus" name="mapChange">
         <option value="gamlaVaster">Gamla Väster</option>
         <option value="Carolikvarteren">Carolikvarteren</option>
@@ -43,10 +45,11 @@
 
     </select>
 
-    <button type="button" onclick="GetSelectedValue()">Get Selected Value</button>
+    <button type="button" onclick="GetSelectedValue()">Visa stadsdel</button>
 
 </form>
 
+</div>
 
 
 <div class="cardContainer">
