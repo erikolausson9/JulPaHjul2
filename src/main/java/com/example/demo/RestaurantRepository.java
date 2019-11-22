@@ -27,21 +27,23 @@ public class RestaurantRepository {
 
     //instance methods
     public List<Restaurant> getSortedRestaurantList(int pageNr, int itemsPerPage, boolean onlyStrollerFriendly, boolean onlyWheelchairFriendly ) {
-        //return sublist whose size depends on parameter itemsPerPage
+        //return sorted sublist whose size depends on parameter itemsPerPage
         List<Restaurant> subList = new ArrayList<Restaurant>();
+
+        Collections.sort(restaurantList);
 
         for(int ii=0; ii<itemsPerPage; ii++){
 
             Restaurant restaurant = restaurantList.get(pageNr+ii);
 
-            //update the list of tomtar used for displaying the tomte rating on the front page
+            //update the list of tomtar used for displaying the tomterating on the front page
             restaurant.clearTomteList();
             for(int jj=0; jj<(int)Math.round(restaurant.getTomterating()); jj++){
              restaurant.addTomte();
             }
 
 
-            if(onlyStrollerFriendly&&onlyWheelchairFriendly){//if this flag is set, only restaurants that are both stroller- and wheelchairfriendly
+            if(onlyStrollerFriendly&&onlyWheelchairFriendly){//if this flag is set, only include restaurants that are both stroller- and wheelchairfriendly
                 if(restaurant.isStrollerOk()&&restaurant.isWheelchairOk()){
                     subList.add(restaurant);
                 }
@@ -60,7 +62,7 @@ public class RestaurantRepository {
 
 
         }
-        Collections.sort(subList);
+        //Collections.sort(subList);
         return subList;
     }
     public void addRestaurant(Restaurant restaurantToAdd){
