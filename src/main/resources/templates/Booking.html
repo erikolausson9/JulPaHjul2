@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/indexPage.css" th:href="'/indexPage.css'">
-    <title>Booking</title>
+    <title>Bokning</title>
 </head>
 
 <STYLE>A {text-decoration: none;} </STYLE>
 
 <body>
 <div class="booking">
-    <span><a href="/">Back to Home page</a></span>
-<center><h1 id="headerbooking"> Booking page </h1></center></div>
+    <span><a href="/">Tillbaka till startdida</a></span>
+     <center><h1 id="headerbooking"> Boka bord </h1></center></div>
+      <center><form action="/booking" method="POST" th:object="${booking}">
+         
 
-<center><form action="/booking" method="POST" th:object="${booking}">
+    Personer: <select th:field="*{people}">
 
-    People: <select th:field="*{people}">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -29,21 +30,21 @@
 </select>
 
 
-    Day: <select th:field="*{day}">
-    <option value="2019-11-21">2019-11-21</option>
-    <option value="2019-11-21">2019-11-21</option>
-    <option value="2019-11-21">2019-11-21</option>
-    <option value="2019-11-21">2019-11-21</option>
-    <option value="2019-11-21">2019-11-21</option>
-    <option value="2019-11-21">2019-11-21</option>
-    <option value="2019-11-21">2019-11-21</option>
-    <option value="2019-11-21">2019-11-21</option>
-    <option value="2019-11-21">2019-11-21</option>
-    <option value="12019-11-21">2019-11-21</option>
+    Dag: <select th:field="*{day}">
+    <option value="2019-11-22">2019-11-22</option>
+    <option value="2019-11-23">2019-11-23</option>
+    <option value="2019-11-24">2019-11-24</option>
+    <option value="2019-11-25">2019-11-25</option>
+    <option value="2019-11-26">2019-11-26</option>
+    <option value="2019-11-27">2019-11-27</option>
+    <option value="2019-11-28">2019-11-28</option>
+    <option value="2019-11-29">2019-11-29</option>
+    <option value="2019-11-30">2019-11-30</option>
+    <option value="2019-12-01">2019-12-01</option>
 </select>
 
 
-    Choose a Time: <select th:field="*{time}">
+    Välj tid: <select th:field="*{time}">
     <option value="11:30">11:30</option>
     <option value="12:30">12:30</option>
     <option value="17:00">17:00</option>
@@ -58,19 +59,19 @@
     </br>
 
 
-<h2>Complete your reservation</h2>
+<h2>Avsluta reservation</h2>
 
 
-    First name:<br>
+    Namn:<br>
     <input type="text" th:field="*{firstname}">
     <br>
-    Last name:<br>
+    Efternamn:<br>
     <input type="text" th:field="*{lastname}">
     <br>
-    E-mail:<br>
+    E-post:<br>
     <input type="text" th:field="*{email}">
     <br>
-    Phonenumber: <br>
+    Telefonnummer: <br>
     <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="+46-274 21 37">
      <br>
 
