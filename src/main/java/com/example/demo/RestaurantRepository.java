@@ -96,7 +96,7 @@ public class RestaurantRepository {
 
             double tomterating = 1.0 + r.nextInt(16)*0.25;
 
-            Restaurant newRestaurant = new Restaurant("Restaurant" + ii, "Serverar traditionellt julbord varje dag" , tomterating, strollerOk, wheelchairOk, lat, lng);
+            Restaurant newRestaurant = new Restaurant("Restaurang " + ii, "Serverar traditionellt julbord varje dag" , tomterating, strollerOk, wheelchairOk, lat, lng);
             newRestaurant.setId(ii);
             newRestaurant.setNumberOfVotes(10);
             addRestaurant(newRestaurant);
