@@ -123,10 +123,11 @@ a {
 .preferences {
     font-size: 30px;
     color: #c21f1f;
-    }
-  .checked {
+}
+
+.checked {
     color: #c21f1f;
-    }
+}
 
 .confirmation{
    display:block;
@@ -136,5 +137,10 @@ a {
 }
 #headerbooking {
     color:#ffffff;
+}
+
+.description {
+    text-align: left;
+    font-family: Mongolian Baiti, Georgia, serif;
 }
 
