@@ -150,6 +150,8 @@ a {
 .description {
     text-align: left;
     font-family: Mongolian Baiti, Georgia, serif;
+    padding: 200px;
+    margin:0px;
 }
 
 .select{
@@ -167,6 +169,16 @@ font-family: "Questa Grande", "Palatino Linotype", serif;
 .cardLink {
 color:black;
 font-weight:bold;
+}
+
+.picture {
+    float: left;
+}
+
+.openHours {
+
+    padding-left: 1cm;
+    float:
 }
 
 
