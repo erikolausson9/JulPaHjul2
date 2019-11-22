@@ -11,26 +11,29 @@
 </head>
 <STYLE>A {text-decoration: none;} </STYLE>
 <body>
+<div>
 
 <div class = "front">
 
 </div>
 
 <div class="title">
-    <span th:if="${session.username == null}"><a href="/login">Logga in</a></span>
+    &nbsp;<span th:if="${session.username == null}"><a href="/login">Logga in</a></span>
     <span th:if="${session.username != null}"><a href="/logout">Logga ut</a></span>
-    <br><span th:if="${session.username != null}"><a href="/addRestaurant">Lägg till restaurang</a></span>
+    <br><span th:if="${session.username != null}"><a href="/addRestaurant">&nbsp;&nbsp;Lägg till restaurang</a></span>
     <img src="../static/title.jpg" id="title" th:src="${'/title.jpg'}">
 </div>
 
 
 
+<div id="frontImage">
 
 <img src="../static/bakgrund_malmo_smalare.jpg" class="backgroundImage" th:src="${'/bakgrund_malmo_smalare.jpg'}">
 
 
 <form action="/mapChange" method="post" class="selectArea">
     Var vill du äta julbord?
+    <br>
     <select id="showMapFocus" name="mapChange">
         <option value="gamlaVaster">Gamla Väster</option>
         <option value="Carolikvarteren">Carolikvarteren</option>
@@ -43,13 +46,14 @@
 
     </select>
 
-    <button type="button" onclick="GetSelectedValue()">Get Selected Value</button>
+    <button type="button" onclick="GetSelectedValue(); smoothScroll(document.getElementById('second'))">Get Selected Value</button>
 
 </form>
 
+</div>
 
 
-<div class="cardContainer">
+<div class="cardContainer" id="second">
     <h2>Malmös högst rankade julbord just nu:</h2>
 
     <form id="checkboxes" action="/filter_restaurants" method="post">
@@ -85,7 +89,7 @@
     -->
     </div> <!-- end of cardContainer-->
 
-    <div class="mapContainer" id="googleMap"></div>
+<div class="mapContainer" id="googleMap"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJOvuSQIBXS0IpOR-y16oLoByabvW-_k&callback=myMap"></script>
 
     </body>

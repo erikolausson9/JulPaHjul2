@@ -9,25 +9,31 @@
 <body>
 
 <div class="addRestaurant">
-    <span><a href="/">Tillbaks till startsidan</a></span>
-    <center><h1 id="headeraddrestaurant"> Lägg till restaurang</h1></center></div>
+    &nbsp;<span><a href="/">Tillbaks till startsidan</a></span>
+    &nbsp;<center><h1 id="headeraddrestaurant"> Lägg till restaurang</h1></center></div>
 
 <center><form action="/addRestaurant" method="POST" th:object="${restaurant}">
     <input type="text" placeholder="Namn på restaurang" th:field="*{name}"/><br>
-    <input type="text" placeholder="Beskrivning av restaurang" th:field="*{description}"/><br>
+    <input id="description" type="text" placeholder="Beskrivning av restaurang" th:field="*{description}"/><br>
     <input type="text" placeholder="Address" th:field="*{adress}"/><br>
-    <input type="text" placeholder="Stadsdel" th:field="*{stadsdel}"/><br>
     <input type="text" placeholder="Öppettider" th:field="*{oppettider}"/><br>
     <input type="text" placeholder="Priskategori" th:field="*{priskategori}"/><br>
     <input type="text" placeholder="Länk till hemsida" th:field="*{linkToWebsite}"/><br>
-    <p>Ge en tomterating: </p>
-    1<input type="radio" th:field="*{tomterating}" value="1"/>
-    2<input type="radio" th:field="*{tomterating}" value="2"/>
-    3<input type="radio" th:field="*{tomterating}" value="3"/>
-    4<input type="radio" th:field="*{tomterating}" value="4"/>
-    5<input type="radio" th:field="*{tomterating}" value="5"/><br>
 
+    <p>Ge en tomterating: </p>
+
+    <input id="rating5" type="radio" th:field="*{tomterating}" value="5"/>
+    <label for="rating5">🎅🎅🎅🎅🎅</label><br>
+    <input id="rating4" type="radio" th:field="*{tomterating}" value="4"/>
+    <label for="rating4">🎅🎅🎅🎅</label><br>
+    <input id="rating3" type="radio" th:field="*{tomterating}" value="3"/>
+    <label for="rating3">🎅🎅🎅</label><br>
+    <input id="rating2" type="radio" th:field="*{tomterating}" value="2"/>
+    <label for="rating2">🎅🎅</label><br>
+    <input id="rating1" type="radio" th:field="*{tomterating}" value="1"/>
+    <label for="rating5">🎅</label><br>
     <br><br><input type="submit" value="Lägg till restaurang"/>
+
 </form>
 </center>
 
@@ -39,7 +45,6 @@
     <span th:text="${'Namn: ' + restaurant.name}"></span><br><br>
     <span th:text="${'Beskrivning av restaurang: ' + restaurant.description}"></span><br><br>
     <span th:text="${'Address: ' + restaurant.adress}"></span><br><br>
-    <span th:text="${'Stadsdel: ' + restaurant.stadsdel}"></span><br><br>
     <span th:text="${'Öppettider: ' + restaurant.oppettider}"></span><br><br>
     <span th:text="${'Priskategori: ' + restaurant.priskategori}"></span><br><br>
     <span th:text="${'Länk till hemsida: ' + restaurant.linkToWebsite}"></span><br><br>
