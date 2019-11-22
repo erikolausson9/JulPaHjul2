@@ -13,13 +13,14 @@
 <body>
 
 <div class="title">
-    <span><a href="/">Back to Home page</a></span>
-
+    <span><a href="/">Back to Home page</a></span><br>
+    <span><a href="/login">Login</a></span><br>
+    <span><a href="/booking">Book a table</a></span><br>
     <img src="../static/title.jpg" id="title" th:src="${'/title.jpg'}">
 </div>
 
-<h1>Sankt Gertrud</h1>
-<!--<h1 th:text ="${restaurant.name}"></h1>-->
+<!--<h1>Sankt Gertrud</h1>-->
+<h1 th:text ="${restaurant.name}"></h1>
 <div class="rating">
     <span class="fa fa-star checked"></span>
     <span class="fa fa-star checked"></span>
