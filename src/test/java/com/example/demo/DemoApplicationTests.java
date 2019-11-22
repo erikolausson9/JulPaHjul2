@@ -10,4 +10,12 @@ class DemoApplicationTests {
 	void contextLoads() {
 	}
 
+
+	@Test
+	void testAddRestaurantAndSort(){
+		Restaurant restaurant = new Restaurant("TestRestaurang", "Denna restaurant serverar ett julbord med alla delikatesser.", "5.5", )
+
+	}
+
+
 }

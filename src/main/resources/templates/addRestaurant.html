@@ -11,15 +11,17 @@
 <div class="addRestaurant">
     <span><a href="/">Back to Home page</a></span>
     <center><h1 id="headeraddrestaurant"> Add Restaurant</h1></center></div>
-<center><form action="/addRestaurant" method="POST">
-    <input type="text" name="name"  placeholder="Namn på restaurang"/><br>
-    <input type="text" name="description" placeholder="Beskrivning av restaurang"/><br>
-    <input type="text" name="adress" placeholder="Address"/><br>
-    <input type="text" name="stadsdel" placeholder="Stadsdel"/><br>
-    <input type="text" name="oppettider" placeholder="Öppettider"/><br>
-    <input type="text" name="priskategori" placeholder="Priskategori"/><br>
-    <input type="text" name="linkToWebsite" placeholder="Länk till hemsida"/><br>
-    <input type="text" name="tomterating" placeholder="Ge tomterating (t.ex. 4.5)"/><br>
+
+<center><form action="/addRestaurant" method="POST" th:object="${restaurants}">
+    <input type="text" placeholder="Namn på restaurang" th:field="*{name}"/><br>
+    <input type="text" placeholder="Beskrivning av restaurang" th:field="*{description}"/><br>
+    <input type="text" placeholder="Address" th:field="*{adress}"/><br>
+    <input type="text" placeholder="Stadsdel" th:field="*{stadsdel}"/><br>
+    <input type="text" placeholder="Öppettider" th:field="*{oppettider}"/><br>
+    <input type="text" placeholder="Priskategori" th:field="*{priskategori}"/><br>
+    <input type="text" placeholder="Länk till hemsida" th:field="*{linkToWebsite}"/><br>
+    <input type="text" placeholder="Ge en tomterating (t.ex. 4.5)" th:field="*{tomterating}"/><br>
+
     <input type="submit" value="Lägg till restaurang"/>
 </form>
 </center>
@@ -27,17 +29,17 @@
 <br>
 
 <center>
-<ul th:each="restaurant : ${session.restaurants}">
+<div th:each="restaurants : ${restaurants}" th:if="${restaurants != null}">
     <h2>Tack för ditt bidrag!</h2>
-    <br><span th:text="${'Namn: ' + restaurant.name}"></span><br><br>
+    <br><span th:text="${'Namn: ' + restaurants.name}"></span><br><br>
     <span th:text="${'Beskrivning av restaurang: ' + restaurant.description}"></span><br><br>
-    <span th:text="${'Address: ' + restaurant.adress}"></span><br><br>
-    <span th:text="${'Stadsdel: ' + restaurant.stadsdel}"></span><br><br>
-    <span th:text="${'Öppettider: ' + restaurant.oppettider}"></span><br><br>
-    <span th:text="${'Priskategori: ' + restaurant.priskategori}"></span><br><br>
-    <span th:text="${'Länk till hemsida: ' + restaurant.linkToWebsite}"></span><br><br>
-    <span th:text="${'Tomterating: ' + restaurant.tomterating}"></span>
-</ul>
+    <span th:text="${'Address: ' + restaurants.adress}"></span><br><br>
+    <span th:text="${'Stadsdel: ' + restaurants.stadsdel}"></span><br><br>
+    <span th:text="${'Öppettider: ' + restaurants.oppettider}"></span><br><br>
+    <span th:text="${'Priskategori: ' + restaurants.priskategori}"></span><br><br>
+    <span th:text="${'Länk till hemsida: ' + restaurants.linkToWebsite}"></span><br><br>
+    <span th:text="${'Tomterating: ' + restaurants.tomterating}"></span>
+</div>
 </center>
 
 

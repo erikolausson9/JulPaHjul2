@@ -58,32 +58,25 @@ public class JulPaHjulController {
 
 
     @GetMapping("/addRestaurant")
-    String addRestaurant() {
+    String RestaurantForm(Model model) {
+        model.addAttribute("restaurant", new Restaurant("a", "b", "c", "d", "e", "f", "g", 4.5));
+
         return "addRestaurant";
     }
 
     @PostMapping("/addRestaurant")
-    String addRestaurant(HttpSession session, @RequestParam String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, double tomterating) {
-        List<Restaurant> restaurants = (List<Restaurant>) session.getAttribute("restaurants");
+    String addRestaurant (Model model, @ModelAttribute Restaurant restaurants) {
+        model.addAttribute("restaurants", restaurants);
 
-        if (restaurants == null) {
-            restaurants = new ArrayList<>();
-        }
-
-        restaurants.add(new Restaurant(name, description, adress, stadsdel, oppettider, priskategori, linkToWebsite, tomterating));
-        session.setAttribute("restaurants", restaurants);
         return "addRestaurant";
     }
 
 
     @PostMapping("/filter_restaurants")
-    String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
-
-
+    String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair){
         boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
         boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
-
-        List<Restaurant> selectedRestaurants = serviceLayer.getSortedRestaurantList(0, 20, onlyStrollerFriendly, onlyWheelchairFriendly);
+    List<Restaurant> selectedRestaurants = serviceLayer.getSortedRestaurantList(0, 20, onlyStrollerFriendly, onlyWheelchairFriendly);
 
         model.addAttribute("restaurants", selectedRestaurants);
 
@@ -118,4 +111,5 @@ public class JulPaHjulController {
         model.addAttribute("restaurant", restaurant);
         return "view";
     }
+
 }
