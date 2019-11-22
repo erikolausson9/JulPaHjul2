@@ -9,13 +9,13 @@
 <body>
 
 <div class="addRestaurant">
-    &nbsp;<span><a href="/">Tillbaks till startsidan</a></span>
+    &nbsp;<span><a href="/">Tillbaka till startsidan</a></span>
     &nbsp;<center><h1 id="headeraddrestaurant"> Lägg till restaurang</h1></center></div>
 
 <center><form action="/addRestaurant" method="POST" th:object="${restaurant}">
     <input type="text" placeholder="Namn på restaurang" th:field="*{name}"/><br>
     <input id="description" type="text" placeholder="Beskrivning av restaurang" th:field="*{description}"/><br>
-    <input type="text" placeholder="Address" th:field="*{adress}"/><br>
+    <input type="text" placeholder="Adress" th:field="*{adress}"/><br>
     <input type="text" placeholder="Öppettider" th:field="*{oppettider}"/><br>
     <input type="text" placeholder="Priskategori" th:field="*{priskategori}"/><br>
     <input type="text" placeholder="Länk till hemsida" th:field="*{linkToWebsite}"/><br>
@@ -44,7 +44,7 @@
     <h3>Tack för ditt bidrag!<br> Vi återkommer strax med en uppdaterad lista. </h3>
     <span th:text="${'Namn: ' + restaurant.name}"></span><br><br>
     <span th:text="${'Beskrivning av restaurang: ' + restaurant.description}"></span><br><br>
-    <span th:text="${'Address: ' + restaurant.adress}"></span><br><br>
+    <span th:text="${'Adress: ' + restaurant.adress}"></span><br><br>
     <span th:text="${'Öppettider: ' + restaurant.oppettider}"></span><br><br>
     <span th:text="${'Priskategori: ' + restaurant.priskategori}"></span><br><br>
     <span th:text="${'Länk till hemsida: ' + restaurant.linkToWebsite}"></span><br><br>
