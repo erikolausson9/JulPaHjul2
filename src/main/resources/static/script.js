@@ -11,8 +11,9 @@ async function getDat() {
     for (var i = 0; i < mydataresponse.length; i++) {
        var resloc = new google.maps.LatLng(mydataresponse[i].lat, mydataresponse[i].lng);
        var name = mydataresponse[i].name;
+       var id = mydataresponse[i].id;
        console.log(name);
-       resturantMarkers(resloc, name);
+       resturantMarkers(resloc, name, id);
     }
 }
 
@@ -29,13 +30,72 @@ map.setZoom(13);
 
 getDat();
 
+
 //google.maps.event.addListener(map, 'click', function(event) {
 //  placeMarker(map, event.latLng);
 }
 
+function GetSelectedValue(){
+
+var e = document.getElementById("showMapFocus");
+var strUser = e.options[e.selectedIndex].value;
+console.log(strUser);
+
+switch(strUser) {
+      case "gamlaVaster":
+         var loc = new google.maps.LatLng(55.604640, 12.996836);
+         map.setCenter(loc);
+         map.setZoom(15);
+         break;
+      case "Carolikvarteren":
+      var loc = new google.maps.LatLng(55.606245, 13.009344);
+               map.setCenter(loc);
+               map.setZoom(15);
+               break;
+
+      case "Davidshall":
+      var loc = new google.maps.LatLng(55.598955, 12.998516);
+               map.setCenter(loc);
+               map.setZoom(15);
+               break;
+
+      case "Slottsstaden":
+      var loc = new google.maps.LatLng(55.597246, 12.976060);
+               map.setCenter(loc);
+               map.setZoom(15);
+               break;
+
+      case "Mollevangen":
+      var loc = new google.maps.LatLng(55.591482, 13.008791);
+               map.setCenter(loc);
+               map.setZoom(15);
+               break;
+
+      case "Radmansvangen":
+      var loc = new google.maps.LatLng(55.593009, 13.001743);
+               map.setCenter(loc);
+               map.setZoom(15);
+               break;
+
+      case "Slussen":
+      var loc = new google.maps.LatLng(55.607810, 13.016972);
+               map.setCenter(loc);
+               map.setZoom(15);
+               break;
+
+      case "Varnhem":
+      var loc = new google.maps.LatLng(55.605576, 13.022763);
+               map.setCenter(loc);
+               map.setZoom(15);
+               break;
+
+       }
+
+}
 
 
-function resturantMarkers(resloc, name) {
+
+function resturantMarkers(resloc, name, id) {
 
   var icon = iconOne();
 
@@ -47,7 +107,7 @@ function resturantMarkers(resloc, name) {
 
     //"Tomte box"
     var infowindow = new google.maps.InfoWindow({
-      content: '<b>' + name + '</b><br>'
+      content: '<b>' + name + '</b><br><a id="links" href="http://127.0.0.1:8080/view?id=' + id + '">Details</a>'
     });
 
     marker.addListener('click', function() {

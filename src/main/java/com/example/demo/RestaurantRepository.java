@@ -94,7 +94,9 @@ public class RestaurantRepository {
             double lat = (double)latResult / 1000000;
             double lng = (double)lngResult / 1000000;
 
-            Restaurant newRestaurant = new Restaurant("Restaurant" + ii, "Description" + ii, 2.0+ii*0.1, strollerOk, wheelchairOk, lat, lng);
+            double tomterating = 1.0 + r.nextInt(16)*0.25;
+
+            Restaurant newRestaurant = new Restaurant("Restaurant" + ii, "Serverar traditionellt julbord varje dag" , tomterating, strollerOk, wheelchairOk, lat, lng);
             newRestaurant.setId(ii);
             addRestaurant(newRestaurant);
         }

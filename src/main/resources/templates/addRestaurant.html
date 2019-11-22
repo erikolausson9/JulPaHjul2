@@ -35,6 +35,7 @@
 
 <center>
 <div th:each="restaurant : ${session.restaurants}">
+    <h3>Tack för ditt bidrag!<br> Vi återkommer strax med en uppdaterad lista. </h3>
     <span th:text="${'Namn: ' + restaurant.name}"></span><br><br>
     <span th:text="${'Beskrivning av restaurang: ' + restaurant.description}"></span><br><br>
     <span th:text="${'Address: ' + restaurant.adress}"></span><br><br>
