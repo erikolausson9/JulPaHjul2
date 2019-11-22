@@ -126,10 +126,11 @@ a {
 .preferences {
     font-size: 30px;
     color: #c21f1f;
-    }
-  .checked {
+}
+
+.checked {
     color: #c21f1f;
-    }
+}
 
 .confirmation{
    display:block;
@@ -141,5 +142,13 @@ a {
     color:#ffffff;
 }
 
+.description {
+    text-align: left;
+    font-family: Mongolian Baiti, Georgia, serif;
+}
+
+.select{
+border: 2px solid #039C31;
+}
 
 
