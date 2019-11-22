@@ -31,7 +31,7 @@
 
 <form action="/mapChange" method="post" class="selectArea">
     Var vill du äta julbord?
-    <select name="mapChange">
+    <select id="showMapFocus" name="mapChange">
         <option value="gamlaVaster">Gamla Väster</option>
         <option value="Carolikvarteren">Carolikvarteren</option>
         <option value="Davidshall">Davidshall</option>
@@ -42,6 +42,8 @@
         <option value="Varnhem">Värnhem</option>
 
     </select>
+
+    <button type="button" onclick="GetSelectedValue()">Get Selected Value</button>
 
 </form>
 
