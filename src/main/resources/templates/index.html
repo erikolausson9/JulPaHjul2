@@ -31,7 +31,7 @@
 
 <form action="/mapChange" method="post" class="selectArea">
     Var vill du äta julbord?
-    <select name="mapChange">
+    <select id="showMapFocus" name="mapChange">
         <option value="gamlaVaster">Gamla Väster</option>
         <option value="Carolikvarteren">Carolikvarteren</option>
         <option value="Davidshall">Davidshall</option>
@@ -42,6 +42,8 @@
         <option value="Varnhem">Värnhem</option>
 
     </select>
+
+    <button type="button" onclick="GetSelectedValue()">Get Selected Value</button>
 
 </form>
 
@@ -61,12 +63,12 @@
 
     <div th:each="restaurant:${restaurants}">
         <div class="restaurantCard">
-            <span th:text="${restaurant.name}"></span> <br>
+            <a th:href="${'/view?id=' + restaurant.id}" class="cardLink" th:text="${restaurant.name}"></a> <br>
             <span th:text="${restaurant.description}"></span> <br>
             <span th:each="tomte:${restaurant.tomtar}">🎅</span>
             <span th:text="${restaurant.tomterating}"></span><br>
-            <span th:text="${restaurant.strollerOk}"></span>
-            <span th:text="${restaurant.wheelchairOk}"></span>
+            <img src="../static/barnvagns_ikon.jpg" th:if="${restaurant.strollerOk}" th:src="${'/barnvagns_ikon.jpg'}">
+            <img src="../static/rullstol.jpg" th:if="${restaurant.wheelchairOk}" th:src="${'/rullstol.jpg'}">
 
         </div>
 
