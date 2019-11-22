@@ -12,7 +12,7 @@
     <span><a href="/">Back to Home page</a></span>
     <center><h1 id="headeraddrestaurant"> Add Restaurant</h1></center></div>
 
-<center><form action="/addRestaurant" method="POST" th:object="${restaurants}">
+<center><form action="/addRestaurant" method="POST" th:object="${restaurant}">
     <input type="text" placeholder="Namn på restaurang" th:field="*{name}"/><br>
     <input type="text" placeholder="Beskrivning av restaurang" th:field="*{description}"/><br>
     <input type="text" placeholder="Address" th:field="*{adress}"/><br>
@@ -29,16 +29,15 @@
 <br>
 
 <center>
-<div th:each="restaurants : ${restaurants}" th:if="${restaurants != null}">
-    <h2>Tack för ditt bidrag!</h2>
-    <br><span th:text="${'Namn: ' + restaurants.name}"></span><br><br>
+<div th:each="restaurant : ${session.restaurants}">
+    <span th:text="${'Namn: ' + restaurant.name}"></span><br><br>
     <span th:text="${'Beskrivning av restaurang: ' + restaurant.description}"></span><br><br>
-    <span th:text="${'Address: ' + restaurants.adress}"></span><br><br>
-    <span th:text="${'Stadsdel: ' + restaurants.stadsdel}"></span><br><br>
-    <span th:text="${'Öppettider: ' + restaurants.oppettider}"></span><br><br>
-    <span th:text="${'Priskategori: ' + restaurants.priskategori}"></span><br><br>
-    <span th:text="${'Länk till hemsida: ' + restaurants.linkToWebsite}"></span><br><br>
-    <span th:text="${'Tomterating: ' + restaurants.tomterating}"></span>
+    <span th:text="${'Address: ' + restaurant.adress}"></span><br><br>
+    <span th:text="${'Stadsdel: ' + restaurant.stadsdel}"></span><br><br>
+    <span th:text="${'Öppettider: ' + restaurant.oppettider}"></span><br><br>
+    <span th:text="${'Priskategori: ' + restaurant.priskategori}"></span><br><br>
+    <span th:text="${'Länk till hemsida: ' + restaurant.linkToWebsite}"></span><br><br>
+    <span th:text="${'Tomterating: ' + restaurant.tomterating}"></span>
 </div>
 </center>
 

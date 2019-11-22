@@ -110,10 +110,13 @@ a {
 }
 
 .booking {
+    font-family: "Questa Grande", "Palatino Linotype", serif;
     display:block;
     #width:100%;
     margin:auto;
     background-color: #c21f1f;
+
+
 }
 
 #headerbooking {
@@ -142,5 +145,9 @@ a {
 .description {
     text-align: left;
     font-family: Mongolian Baiti, Georgia, serif;
+}
+
+.select{
+border: 2px solid #039C31;
 }
 

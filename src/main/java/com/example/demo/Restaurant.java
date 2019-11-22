@@ -8,7 +8,7 @@ public class Restaurant implements Comparable {
     private int id;
     private String name;
     private String description;
-    private double tomterating;
+    private Double tomterating;
 
     private String adress;
     private String stadsdel;
@@ -35,14 +35,14 @@ public class Restaurant implements Comparable {
         this.description = description;
     }
 
-    public Restaurant(String name, String description, double tomterating) {
+    public Restaurant(String name, String description, Double tomterating) {
         this.name = name;
         this.description = description;
         this.tomterating = tomterating;
     }
 
 
-    public Restaurant(String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, double tomterating) {
+    public Restaurant(String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, Double tomterating) {
         this.name = name;
         this.description = description;
         this.adress = adress;
@@ -53,7 +53,7 @@ public class Restaurant implements Comparable {
         this.tomterating = tomterating;
     }
 
-    public Restaurant(String name, String description, double tomterating, boolean strollerOk, boolean wheelchairOk, double lat, double lng) {
+    public Restaurant(String name, String description, Double tomterating, boolean strollerOk, boolean wheelchairOk, double lat, double lng) {
         this.name = name;
         this.description = description;
         this.tomterating = tomterating;
@@ -82,11 +82,11 @@ public class Restaurant implements Comparable {
         this.description = description;
     }
 
-    public double getTomterating() {
+    public Double getTomterating() {
         return tomterating;
     }
 
-    public void setTomterating(double tomterating) {
+    public void setTomterating(Double tomterating) {
         this.tomterating = tomterating;
     }
 
