@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!-- Font Awesome Icon Library -->
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/indexPage.css" th:href ="'/indexPage.css'">
@@ -7,7 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <title>Restaurant details</title>
+    <script type="text/javascript" src="script2.js"></script>
 </head>
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 <STYLE>A {text-decoration: none;} </STYLE>
 <!-- Font Awesome Icon Library -->
 <body>
@@ -21,65 +28,65 @@
     <img src="../static/title.jpg" id="title" th:src="${'/title.jpg'}">
 </div>
 
-<!--<h1>Sankt Gertrud</h1>-->
-<h1 th:text ="${restaurant.name}"></h1>
-<div class="rating">
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="far fa-star"></span>
-    <span class="rating_count">(345 recensioner)</span>
-</div>
-<br>
-<div class="restaurant_address">Östergatan 7B,  211 25 Malmö</div>
-<br>
+    <!--<h1>Sankt Gertrud</h1>-->
+    <h1 th:text ="${restaurant.name}" id="restName"></h1>
+    <div class="rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="far fa-star"></span>
+        <span class="rating_count">(345 recensioner)</span>
+    </div>
+    <br>
+    <div class="restaurant_address">Östergatan 7B,  211 25 Malmö</div>
+    <br>
 
 
-<div class="picture">
-    <img src="https://sanktgertrud.se/_files/200000384-afc99b0c46/450/6ce7ch.jpg">
-</div>
+    <div class="picture">
+        <img src="https://sanktgertrud.se/_files/200000384-afc99b0c46/450/6ce7ch.jpg">
+    </div>
 
-<!-- Preferences -->
-<br>
-<div class="preferences">
-    <i class="fas fa-baby-carriage"></i>
-    <i class="fas fa-wheelchair"></i>
-</div>
+    <!-- Preferences -->
+    <br>
+    <div class="preferences">
+        <i class="fas fa-baby-carriage"></i>
+        <i class="fas fa-wheelchair"></i>
+    </div>
 
 
-<!--description th:text="${restaurant.description}"-->
-<div class="description" >
-    <p><strong>På Sankt Gertrud serverar vi ett julbord som smakar precis lika bra för den klassiska
-    julbordsfantasten som för den som hellre vill ha ett grönare julbord. Sillar med lök,
-    senap och dill står bredvid de veganska sillalternativen. Laxar i alla smaker tillsammans med getostpatéer,
-    kikärtsbullar och allehanda syltor, korvar för alla, köttbullar och både vanlig och vegansk Jansson.
-    Och en hel massa annat gott, grönt och sött.</strong></p>
-    <p>På våra kullerstensgårdar mitt i Malmö, bara ett stenkast från Centralen, blir julstämningen påtaglig.
-    Under granrisgirlanger mellan de gamla korsvirkeslängorna kan du njuta av glöggen först och därefter
-    smaka dig runt bland alla våra hemmalagade godsaker under kristallkronor och takbjälkar.</p>
-    <p>Oavsett om ni är fyra eller tvåhundra som vill spisa julmat tillsammans ordnar vi detta.
-    Och vill ni ha en alldeles egen lokal för er grupp har vi många att välja mellan.<p>
-    <p>Vi öppnar upp vår juliga gård och julskrudade lokaler den 20 november och avslutar den 21 december.
-    Onsdagar till lördagar serverar vi våra julbord.<br><br>Varmt välkomna hem till oss på Sankt Gertrud!</p>
-    <p>Pris:<strong> 555 kr</strong> (inkl. moms)</p>
-    <em>Varmt välkommen!</em>
-</div>
+    <!--description th:text="${restaurant.description}"-->
+    <div class="description" >
+        <p><strong>På Sankt Gertrud serverar vi ett julbord som smakar precis lika bra för den klassiska
+            julbordsfantasten som för den som hellre vill ha ett grönare julbord. Sillar med lök,
+            senap och dill står bredvid de veganska sillalternativen. Laxar i alla smaker tillsammans med getostpatéer,
+            kikärtsbullar och allehanda syltor, korvar för alla, köttbullar och både vanlig och vegansk Jansson.
+            Och en hel massa annat gott, grönt och sött.</strong></p>
+        <p>På våra kullerstensgårdar mitt i Malmö, bara ett stenkast från Centralen, blir julstämningen påtaglig.
+            Under granrisgirlanger mellan de gamla korsvirkeslängorna kan du njuta av glöggen först och därefter
+            smaka dig runt bland alla våra hemmalagade godsaker under kristallkronor och takbjälkar.</p>
+        <p>Oavsett om ni är fyra eller tvåhundra som vill spisa julmat tillsammans ordnar vi detta.
+            Och vill ni ha en alldeles egen lokal för er grupp har vi många att välja mellan.<p>
+        <p>Vi öppnar upp vår juliga gård och julskrudade lokaler den 20 november och avslutar den 21 december.
+            Onsdagar till lördagar serverar vi våra julbord.<br><br>Varmt välkomna hem till oss på Sankt Gertrud!</p>
+        <p>Pris:<strong> 555 kr</strong> (inkl. moms)</p>
+        <em>Varmt välkommen!</em>
+    </div>
 
-<div class="openHours">
-    <h3>Öppettider</h3>
+    <div class="openHours">
+        <h3>Öppettider</h3>
         <p>Mondag - Fredag: 11:30-14:00</p>
         <b>Startdatum: </b> 20 november 2019<br>
         <b>Sista datum: </b> 21 december 2019<br>
         <b>Hemsida: </b><a id="links" href="https://www.sanktgertrud.se/">www.sanktgertrud.se</a>
-</div>
+    </div>
 
-<div class="logo">
-    <p><img src="https://julbordsguiden.se/images/2018_Julbord/Loggor/Sankt_Gertrud_logotyp.png" width="200" height="100" alt="Sankt Gertrud logotyp"></p>
-</div>
+    <div class="logo">
+        <p><img src="https://julbordsguiden.se/images/2018_Julbord/Loggor/Sankt_Gertrud_logotyp.png" width="200" height="100" alt="Sankt Gertrud logotyp"></p>
+    </div>
 
-<h3>Tomterating</h3>
-<span class="starRating">
+    <h3>Tomterating</h3>
+    <span class="starRating">
   <input id="rating5" type="radio" name="rating" value="5">
   <label for="rating5">🎅🎅🎅🎅🎅</label><br>
   <input id="rating4" type="radio" name="rating" value="4">
@@ -92,7 +99,12 @@
   <label for="rating1">🎅</label>
 </span>
 
+</div>
 
 
-</body>
+    <div class="mapContainer" id="googleMap"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJOvuSQIBXS0IpOR-y16oLoByabvW-_k&callback=myMap"></script>
+
+
+
 </html>
