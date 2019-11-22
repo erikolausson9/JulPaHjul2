@@ -27,7 +27,7 @@
 <br>
 
 <center>
-<ul th:each="restaurant : ${session.restaurants}">
+<ul th:each="restaurant : ${restaurants}" th:if="${restaurants != null}>
     <h2>Tack för ditt bidrag!</h2>
     <br><span th:text="${'Namn: ' + restaurant.name}"></span><br><br>
     <span th:text="${'Beskrivning av restaurang: ' + restaurant.description}"></span><br><br>
