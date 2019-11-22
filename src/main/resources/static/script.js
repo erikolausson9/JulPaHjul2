@@ -16,6 +16,8 @@ async function getDat() {
     }
 }
 
+
+//Map init.. 
 function myMap() {
 
 var mapProp= {center:new google.maps.LatLng(51.508742,-0.120850), zoom:15,};
@@ -40,11 +42,12 @@ function resturantMarkers(resloc, name) {
     var marker = new google.maps.Marker({
       position: resloc,
       map: map,
-      icon: icon
+      icon: icon  
     });
 
+    //"Tomte box"
     var infowindow = new google.maps.InfoWindow({
-      content: 'Latitude: ' + name
+      content: '<b>' + name + '</b><br>'
     });
 
     marker.addListener('click', function() {
