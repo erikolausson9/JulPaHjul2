@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:Access-Control-Allow-Origin="*">
 <head>
     <meta charset="UTF-8">
     <title>startPage</title>
+    <Access-Control-Allow-Origin: *></Access-Control-Allow-Origin:>
 
     <link rel="stylesheet" href="../static/indexPage.css" th:href="'/indexPage.css'">
     <script type="text/javascript" src="script.js"></script>
@@ -31,11 +32,14 @@
 <form action="/mapChange" method="post" class="selectArea">
     Var vill du äta julbord?
     <select>
-        <option>Centrum</option>
+        <option>Gamla Väster</option>
+        <option>Carolikvarteren</option>
+        <option>Davidshall</option>
         <option>Slottsstaden</option>
+        <option>Möllevången</option>
+        <option>Rådmansvången</option>
+        <option>Slussen</option>
         <option>Värnhem</option>
-        <option>Hyllie</option>
-        <option>Lorensborg</option>
 
     </select>
 
