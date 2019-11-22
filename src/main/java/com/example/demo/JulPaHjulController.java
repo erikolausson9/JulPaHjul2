@@ -58,22 +58,18 @@ public class JulPaHjulController {
 
 
     @GetMapping("/addRestaurant")
-    String addRestaurant() {
+    String RestaurantForm(Model model) {
+        model.addAttribute("restaurant", new Restaurant("a", "b", "c", "d", "e", "f", "g", 4.5));
+
         return "addRestaurant";
     }
 
     @PostMapping("/addRestaurant")
-    String addRestaurant(HttpSession session, @RequestParam String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, double tomterating) {
-        List<Restaurant> restaurants = (List<Restaurant>) session.getAttribute("restaurants");
+    String addRestaurant (Model model, @ModelAttribute Restaurant restaurants) {
+        model.addAttribute("restaurants", restaurants);
 
-        if (restaurants == null) {
-            restaurants = new ArrayList<>();
-        }
-ion, adress, stadsdel, oppettider, priskategori, linkToWebsite, tomterating));
-}        session.setAttribute("restaurants", );
-                restaurants.add(new Restaurant(name, descript
-
-        return "addRestaurant";restaurants
+        return "addRestaurant";
+    }
 
 
     @PostMapping("/filter_restaurants")
