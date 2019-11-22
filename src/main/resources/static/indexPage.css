@@ -196,3 +196,7 @@ font-weight:bold;
 #description {
        height: 80px;
 }
+
+#frontImage {
+position:relative;
+}
