@@ -44,7 +44,7 @@ public class JulPaHjulController {
         if (username.equals("admin") && password.equals("12345")) {
             session.setAttribute("username", username);
             System.out.println("You are now logged in");
-            return "index";
+            return "redirect:/";
         }
         return "login";
     }
@@ -53,7 +53,7 @@ public class JulPaHjulController {
     @GetMapping("/logout")
     String logout(HttpSession session) {
         session.invalidate();
-        return "index";
+        return "redirect:/";
     }
 
 
