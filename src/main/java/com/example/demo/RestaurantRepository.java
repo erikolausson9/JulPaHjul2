@@ -98,6 +98,7 @@ public class RestaurantRepository {
 
             Restaurant newRestaurant = new Restaurant("Restaurant" + ii, "Serverar traditionellt julbord varje dag" , tomterating, strollerOk, wheelchairOk, lat, lng);
             newRestaurant.setId(ii);
+            newRestaurant.setNumberOfVotes(10);
             addRestaurant(newRestaurant);
         }
     }

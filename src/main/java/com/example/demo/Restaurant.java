@@ -9,6 +9,7 @@ public class Restaurant implements Comparable {
     private String name;
     private String description;
     private Double tomterating;
+    private int numberOfVotes;
 
     private String adress;
     private String oppettider;
@@ -168,6 +169,13 @@ public class Restaurant implements Comparable {
         this.wheelchairOk = wheelchairOk;
     }
 
+    public int getNumberOfVotes() {
+        return numberOfVotes;
+    }
+
+    public void setNumberOfVotes(int numberOfVotes) {
+        this.numberOfVotes = numberOfVotes;
+    }
 
     @Override
     public int compareTo(Object o) {
