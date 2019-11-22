@@ -10,7 +10,7 @@
 
 </head>
 <STYLE>A {text-decoration: none;} </STYLE>
-<body>
+<div>
 
 <div class = "front">
 
@@ -43,13 +43,13 @@
 
     </select>
 
-    <button type="button" onclick="GetSelectedValue()">Get Selected Value</button>
+    <button type="button" onclick="GetSelectedValue(); smoothScroll(document.getElementById('second'))">Get Selected Value</button>
 
 </form>
 
 
 
-<div class="cardContainer">
+<div class="cardContainer" id="second">
     <h2>Malmös högst rankade julbord just nu:</h2>
 
     <form id="checkboxes" action="/filter_restaurants" method="post">
@@ -85,7 +85,7 @@
     -->
     </div> <!-- end of cardContainer-->
 
-    <div class="mapContainer" id="googleMap"></div>
+<div class="mapContainer" id="googleMap"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJOvuSQIBXS0IpOR-y16oLoByabvW-_k&callback=myMap"></script>
 
     </body>
