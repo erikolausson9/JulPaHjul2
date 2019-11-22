@@ -32,6 +32,9 @@
     <div class="leftColumn">
 
         <h1 th:text ="${restaurant.name}" id="restName"></h1>
+
+        🎅-rating: <span th:text="${restaurant.tomterating}"></span>
+        <!--
         <div class="rating">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -40,8 +43,10 @@
             <span class="far fa-star"></span>
             <span class="rating_count">(345 recensioner)</span>
         </div>
+        <span th:each="tomte:${restaurant.tomtar}">🎅Vad händer</span>
 
-        <br>
+-->
+        <br><br>
 
         <span class="restaurant_address">Östergatan 7B,  211 25 Malmö</span>
         <br><br>
