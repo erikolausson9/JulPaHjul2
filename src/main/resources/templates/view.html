@@ -69,8 +69,14 @@
     </div>
 
 
-        <h3>Tomterating</h3>
-        <span class="starRating">
+<center>
+    <div class="logo">
+        <p><img src="https://julbordsguiden.se/images/2018_Julbord/Loggor/Sankt_Gertrud_logotyp.png" width="200" height="100" alt="Sankt Gertrud logotyp"></p>
+    </div>
+
+<h3>Vad vill du ge denna restaurang för tomte-rating?</h3>
+<form class="starRating" action="/newRating/" method="post">
+    <input type="hidden" th:value="${restaurant.id}" name="id">
   <input id="rating5" type="radio" name="rating" value="5">
   <label for="rating5">🎅🎅🎅🎅🎅</label><br>
   <input id="rating4" type="radio" name="rating" value="4">
@@ -80,8 +86,9 @@
   <input id="rating2" type="radio" name="rating" value="2">
   <label for="rating2">🎅🎅</label><br>
   <input id="rating1" type="radio" name="rating" value="1">
-  <label for="rating1">🎅</label>
-</span>
+  <label for="rating1">🎅</label><br>
+    <input type="submit" value="Klicka här">
+</form>
 
 </div>
 
