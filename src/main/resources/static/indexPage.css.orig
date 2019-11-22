@@ -109,26 +109,29 @@ a {
     color:#ffffff;
 }
 
-<<<<<<< HEAD
+.booking {
+    font-family: "Questa Grande", "Palatino Linotype", serif;
+    display:block;
+    #width:100%;
+    margin:auto;
+    background-color: #c21f1f;
+
+
+}
+
+#headerbooking {
+    color:#ffffff;
+}
+
 .preferences {
     font-size: 30px;
     color: #c21f1f;
 }
 
 .checked {
-  color: #c21f1f;
-=======
-.booking {
-    display:block;
-    #width:100%;
-    margin:auto;
-    background-color: #c21f1f;
+    color: #c21f1f;
 }
 
-#headerbooking {
-    color:#ffffff;
-}
-<<<<<<< HEAD
 .confirmation{
    display:block;
     #width:100%;
@@ -137,14 +140,15 @@ a {
 }
 #headerbooking {
     color:#ffffff;
+}
+
+<<<<<<< HEAD
+.description {
+    text-align: left;
+    font-family: Mongolian Baiti, Georgia, serif;
 =======
-
-.preferences {
-    font-size: 30px;
-    color: #c21f1f;
+.select{
+border: 2px solid #039C31;
+>>>>>>> 7b8241458b6cab0bbf09798f3b4963bb346fdd22
 }
 
-.checked {
-  color: #c21f1f;
->>>>>>> f68467f0f9fb6ba964a4572ae2e470e3826070a0
-}
