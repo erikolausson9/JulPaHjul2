@@ -11,10 +11,15 @@
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <body>
-<div class="front">
+
+<div class="title">
+    <span><a href="/">Back to Home page</a></span><br>
     <span><a href="/login">Login</a></span><br>
-    <span><a href="/Bookingsform">Book a table</a></span>
+    <span><a href="/booking">Book a table</a></span><br>
+    <img src="../static/title.jpg" id="title" th:src="${'/title.jpg'}">
 </div>
+
+<!--<h1>Sankt Gertrud</h1>-->
 <h1 th:text ="${restaurant.name}"></h1>
 <div class="rating">
     <span class="fa fa-star checked"></span>
