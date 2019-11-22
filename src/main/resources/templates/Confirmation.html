@@ -13,8 +13,18 @@
 <span><a href="/">Tillbaka till startsida</a></span>
     <center> <img src="../static/bekraftelse.jpg" th:src="${'/bekraftelse.jpg'}"></center></div>
 
-<center ><h2> Tack för din bokning! </h2>
-<h3 th:text="${booking.firstname}" ></h3></center>
+<div class="bekraft">
 
+<center>
+
+    <h3 Bookningsbekräftelse> </h3>
+        <h2 th:text="${'Tack för din bokning ' + booking.firstname}"></h2>
+        <span th:text="${'Antal personer: ' + booking.people}" ></span> <br><br>
+        <span th:text="${'Du bokat bord den : ' + booking.day}" ></span> <br><br>
+        <span th:text="${'Klockan: ' + booking.time}" ></span> <br><br>
+
+
+</center>
+</div>
 </body>
 </html>
