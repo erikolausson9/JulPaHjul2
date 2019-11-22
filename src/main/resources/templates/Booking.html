@@ -63,16 +63,16 @@
 <h2>Avsluta reservation</h2>
 
     Namn:<br>
-    <input type="text" th:field="*{firstname}">
+    <input id="namn" th:field="*{firstname}"type="Namn" placeholder="Namn (obligatoriskt)">
     <br>
     Efternamn:<br>
-    <input type="text" th:field="*{lastname}">
+    <input id="efternamn" th:field="*{lastname}"type="tel" placeholder="Efternamn (obligatoriskt)">
     <br>
     E-post:<br>
-    <input type="text" th:field="*{email}">
+    <input id="e-post" th:field="*{email}"type="tel" placeholder="e-post (obligatoriskt)">
     <br>
     Telefonnummer: <br>
-    <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="076-274 21 37">
+    <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="telefonnummer">
      <br>
 
     <input type="submit" value="Boka"/> <br>
