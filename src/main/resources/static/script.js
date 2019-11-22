@@ -11,8 +11,9 @@ async function getDat() {
     for (var i = 0; i < mydataresponse.length; i++) {
        var resloc = new google.maps.LatLng(mydataresponse[i].lat, mydataresponse[i].lng);
        var name = mydataresponse[i].name;
+       var id = mydataresponse[i].id;
        console.log(name);
-       resturantMarkers(resloc, name);
+       resturantMarkers(resloc, name, id);
     }
 }
 
@@ -35,7 +36,7 @@ getDat();
 
 
 
-function resturantMarkers(resloc, name) {
+function resturantMarkers(resloc, name, id) {
 
   var icon = iconOne();
 
@@ -47,7 +48,7 @@ function resturantMarkers(resloc, name) {
 
     //"Tomte box"
     var infowindow = new google.maps.InfoWindow({
-      content: '<b>' + name + '</b><br>'
+      content: '<b>' + name + '</b><br><a href="http://127.0.0.1:8080/veiw?id=' + id + '">Details</a>'
     });
 
     marker.addListener('click', function() {
