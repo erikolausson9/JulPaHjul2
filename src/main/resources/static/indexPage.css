@@ -138,6 +138,7 @@ a {
 .preferences {
     font-size: 30px;
     color: #c21f1f;
+    float:left;
 }
 
 .checked {
@@ -161,7 +162,7 @@ a {
     text-align: left;
     font-family: Mongolian Baiti, Georgia, serif;
     padding: 200px;
-    margin:0px;
+    margin-left:20px;
 }
 
 .select{
@@ -186,9 +187,8 @@ font-weight:bold;
 }
 
 .openHours {
-
     padding-left: 1cm;
-    float:
+    float: left;
 }
 
 
@@ -201,6 +201,3 @@ font-weight:bold;
 position:relative;
 }
 
-#links2 {
-    color:#0000EE;
-}
