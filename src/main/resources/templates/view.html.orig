@@ -47,6 +47,7 @@
         <img src="https://sanktgertrud.se/_files/200000384-afc99b0c46/450/6ce7ch.jpg">
     </div>
 
+<<<<<<< HEAD
 <div class="openHours">
     <h3>Öppettider</h3>
     <p>Mondag - Fredag: 11:30-14:00</p>
@@ -61,6 +62,14 @@
     <i class="fas fa-baby-carriage"></i>
     <i class="fas fa-wheelchair"></i>
 </div>
+=======
+    <!-- Preferences -->
+    <br>
+    <div class="preferences">
+        <i class="fas fa-baby-carriage"></i>
+        <i class="fas fa-wheelchair"></i>
+    </div>
+>>>>>>> b92da753a1018970f73ab66035c2725dd381a647
 
 
     <!--description th:text="${restaurant.description}"-->
@@ -81,13 +90,17 @@
         <em>Varmt välkommen!</em>
     </div>
 
-<div class="openHours">
-    <h3>Öppettider</h3>
+<<<<<<< HEAD
+
+=======
+    <div class="openHours">
+        <h3>Öppettider</h3>
         <p>Mondag - Fredag: 11:30-14:00</p>
         <b>Startdatum: </b> 20 november 2019<br>
         <b>Sista datum: </b> 21 december 2019<br>
         <b>Hemsida: </b><a id="links" href="https://www.sanktgertrud.se/">www.sanktgertrud.se</a>
-</div>
+    </div>
+>>>>>>> b92da753a1018970f73ab66035c2725dd381a647
 
     <div class="logo">
         <p><img src="https://julbordsguiden.se/images/2018_Julbord/Loggor/Sankt_Gertrud_logotyp.png" width="200" height="100" alt="Sankt Gertrud logotyp"></p>
@@ -107,11 +120,16 @@
   <label for="rating1">🎅</label>
 </span>
 
+<<<<<<< HEAD
+<div class="mapContainer" id="googleMap"></div>
+=======
 </div>
 
 
     <div class="mapContainer" id="googleMap"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJOvuSQIBXS0IpOR-y16oLoByabvW-_k&callback=myMap"></script>
 
-</body>
+
+>>>>>>> b92da753a1018970f73ab66035c2725dd381a647
+
 </html>
