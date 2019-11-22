@@ -10,7 +10,7 @@
 
 <body>
 <div class="booking">
-    <span><a href="/">Tillbaka till startsida</a></span>
+    &nbsp;<span><a href="/">Tillbaka till startsida</a></span>
      <center> <img src="../static/bokaBord.jpg" th:src="${'/bokaBord.jpg'}"></center></div>
 
 <br><br><br>
@@ -63,7 +63,7 @@
 <h2>Avsluta reservation</h2>
 
     Namn:<br>
-    <input id="namn" th:field="*{firstname}"type="Namn" placeholder="Namn (obligatoriskt)">
+    <input th:field="*{firstname}" type="text" placeholder="Namn (obligatoriskt)">
     <br>
     Efternamn:<br>
     <input id="efternamn" th:field="*{lastname}"type="tel" placeholder="Efternamn (obligatoriskt)">

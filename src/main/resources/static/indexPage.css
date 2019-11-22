@@ -28,6 +28,7 @@ h2 {
 .title {
     width:100%;
     background-color: #c21f1f;
+    font-size: 20px;
 }
 
 img {
@@ -86,12 +87,14 @@ img {
 
 .login {
     display:block;
-    #width:100%;
     margin:auto;
     background-color: #c21f1f;
+    font-family: "Questa Grande", "Palatino Linotype", serif;
+    font-size: 20px;
 }
 
 #headerlogin {
+    font-family: "Questa Grande", "Palatino Linotype", serif;
     color:#ffffff;
 }
 
@@ -99,12 +102,14 @@ img {
 
 .addRestaurant {
         display:block;
-        #width:100%;
         margin:auto;
         background-color: #c21f1f;
+        font-family: "Questa Grande", "Palatino Linotype", serif;
+        font-size: 20px;
 }
 
 #headeraddrestaurant {
+    font-family: "Questa Grande", "Palatino Linotype", serif;
     color:#ffffff;
 }
 
@@ -116,22 +121,24 @@ a {
     color:#0000EE;
 }
 .booking {
-    font-family: "Questa Grande", "Palatino Linotype", serif;
     display:block;
-    #width:100%;
-    margin:auto;
-    background-color: #c21f1f;
+      margin:auto;
+      background-color: #c21f1f;
+      font-family: "Questa Grande", "Palatino Linotype", serif;
+      font-size: 20px;
 
 
 }
 
 #headerbooking {
+    font-family: "Questa Grande", "Palatino Linotype", serif;
     color:#ffffff;
 }
 
 .preferences {
     font-size: 30px;
     color: #c21f1f;
+    float:left;
 }
 
 .checked {
@@ -147,12 +154,15 @@ a {
      background-color: #c21f1f;
 }
 #headerbooking {
+    font-family: "Questa Grande", "Palatino Linotype", serif;
     color:#ffffff;
 }
 
 .description {
     text-align: left;
     font-family: Mongolian Baiti, Georgia, serif;
+    padding: 200px;
+    margin-left:20px;
 }
 
 .select{
@@ -172,11 +182,22 @@ color:black;
 font-weight:bold;
 }
 
-#frontImage {
-position:relative;
+.picture {
+    float: left;
+}
+
+.openHours {
+    padding-left: 1cm;
+    float: left;
 }
 
 
 
+#description {
+       height: 80px;
+}
 
+#frontImage {
+position:relative;
+}
 

@@ -107,7 +107,7 @@ function resturantMarkers(resloc, name, id) {
 
     //"Tomte box"
     var infowindow = new google.maps.InfoWindow({
-      content: '<b>' + name + '</b><br><a id="links" href="http://127.0.0.1:8080/view?id=' + id + '">Details</a>'
+      content: '<b>' + name + '</b><br><a id="links" href="http://127.0.0.1:8080/view?id=' + id + '">Mer om..</a>'
     });
 
     marker.addListener('click', function() {

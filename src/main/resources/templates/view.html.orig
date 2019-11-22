@@ -29,7 +29,7 @@
 </div>
 
     <!--<h1>Sankt Gertrud</h1>-->
-    <center><h1 th:text ="${restaurant.name}" id="restName"></h1>
+    <h1 th:text ="${restaurant.name}" id="restName"></h1>
     <div class="rating">
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star checked"></span>
@@ -40,23 +40,14 @@
     </div>
     <br>
     <div class="restaurant_address">Östergatan 7B,  211 25 Malmö</div>
-    <br></center>
+    <br>
 
 
     <div class="picture">
         <img src="https://sanktgertrud.se/_files/200000384-afc99b0c46/450/6ce7ch.jpg">
     </div>
-    <div class="mapContainer" id="googleMap"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJOvuSQIBXS0IpOR-y16oLoByabvW-_k&callback=myMap"></script>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <div class="preferences">
-        <i class="fas fa-baby-carriage"></i>
-        <i class="fas fa-wheelchair"></i>
-    </div>
 
+<<<<<<< HEAD
 <div class="openHours">
     <h3>Öppettider</h3>
     <p>Mondag - Fredag: 11:30-14:00</p>
@@ -66,12 +57,23 @@
 </div>
 
 <!-- Preferences -->
-
-
+<br>
+<div class="preferences">
+    <i class="fas fa-baby-carriage"></i>
+    <i class="fas fa-wheelchair"></i>
+</div>
+=======
+    <!-- Preferences -->
+    <br>
+    <div class="preferences">
+        <i class="fas fa-baby-carriage"></i>
+        <i class="fas fa-wheelchair"></i>
+    </div>
+>>>>>>> b92da753a1018970f73ab66035c2725dd381a647
 
 
     <!--description th:text="${restaurant.description}"-->
-   <br><br><div class="description" >
+    <div class="description" >
         <p><strong>På Sankt Gertrud serverar vi ett julbord som smakar precis lika bra för den klassiska
             julbordsfantasten som för den som hellre vill ha ett grönare julbord. Sillar med lök,
             senap och dill står bredvid de veganska sillalternativen. Laxar i alla smaker tillsammans med getostpatéer,
@@ -88,17 +90,24 @@
         <em>Varmt välkommen!</em>
     </div>
 
+<<<<<<< HEAD
 
-<center>
+=======
+    <div class="openHours">
+        <h3>Öppettider</h3>
+        <p>Mondag - Fredag: 11:30-14:00</p>
+        <b>Startdatum: </b> 20 november 2019<br>
+        <b>Sista datum: </b> 21 december 2019<br>
+        <b>Hemsida: </b><a id="links" href="https://www.sanktgertrud.se/">www.sanktgertrud.se</a>
+    </div>
+>>>>>>> b92da753a1018970f73ab66035c2725dd381a647
+
     <div class="logo">
         <p><img src="https://julbordsguiden.se/images/2018_Julbord/Loggor/Sankt_Gertrud_logotyp.png" width="200" height="100" alt="Sankt Gertrud logotyp"></p>
     </div>
 
-
-
-<h3>Vad vill du ge denna restaurang för tomte-rating?</h3>
-<form class="starRating" action="/newRating/" method="post">
-    <input type="hidden" th:value="${restaurant.id}" name="id">
+    <h3>Tomterating</h3>
+    <span class="starRating">
   <input id="rating5" type="radio" name="rating" value="5">
   <label for="rating5">🎅🎅🎅🎅🎅</label><br>
   <input id="rating4" type="radio" name="rating" value="4">
@@ -108,14 +117,19 @@
   <input id="rating2" type="radio" name="rating" value="2">
   <label for="rating2">🎅🎅</label><br>
   <input id="rating1" type="radio" name="rating" value="1">
-  <label for="rating1">🎅</label><br>
-    <input type="submit" value="Klicka här">
-</form>
+  <label for="rating1">🎅</label>
+</span>
 
+<<<<<<< HEAD
+<div class="mapContainer" id="googleMap"></div>
+=======
 </div>
 
 
+    <div class="mapContainer" id="googleMap"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJOvuSQIBXS0IpOR-y16oLoByabvW-_k&callback=myMap"></script>
 
 
-</body>
+>>>>>>> b92da753a1018970f73ab66035c2725dd381a647
+
 </html>

@@ -12,7 +12,6 @@ public class Restaurant implements Comparable {
     private int numberOfVotes;
 
     private String adress;
-    private String stadsdel;
     private String oppettider;
     private String priskategori;
     private String linkToWebsite;
@@ -43,11 +42,10 @@ public class Restaurant implements Comparable {
     }
 
 
-    public Restaurant(String name, String description, String adress, String stadsdel, String oppettider, String priskategori, String linkToWebsite, Double tomterating) {
+    public Restaurant(String name, String description, String adress, String oppettider, String priskategori, String linkToWebsite, Double tomterating) {
         this.name = name;
         this.description = description;
         this.adress = adress;
-        this.stadsdel = stadsdel;
         this.oppettider = oppettider;
         this.priskategori = priskategori;
         this.linkToWebsite = linkToWebsite;
@@ -191,13 +189,6 @@ public class Restaurant implements Comparable {
         }
     }
 
-    public String getStadsdel() {
-        return stadsdel;
-    }
-
-    public void setStadsdel(String stadsdel) {
-        this.stadsdel = stadsdel;
-    }
 
     public String getOppettider() {
         return oppettider;
