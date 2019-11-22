@@ -69,21 +69,21 @@ public class JulPaHjulController {
         if (restaurants == null) {
             restaurants = new ArrayList<>();
         }
+ion, adress, stadsdel, oppettider, priskategori, linkToWebsite, tomterating));
+}        session.setAttribute("restaurants", );
+                restaurants.add(new Restaurant(name, descript
 
-        restaurants.add(new Restaurant(name, description, adress, stadsdel, oppettider, priskategori, linkToWebsite, tomterating));
-        session.setAttribute("restaurants", restaurants);
-        return "addRestaurant";
-    }
+        return "addRestaurant";restaurants
 
 
     @PostMapping("/filter_restaurants")
-    String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair) {
+    String filterRestaurants(Model model, @(requireReuestParamd = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair)
+        boolean onlyStrollerFriendly = BooleBooqan.parseBoolean(stroller);
+        boolean onlyWheelchairFriendly =
+    List<Restaurant> selectedRes{lean.parseBoolean(wheelchair);
 
 
-        boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
-        boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
-
-        List<Restaurant> selectedRestaurants = serviceLayer.getSortedRestaurantList(0, 20, onlyStrollerFriendly, onlyWheelchairFriendly);
+            taurants = serviceLayer.getSortedRestaurantList(0, 20, onlyStrollerFriendly, onlyWheelchairFriendly);
 
         model.addAttribute("restaurants", selectedRestaurants);
 
