@@ -52,21 +52,29 @@ public class JulPaHjulController {
 
     @GetMapping("/logout")
     String logout(HttpSession session) {
-        session.removeAttribute("username");
+        session.invalidate();
         return "index";
     }
 
 
     @GetMapping("/addRestaurant")
-    String RestaurantForm(Model model) {
-        model.addAttribute("restaurant", new Restaurant("a", "b", "c", "d", "e", "f", "g", 4.5));
+    String form(Model model) {
+        model.addAttribute("restaurant", new Restaurant());
 
         return "addRestaurant";
     }
 
     @PostMapping("/addRestaurant")
-    String addRestaurant (Model model, @ModelAttribute Restaurant restaurants) {
-        model.addAttribute("restaurants", restaurants);
+    String addRestaurant (HttpSession session, Model model, @ModelAttribute Restaurant restaurant) {
+        model.addAttribute("restaurant", restaurant);
+
+        List<Restaurant> restaurants = (List<Restaurant>)session.getAttribute("restaurants");
+        if (restaurants == null) {
+            restaurants = new ArrayList<>();
+            session.setAttribute("restaurants", restaurants);
+        }
+
+        restaurants.add(restaurant);
 
         return "addRestaurant";
     }
