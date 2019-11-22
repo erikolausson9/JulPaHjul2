@@ -11,12 +11,12 @@
 <body>
 <div class="booking">
     <span><a href="/">Tillbaka till startdida</a></span>
-     <center><h1 id="headerbooking"> Boka bord </h1></center></div>
-      <center><form action="/booking" method="POST" th:object="${booking}">
-         
+     <center> <img src="../static/bokaBord.jpg" th:src="${'/bokaBord.jpg'}"></center></div>
 
-    Personer: <select th:field="*{people}">
+    <center><form action="/booking" method="POST" th:object="${booking}">
 
+
+        Personer: <select th:field="*{people}">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -61,7 +61,6 @@
 
 <h2>Avsluta reservation</h2>
 
-
     Namn:<br>
     <input type="text" th:field="*{firstname}">
     <br>
@@ -72,10 +71,10 @@
     <input type="text" th:field="*{email}">
     <br>
     Telefonnummer: <br>
-    <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="+46-274 21 37">
+    <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="076-274 21 37">
      <br>
 
-    <input type="submit" value="Reserve now"/> <br>
+    <input type="submit" value="Boka"/> <br>
 
 </form>
 </center>

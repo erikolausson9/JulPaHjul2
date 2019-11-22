@@ -44,7 +44,7 @@ public class JulPaHjulController {
         if (username.equals("admin") && password.equals("12345")) {
             session.setAttribute("username", username);
             System.out.println("You are now logged in");
-            return "index";
+            return "redirect:/";
         }
         return "login";
     }
@@ -53,7 +53,7 @@ public class JulPaHjulController {
     @GetMapping("/logout")
     String logout(HttpSession session) {
         session.invalidate();
-        return "index";
+        return "redirect:/";
     }
 
 
@@ -101,17 +101,8 @@ public class JulPaHjulController {
     String reserve(Model model, @ModelAttribute Booking booking) {
         model.addAttribute("booking", booking);
         return "confirmation";
-
     }
 
-    @GetMapping("/confirmation")
-    public String reserve(HttpSession session, @RequestParam String People, @RequestParam String Day,@RequestParam String Time, @RequestParam String Email, @RequestParam String Firstname, @RequestParam String Lastname, @RequestParam String Phonenumber) {
-        //(String)session.getAttribute("");
-        if (Email != null) {
-            return "confirmation";
-        }
-        return "booking";
-    }
 
     @GetMapping("/view")
     public String view(Model model, @RequestParam int id) {

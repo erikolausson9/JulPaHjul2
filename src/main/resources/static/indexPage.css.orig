@@ -143,12 +143,15 @@ a {
 }
 
 <<<<<<< HEAD
+
+=======
 .description {
     text-align: left;
     font-family: Mongolian Baiti, Georgia, serif;
-=======
+}
+
 .select{
 border: 2px solid #039C31;
->>>>>>> 7b8241458b6cab0bbf09798f3b4963bb346fdd22
 }
+>>>>>>> f5c0e413126bf17b548f8c2ce98f75ca71dfcd11
 

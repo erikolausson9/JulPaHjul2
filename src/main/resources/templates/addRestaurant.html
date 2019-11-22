@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/indexPage.css" th:href ="'/indexPage.css'">
-    <title>Add Restaurant</title>
+    <title>Lägg till restaurang</title>
 </head>
 <STYLE>A {text-decoration: none;} </STYLE>
 <body>
 
 <div class="addRestaurant">
-    <span><a href="/">Back to Home page</a></span>
-    <center><h1 id="headeraddrestaurant"> Add Restaurant</h1></center></div>
+    <span><a href="/">Tillbaks till startsidan</a></span>
+    <center><h1 id="headeraddrestaurant"> Lägg till restaurang</h1></center></div>
 
 <center><form action="/addRestaurant" method="POST" th:object="${restaurant}">
     <input type="text" placeholder="Namn på restaurang" th:field="*{name}"/><br>
@@ -35,6 +35,7 @@
 
 <center>
 <div th:each="restaurant : ${session.restaurants}">
+    <h3>Tack för ditt bidrag!<br> Vi återkommer strax med en uppdaterad lista. </h3>
     <span th:text="${'Namn: ' + restaurant.name}"></span><br><br>
     <span th:text="${'Beskrivning av restaurang: ' + restaurant.description}"></span><br><br>
     <span th:text="${'Address: ' + restaurant.adress}"></span><br><br>
