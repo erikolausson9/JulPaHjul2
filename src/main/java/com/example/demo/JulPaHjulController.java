@@ -73,13 +73,10 @@ public class JulPaHjulController {
 
 
     @PostMapping("/filter_restaurants")
-    String filterRestaurants(Model model, @(requireReuestParamd = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair)
-        boolean onlyStrollerFriendly = BooleBooqan.parseBoolean(stroller);
-        boolean onlyWheelchairFriendly =
-    List<Restaurant> selectedRes{lean.parseBoolean(wheelchair);
-
-
-            taurants = serviceLayer.getSortedRestaurantList(0, 20, onlyStrollerFriendly, onlyWheelchairFriendly);
+    String filterRestaurants(Model model, @RequestParam(required = false, defaultValue = "false") String stroller, @RequestParam(required = false, defaultValue = "false") String wheelchair){
+        boolean onlyStrollerFriendly = Boolean.parseBoolean(stroller);
+        boolean onlyWheelchairFriendly = Boolean.parseBoolean(wheelchair);
+    List<Restaurant> selectedRestaurants = serviceLayer.getSortedRestaurantList(0, 20, onlyStrollerFriendly, onlyWheelchairFriendly);
 
         model.addAttribute("restaurants", selectedRestaurants);
 
