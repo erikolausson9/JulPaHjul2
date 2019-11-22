@@ -108,7 +108,26 @@ public class JulPaHjulController {
     public String view(Model model, @RequestParam int id) {
         Restaurant restaurant = serviceLayer.getRestaurant(id);
         model.addAttribute("restaurant", restaurant);
+        model.addAttribute("id", id);
         return "view";
+    }
+
+
+    @PostMapping("/newRating")
+    String newRating(Model model, @RequestParam int id, @RequestParam String rating){
+        double tomterating= serviceLayer.getRestaurant(id).getTomterating();
+        int numberOfVotes = serviceLayer.getRestaurant(id).getNumberOfVotes();
+        double newRating = Double.parseDouble(rating);
+        //calculate new tomterating for the restaurant in question and round to two decimal places
+        tomterating = ((tomterating*numberOfVotes)+newRating)/(numberOfVotes+1);
+        int tempTomterating = (int)(tomterating*100);
+        tomterating = (double)tempTomterating/100;
+      
+        serviceLayer.getRestaurant(id).setNumberOfVotes(numberOfVotes+1);
+        serviceLayer.getRestaurant(id).setTomterating(tomterating);
+        model.addAttribute("restaurant", serviceLayer.getRestaurant(id));
+        model.addAttribute("id", id);
+    return "view";
     }
 
 }
