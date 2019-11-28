@@ -14,12 +14,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
 <STYLE>A {text-decoration: none;} </STYLE>
-<!-- Font Awesome Icon Library -->
 <body>
-
-
 
 <div class="title">
     &nbsp;<span><a href="/">Tillbaka till startsidan</a></span><br>
@@ -28,10 +24,8 @@
     <img src="../static/title.jpg" id="title" th:src="${'/title.jpg'}">
 </div>
 
-    <!--<h1>Sankt Gertrud</h1>-->
-    <div class="leftColumn">
-
-        <h1 th:text ="${restaurant.name}" id="restName"></h1>
+<div class="leftColumn">
+    <h1 th:text ="${restaurant.name}" id="restName"></h1>
         <div class="rating">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -39,11 +33,9 @@
             <span class="fa fa-star checked"></span>
             <span class="far fa-star"></span>
             <span class="rating_count">(345 recensioner)</span>
-        </div>
+        </div><br>
 
-        <br>
-
-        <span class="restaurant_address">Östergatan 7B,  211 25 Malmö</span>
+    <span class="restaurant_address">Östergatan 7B,  211 25 Malmö</span>
         <br><br>
        <h3>Öppettider</h3>
        <p>Mondag - Fredag: 11:30-14:00</p>
@@ -71,50 +63,23 @@
 <h3>Vad vill du ge denna restaurang för tomte-rating?</h3>
 <form class="starRating" action="/newRating/" method="post">
     <input type="hidden" th:value="${restaurant.id}" name="id">
-  <input id="rating5" type="radio" name="rating" value="5">
-  <label for="rating5">🎅🎅🎅🎅🎅</label><br>
-  <input id="rating4" type="radio" name="rating" value="4">
-  <label for="rating4">🎅🎅🎅🎅</label><br>
-  <input id="rating3" type="radio" name="rating" value="3">
-  <label for="rating3">🎅🎅🎅</label><br>
-  <input id="rating2" type="radio" name="rating" value="2">
-  <label for="rating2">🎅🎅</label><br>
-  <input id="rating1" type="radio" name="rating" value="1">
-  <label for="rating1">🎅</label><br><br>
+    <input id="rating5" type="radio" name="rating" value="5">
+    <label for="rating5">🎅🎅🎅🎅🎅</label><br>
+    <input id="rating4" type="radio" name="rating" value="4">
+    <label for="rating4">🎅🎅🎅🎅</label><br>
+    <input id="rating3" type="radio" name="rating" value="3">
+    <label for="rating3">🎅🎅🎅</label><br>
+    <input id="rating2" type="radio" name="rating" value="2">
+    <label for="rating2">🎅🎅</label><br>
+    <input id="rating1" type="radio" name="rating" value="1">
+    <label for="rating1">🎅</label><br><br>
     <input type="submit" value="Klicka här">
 </form>
 <br><br>
 </div>
-
     <br><br>
     <div class="mapContainer" id="googleMap"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJOvuSQIBXS0IpOR-y16oLoByabvW-_k&callback=myMap"></script>
-
-
-
-
-
-
-
-
-<!-- Preferences -->
-
-
-
-
-    <!--description th:text="${restaurant.description}"-->
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
