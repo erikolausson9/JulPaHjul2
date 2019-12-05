@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>addMember</title>
 </head>
 <body>
+
+&nbsp;<span><a href="/">Tillbaka till startsidan</a></span>
+&nbsp;<center><h1 id="headeraddrestaurant"> Bli medlem!</h1></center></div>
+
+<center>
+    <form action="/addMember" method="POST" th:object="${member}">
+    <input type="text" placeholder="Ditt namn" th:field="*{anvandarNamn}"/><span th:if="${#fields.hasErrors('anvandarNamn')}"> Skriv minst fem tecken</span>  <br>
+
+        <input id="description" type="text" placeholder="Lösenord" th:field="*{losenord}"/><span th:if="${#fields.hasErrors('emailAdress')}">Skriv ett lösenord som är mellan 5 och 30 tecken långt.</span><br>
+    <input type="text" placeholder="Email" th:field="*{emailAdress}"/>  <span th:if="${#fields.hasErrors('emailAdress')}"> Skriv en giltig e-postadress.</span><br>
+
+
+
+</form>
+</center>
+
+<br>
+
+
 
 
 
