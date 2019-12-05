@@ -11,6 +11,8 @@ public class ServiceLayer {
 
     @Autowired
     RestaurantRepository restaurantRepository;
+    @Autowired
+    MemberRepository memberRepository;
 
     public List<Restaurant> getSortedRestaurantList(int pageNr, int itemsPerPage, boolean onlyStrollerFriendly, boolean onlyWheelchairFriendly) {
         restaurantRepository.getRestaurants();
@@ -23,6 +25,9 @@ public class ServiceLayer {
 
     public void addRestaurant(Restaurant restaurant) {
         restaurantRepository.addRestaurant(restaurant);
+    }
 
+    public void addMember(Member member) {
+        memberRepository.addMember(member);
     }
 }
