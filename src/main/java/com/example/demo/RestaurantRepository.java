@@ -51,7 +51,7 @@ public class RestaurantRepository {
 
         Collections.sort(restaurantList);
 
-        for(int ii=0; ii<itemsPerPage; ii++){
+        for(int ii=0; ii< Math.min(itemsPerPage, restaurantList.size()); ii++){
 
             Restaurant restaurant = restaurantList.get(pageNr+ii);
 
@@ -106,6 +106,7 @@ public class RestaurantRepository {
     }
 
     public List<Restaurant> getRestaurants(){
+        restaurantList.clear();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM RESTAURANG")){

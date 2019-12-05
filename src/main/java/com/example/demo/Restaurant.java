@@ -16,7 +16,7 @@ public class Restaurant implements Comparable {
     private String priskategori;
     private String linkToWebsite;
 
-    private ArrayList<String> tomtar;
+    private ArrayList<String> tomtar = new ArrayList<>();
 
     private boolean strollerOk;
     private boolean wheelchairOk;
