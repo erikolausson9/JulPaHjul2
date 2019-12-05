@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -81,31 +78,46 @@ public class RestaurantRepository {
             else {
                 subList.add(restaurant);
             }
-
-
         }
         //Collections.sort(subList);
         return subList;
     }
+
     public void addRestaurant(Restaurant restaurantToAdd){
-        restaurantList.add(restaurantToAdd);
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO Restaurang (RestaurangNamn, " +
+                     "RestaurangBeskrivning, RestaurangLongitud, " +
+                     "RestaurangLatitutd, TomteRating, RestaurangOppettider, " +
+                     "Prisklass, Lank) VALUES(?, ?, ?, ?, ?, ?, ?, ?)")) {
+            preparedStatement.setString(1, restaurantToAdd.getName());
+            preparedStatement.setString(2, restaurantToAdd.getDescription());
+            preparedStatement.setDouble(3, restaurantToAdd.getLng());
+            preparedStatement.setDouble(4, restaurantToAdd.getLat());
+            preparedStatement.setDouble(5, restaurantToAdd.getTomterating());
+            preparedStatement.setString(6, restaurantToAdd.getOppettider());
+            preparedStatement.setString(7, restaurantToAdd.getPriskategori());
+            preparedStatement.setString(8, restaurantToAdd.getLinkToWebsite());
+            preparedStatement.executeUpdate();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+
     }
 
     public List<Restaurant> getRestaurants(){
-    List<Restaurant> restaurants = new ArrayList<>();
         try (Connection conn = dataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT * FROM RESTAURANG")){
             while(rs.next()){
-                    restaurants.add(rsRestaurant(rs));
-
+                    restaurantList.add(rsRestaurant(rs));
             }
         }
         catch(SQLException e){
             e.printStackTrace();
         }
         //restaurants.add(new Restaurant("hej", "h", 2.5, true, true, 1,1));
-        return restaurants;
+        return restaurantList;
     }
 
     public Restaurant rsRestaurant(ResultSet rs) throws SQLException {
