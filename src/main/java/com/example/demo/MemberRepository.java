@@ -24,7 +24,7 @@ public class MemberRepository {
     public Member rsMember(ResultSet rs) throws SQLException{
         Member member = new Member();
         member.setId(rs.getInt("MedlemsId"));
-        member.setAnvandarNamn(rs.getString("AnvandarNamn"));
+        member.setAnvandarNamn(rs.getString("Anvandarnamn"));
         member.setLosenord(rs.getString("Losenord"));
         member.setEmailAdress(rs.getString("EmailAdress"));
 
@@ -45,9 +45,10 @@ public class MemberRepository {
     }
 
    public List<Member> getMembers(){
+        members.clear();
        try (Connection conn = dataSource.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Member")){
+            ResultSet rs = stmt.executeQuery("SELECT * FROM MEDLEM")){
            while(rs.next()){
                members.add(rsMember(rs));
            }
@@ -55,7 +56,21 @@ public class MemberRepository {
        catch(SQLException e){
            e.printStackTrace();
        }
-
        return members;
    }
+
+   public List<Member> getMemberList(){
+        return members;
+   }
+
+   public Member getMember(int id) {
+        for (Member member : members) {
+            if (member.getId()==id) {
+                return member;
+            }
+        }
+        return null;
+   }
+
+
 }

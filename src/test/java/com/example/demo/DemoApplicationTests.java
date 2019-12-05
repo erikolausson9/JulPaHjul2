@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ class DemoApplicationTests {
 
 	@Autowired
 	RestaurantRepository repository;
+	@Autowired
+	MemberRepository memberRepository;
 
 	@Test
 	void contextLoads() {
@@ -60,6 +63,25 @@ class DemoApplicationTests {
 		Assertions.assertEquals(size+1, restaurants.size());
 		Assertions.assertEquals("hej", restaurants.get(size).getName());
 
+	}
+
+	@Test
+	void testGetMembers() throws SQLException{
+
+		List<Member> members = memberRepository.getMembers();
+		Assertions.assertEquals(1,members.size());
+	}
+
+	@Test
+	void testAddMember(){
+		List<Member> members = memberRepository.getMembers();
+		int size = members.size();
+		Member member = new Member("peter.haggkvist","Peter24","peter.haggkvist@hotmail.com");
+		memberRepository.addMember(member);
+
+		members = memberRepository.getMembers();
+		Assertions.assertEquals(size+1,members.size());
+		Assertions.assertEquals("peter.haggkvist",members.get(size).getAnvandarNamn());
 	}
 
 }
