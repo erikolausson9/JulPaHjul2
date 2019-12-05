@@ -101,7 +101,6 @@ public class JulPaHjulController {
 
             serviceLayer.addRestaurant(restaurant);
 
-
         List<Restaurant> restaurants = (List<Restaurant>)session.getAttribute("restaurants");
         if (restaurants == null) {
             restaurants = new ArrayList<>();
@@ -134,6 +133,7 @@ public class JulPaHjulController {
     @PostMapping("/booking")
     String reserve(Model model, @ModelAttribute Booking booking) {
         model.addAttribute("booking", booking);
+        serviceLayer.addBooking(booking);
         return "confirmation";
     }
 

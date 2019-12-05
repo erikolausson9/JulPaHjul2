@@ -1,7 +1,8 @@
 package com.example.demo;
 
 public class Booking {
-    private String people;
+    private int bookingId;
+    private int people;
     private String day;
     private String time;
     private String email;
@@ -12,15 +13,30 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(String People, String Day, String Time, String email, String firstname, String lastname, String phonenumber) {
-        this.people = People;
+    public Booking(int bookingId, int people, String day, String time, String email, String firstname, String lastname, String phonenumber) {
+        this.bookingId = bookingId;
+        this.people = people;
+        this.day = day;
+        this.time = time;
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phonenumber = phonenumber;
     }
 
-    public String getPeople() {
+    public int getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public int getPeople() {
         return people;
     }
 
-    public void setPeople(String people) {
+    public void setPeople(int people) {
         this.people = people;
     }
 
