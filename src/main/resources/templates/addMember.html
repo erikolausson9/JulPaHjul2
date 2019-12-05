@@ -15,7 +15,7 @@
 
         <input id="description" type="text" placeholder="Lösenord" th:field="*{losenord}"/><span th:if="${#fields.hasErrors('emailAdress')}">Skriv ett lösenord som är mellan 5 och 30 tecken långt.</span><br>
     <input type="text" placeholder="Email" th:field="*{emailAdress}"/>  <span th:if="${#fields.hasErrors('emailAdress')}"> Skriv en giltig e-postadress.</span><br>
-
+    <input type="submit" value="Bli medlem">
 
 
 </form>

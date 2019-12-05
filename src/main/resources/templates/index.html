@@ -10,16 +10,12 @@
 
 
 </head>
-<STYLE>A {text-decoration: none;} </STYLE>
+
 <body>
-<div>
-
-<div class = "front">
-
-</div>
 
 <div class="title">
     &nbsp;<span th:if="${session.username == null}"><a href="/login">Logga in</a></span>
+     <br><span th:if="${session.username == null}"><a href="/addMember"> Bli medlem</a></span>
     <span th:if="${session.username != null}"><a href="/logout">Logga ut</a></span>
     <br><span th:if="${session.username != null}"><a href="/addRestaurant">&nbsp;&nbsp;Lägg till restaurang</a></span>
     <img src="../static/title.jpg" id="title" th:src="${'/title.jpg'}">
