@@ -1,16 +1,25 @@
 package com.example.demo;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+import java.util.ArrayList;
+
 public class Member {
     private int id;
+    @Size(min=5, max=30)
     private String anvandarNamn;
+    @Size(min=5, max=30)
     private String losenord;
+
+    @Email
     private String emailAdress;
+
+    private ArrayList<String> members = new ArrayList<>();
 
     public Member() {
     }
 
-    public Member(int id, String anvandarNamn, String losenord, String emailAdress) {
-        this.id = id;
+    public Member(String anvandarNamn, String losenord, String emailAdress) {
         this.anvandarNamn = anvandarNamn;
         this.losenord = losenord;
         this.emailAdress = emailAdress;
@@ -46,5 +55,9 @@ public class Member {
 
     public void setEmailAdress(String emailAdress) {
         this.emailAdress = emailAdress;
+    }
+
+    public void clearMemberList() {
+        members.clear();
     }
 }

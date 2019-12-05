@@ -11,6 +11,8 @@ public class ServiceLayer {
 
     @Autowired
     RestaurantRepository restaurantRepository;
+    @Autowired
+    MemberRepository memberRepository;
 
     @Autowired
     BookingRepository bookingRepository;
@@ -31,4 +33,9 @@ public class ServiceLayer {
     public void addBooking(Booking booking) {
         bookingRepository.addBooking(booking);
     }
+
+    public void addMember(Member member) {
+        memberRepository.addMember(member);
+    }
+
 }

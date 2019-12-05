@@ -3,12 +3,15 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.method.annotation.AbstractMappingJacksonResponseBodyAdvice;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +59,30 @@ public class JulPaHjulController {
         return "redirect:/";
     }
 
+    @GetMapping("/addMember")
+    String addMember(Model model){
+        model.addAttribute("member", new Member());
+
+        return "addMember";
+    }
+
+    @PostMapping("/addMember")
+    String addMember(HttpSession session, Model model, @Valid Member member, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addMember";
+        }
+        model.addAttribute("member", member);
+            serviceLayer.addMember(member);
+
+        List<Member> members = (List<Member>)session.getAttribute("members");
+        if (members == null) {
+            members = new ArrayList<>();
+            session.setAttribute("members", members);
+        }
+        members.add(member);
+
+        return "addMember";
+    }
 
     @GetMapping("/addRestaurant")
     String form(Model model) {
@@ -65,7 +92,11 @@ public class JulPaHjulController {
     }
 
     @PostMapping("/addRestaurant")
-    String addRestaurant (HttpSession session, Model model, @ModelAttribute Restaurant restaurant) {
+    String addRestaurant (HttpSession session, Model model, @Valid Restaurant restaurant, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "addRestaurant";
+        }
         model.addAttribute("restaurant", restaurant);
 
             serviceLayer.addRestaurant(restaurant);
