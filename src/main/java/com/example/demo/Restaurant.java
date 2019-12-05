@@ -1,26 +1,37 @@
 package com.example.demo;
 
 
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 
 public class Restaurant implements Comparable {
 
     private int id;
+
+    @Size(min=3, max=30)
     private String name;
+
     private String description;
+
     private Double tomterating;
     private int numberOfVotes;
 
+    @Size(min=1, max=30)
     private String adress;
+
     private String oppettider;
     private String priskategori;
+
     private String linkToWebsite;
 
     private ArrayList<String> tomtar = new ArrayList<>();
 
     private boolean strollerOk;
     private boolean wheelchairOk;
+
     private double lat;
+
     private double lng;
 
     public Restaurant() {

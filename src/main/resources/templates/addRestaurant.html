@@ -15,9 +15,10 @@
     &nbsp;<center><h1 id="headeraddrestaurant"> Lägg till restaurang</h1></center></div>
 
 <center><form action="/addRestaurant" method="POST" th:object="${restaurant}">
-    <input type="text" placeholder="Namn på restaurang" th:field="*{name}"/><br>
+    <input type="text" placeholder="Namn på restaurang" th:field="*{name}"/><span th:if="${#fields.hasErrors('name')}"> Skriv minst fem tecken</span>  <br>
+
     <input id="description" type="text" placeholder="Beskrivning av restaurang" th:field="*{description}"/><br>
-    <input type="text" placeholder="Adress" th:field="*{adress}"/><br>
+    <input type="text" placeholder="Adress" th:field="*{adress}"/>  <span th:if="${#fields.hasErrors('adress')}"> Skriv minst ett tecke</span><br>
     <input type="text" placeholder="Öppettider" th:field="*{oppettider}"/><br>
     <input type="text" placeholder="Priskategori" th:field="*{priskategori}"/><br>
     <input type="text" placeholder="Länk till hemsida" th:field="*{linkToWebsite}"/><br>
