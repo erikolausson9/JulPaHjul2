@@ -26,7 +26,8 @@ public class RestaurantRepository {
 
         restaurantList = new ArrayList<Restaurant>();
 
-        create20FakeRestaurants(); //TODO: should be replaced by real restaurants
+        //restaurantList = getRestaurants();
+        //create20FakeRestaurants();
     }
 
     public boolean testDB() throws SQLException {
@@ -88,6 +89,37 @@ public class RestaurantRepository {
     }
     public void addRestaurant(Restaurant restaurantToAdd){
         restaurantList.add(restaurantToAdd);
+    }
+
+    public List<Restaurant> getRestaurants(){
+    List<Restaurant> restaurants = new ArrayList<>();
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM RESTAURANG")){
+            while(rs.next()){
+                    restaurants.add(rsRestaurant(rs));
+
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        //restaurants.add(new Restaurant("hej", "h", 2.5, true, true, 1,1));
+        return restaurants;
+    }
+
+    public Restaurant rsRestaurant(ResultSet rs) throws SQLException {
+        Restaurant restaurant = new Restaurant();
+        restaurant.setId(rs.getInt("RestaurangId"));
+        restaurant.setName(rs.getString("RestaurangNamn"));
+        restaurant.setDescription(rs.getString("RestaurangBeskrivning"));
+        restaurant.setLatLng(rs.getFloat("RestaurangLatitutd"), rs.getFloat("RestaurangLongitud"));
+        restaurant.setTomterating(rs.getDouble("TomteRating"));
+        restaurant.setOppettider(rs.getString("RestaurangOppettider"));
+        restaurant.setPriskategori(rs.getString("Prisklass"));
+        restaurant.setLinkToWebsite(rs.getString("Lank"));
+
+        return restaurant;
     }
 
     public void create20FakeRestaurants(){

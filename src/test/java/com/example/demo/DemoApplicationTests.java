@@ -40,4 +40,26 @@ class DemoApplicationTests {
 	}
 
 
+	@Test
+	void testGetRestaurants()throws SQLException{
+
+		List<Restaurant> restaurants = repository.getRestaurants();
+		Assertions.assertEquals(5, restaurants.size());
+		//Assertions.assertEquals("hej", restaurants.get(0).getName());
+
+	}
+
+	@Test
+	void testAddRestaurant(){
+		List<Restaurant> restaurants = repository.getRestaurants();
+		int size = restaurants.size();
+		Restaurant restaurant =  new Restaurant("hej", "h", 2.5, true, true, 1,1);
+		repository.addRestaurant(restaurant);
+
+		restaurants = repository.getRestaurants();
+		Assertions.assertEquals(size+1, restaurants.size());
+		Assertions.assertEquals("hej", restaurants.get(size).getName());
+
+	}
+
 }
