@@ -20,4 +20,9 @@ public class ServiceLayer {
     public Restaurant getRestaurant(Integer id) {
         return restaurantRepository.getRestaurant(id);
     }
+
+    public void addRestaurant(Restaurant restaurant) {
+        restaurantRepository.addRestaurant(restaurant);
+
+    }
 }

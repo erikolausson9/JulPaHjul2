@@ -68,6 +68,9 @@ public class JulPaHjulController {
     String addRestaurant (HttpSession session, Model model, @ModelAttribute Restaurant restaurant) {
         model.addAttribute("restaurant", restaurant);
 
+            serviceLayer.addRestaurant(restaurant);
+
+
         List<Restaurant> restaurants = (List<Restaurant>)session.getAttribute("restaurants");
         if (restaurants == null) {
             restaurants = new ArrayList<>();
