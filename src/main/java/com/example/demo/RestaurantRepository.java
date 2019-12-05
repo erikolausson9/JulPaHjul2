@@ -1,7 +1,13 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,6 +15,8 @@ import java.util.Random;
 
 @Service
 public class RestaurantRepository {
+    @Autowired
+    DataSource dataSource;
 
     //instance variables
     private List<Restaurant> restaurantList;
@@ -21,6 +29,19 @@ public class RestaurantRepository {
         create20FakeRestaurants(); //TODO: should be replaced by real restaurants
     }
 
+    public boolean testDB() throws SQLException {
+        int two = 0;
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT 1+1")) {
+            rs.next();
+            two = rs.getInt(1);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return two == 2;
+    }
 
 
 

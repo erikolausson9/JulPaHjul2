@@ -5,12 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @SpringBootTest
 class DemoApplicationTests {
 
-
+	@Autowired
+	RestaurantRepository repository;
 
 	@Test
 	void contextLoads() {
@@ -30,8 +32,11 @@ class DemoApplicationTests {
 		sortedRestaurants = restaurantRepository.getSortedRestaurantList(0, 20, false, false);
 		Assertions.assertEquals("TestRestaurang2", sortedRestaurants.get(1).getName());
 
+	}
 
-
+	@Test
+	void testSQLServler() throws SQLException {
+		Assertions.assertTrue(repository.testDB());
 	}
 
 
