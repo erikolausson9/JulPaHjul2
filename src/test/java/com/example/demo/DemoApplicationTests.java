@@ -17,6 +17,9 @@ class DemoApplicationTests {
 	@Autowired
 	MemberRepository memberRepository;
 
+	@Autowired
+	BookingRepository bookingRepository;
+
 	@Test
 	void contextLoads() {
 	}
@@ -82,6 +85,15 @@ class DemoApplicationTests {
 		members = memberRepository.getMembers();
 		Assertions.assertEquals(size+1,members.size());
 		Assertions.assertEquals("peter.haggkvist",members.get(size).getAnvandarNamn());
+	}
+
+	@Test
+	void testGetBooking(){
+		Booking booking = new Booking();
+		String username = "Aga";
+		booking = bookingRepository.getMyBooking(username);
+
+		Assertions.assertEquals("agalel@gmail.com", booking.getEmail());
 	}
 
 }
