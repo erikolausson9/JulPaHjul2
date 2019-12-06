@@ -12,7 +12,9 @@
 </div>
 
 <center>
+    <div th:each="myBooking: ${myBooking}">
     <div th:if="${myBooking.people != 0}">
+
         <p>Du är bokad för <span th:text="${myBooking.people}"></span> personer.</p>
         <p>På resturangen <span th:text="${myBooking.restaurant}"></span>.</p>
         <p>För mer into gå till <span th:text="${myBooking.restaurantLank}"></span></p>
@@ -20,10 +22,13 @@
         <p>Klockan: <span th:text="${myBooking.time}"></span></p>
         <p>Vänligen uppge <span th:text="${myBooking.email}"></span> när ni kommer till resturangen</p>
         <p>eller <span th:text="${myBooking.phonenumber}"></span></p>
+        </div>
     </div>
 
+    <div th:each="myBooking: ${myBooking}">
     <div th:if="${myBooking.people == 0}">
         <span>Du har inga bokningar!</span>
+    </div>
     </div>
 
 </center>
