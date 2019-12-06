@@ -20,13 +20,26 @@ public class RestaurantRepository {
 
     //constructor
     public RestaurantRepository(){
-
         restaurantList = new ArrayList<Restaurant>();
-
-        //restaurantList = getRestaurants();
-        //create20FakeRestaurants();
     }
 
+    //getters and setters
+    public List<Restaurant> getRestaurantList() {
+        return restaurantList;
+    }
+
+    public Restaurant getRestaurant(int id) {
+        for (Restaurant restaurant : restaurantList) {
+            if (restaurant.getId() == id) {
+                return restaurant;
+            }
+        }
+        return null;
+    }
+
+    //instance methods
+
+    //test connection to database
     public boolean testDB() throws SQLException {
         int two = 0;
         try (Connection conn = dataSource.getConnection();
@@ -42,15 +55,14 @@ public class RestaurantRepository {
     }
 
 
-
-
-    //instance methods
+    //return list of restaurants sorted by tomterating.
     public List<Restaurant> getSortedRestaurantList(int pageNr, int itemsPerPage, boolean onlyStrollerFriendly, boolean onlyWheelchairFriendly ) {
-        //return sorted sublist whose size depends on parameter itemsPerPage
+
         List<Restaurant> subList = new ArrayList<Restaurant>();
 
         Collections.sort(restaurantList);
 
+        //number of restaurants we show on front page is limited by itemsPerPage
         for(int ii=0; ii< Math.min(itemsPerPage, restaurantList.size()); ii++){
 
             Restaurant restaurant = restaurantList.get(pageNr+ii);
@@ -60,7 +72,6 @@ public class RestaurantRepository {
             for(int jj=0; jj<(int)Math.round(restaurant.getTomterating()); jj++){
              restaurant.addTomte();
             }
-
 
             if(onlyStrollerFriendly&&onlyWheelchairFriendly){//if this flag is set, only include restaurants that are both stroller- and wheelchairfriendly
                 if(restaurant.isStrollerOk()&&restaurant.isWheelchairOk()){
@@ -79,13 +90,16 @@ public class RestaurantRepository {
                 subList.add(restaurant);
             }
         }
-        //Collections.sort(subList);
         return subList;
-    }
+    }//end method getSortedRestaurantList
 
+    //add restaurant to database
     public void addRestaurant(Restaurant restaurantToAdd){
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO Restaurang (RestaurangNamn, RestaurangBeskrivning, RestaurangLongitud, RestaurangLatitutd, TomteRating, RestaurangOppettider, Prisklass, Lank, Barnvagnsvanligt, Rullstolsvanligt) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+             //use preparedStatement to avoid sql injection-attack
+             PreparedStatement preparedStatement = conn.prepareStatement(
+                     "INSERT INTO Restaurang (RestaurangNamn, RestaurangBeskrivning, RestaurangLongitud, RestaurangLatitutd, TomteRating, RestaurangOppettider, Prisklass, Lank, Barnvagnsvanligt, Rullstolsvanligt) " +
+                             "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
             preparedStatement.setString(1, restaurantToAdd.getName());
             preparedStatement.setString(2, restaurantToAdd.getDescription());
             preparedStatement.setDouble(3, restaurantToAdd.getLng());
@@ -104,6 +118,7 @@ public class RestaurantRepository {
 
     }
 
+    //get restaurants from database
     public List<Restaurant> getRestaurants(){
         restaurantList.clear();
         try (Connection conn = dataSource.getConnection();
@@ -116,10 +131,10 @@ public class RestaurantRepository {
         catch(SQLException e){
             e.printStackTrace();
         }
-        //restaurants.add(new Restaurant("hej", "h", 2.5, true, true, 1,1));
         return restaurantList;
     }
 
+    //helper function to map field names to variable names
     public Restaurant rsRestaurant(ResultSet rs) throws SQLException {
         Restaurant restaurant = new Restaurant();
         restaurant.setId(rs.getInt("RestaurangId"));
@@ -136,6 +151,7 @@ public class RestaurantRepository {
         return restaurant;
     }
 
+    //deprecated function used before we had a database
     public void create20FakeRestaurants(){
         Random r = new Random();
 
@@ -170,22 +186,5 @@ public class RestaurantRepository {
         }
     }
 
-    public List<Restaurant> getRestaurantList() {
-        return restaurantList;
-    }
 
-    public Restaurant getRestaurant(int id) {
-        for (Restaurant restaurant : restaurantList) {
-            if (restaurant.getId() == id) {
-                return restaurant;
-            }
-        }
-        return null;
-
-
-    }
-
-
-
-
-}
+}//end of class
