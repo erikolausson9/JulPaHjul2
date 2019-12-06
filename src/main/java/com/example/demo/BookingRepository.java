@@ -32,21 +32,41 @@ public class BookingRepository {
         return booking;
     }
 
-    public void addBooking(Booking bookingToAdd) {
+    public void addBooking(Booking bookingToAdd, String username) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("INSERT INTO Bokning(AntalPersoner, BokningsDag, " +
-                     "BokningsTid, EmailAdress, Telefonnummer, Username) VALUES(?, ?, ?, ?, ?, ?)")) {
+                     "BokningsTid, EmailAdress, Telefonnummer, Username, MedlemsId, RestaurangId) VALUES(?, ?, ?, ?, ?, ?, ?, ?)")) {
             ps.setInt(1, bookingToAdd.getPeople());
             ps.setString(2, bookingToAdd.getDay());
             ps.setString(3, bookingToAdd.getTime());
             ps.setString(4, bookingToAdd.getEmail());
             ps.setString(5, bookingToAdd.getPhonenumber());
-            ps.setString(6, bookingToAdd.getUsername());
+            ps.setString(6, username);
+            int idM = getUserId(username);
+            ps.setInt(7, idM);
+            ps.setInt(8, 7);
             ps.executeUpdate();
         }
         catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    private Integer getUserId(String username) {
+        String SQLQuery = "Select MedlemsId From Medlem WHERE Anvandarnamn = '"+username+"'";
+        Integer id = 0;
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Bokning")){
+            while(rs.next()){
+                id = rs.getInt(1);
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        return id;
     }
 
     public List<Booking> getBookings(){

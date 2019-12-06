@@ -146,7 +146,8 @@ public class JulPaHjulController {
             return "booking";
         }
         model.addAttribute("booking", booking);
-        serviceLayer.addBooking(booking);
+        String username = (String) session.getAttribute("username");
+        serviceLayer.addBooking(booking, username);
 
         List<Booking> bookings = (List<Booking>)session.getAttribute("bookings");
         if (bookings == null) {
