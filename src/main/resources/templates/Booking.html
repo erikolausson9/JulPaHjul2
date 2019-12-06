@@ -79,7 +79,7 @@
     Telefonnummer: <br>
     <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="telefonnummer" th:errorclass="fieldError" />
      <br>
-
+        <input type="hidden" th:field="*{username}" th:value="${session.username}">
     <input type="submit" value="Boka"/> <br>
 
        <span th:if="${#fields.hasErrors('firstname')}"> Namnet måste vara minst 2 tecken långt.</span><br>

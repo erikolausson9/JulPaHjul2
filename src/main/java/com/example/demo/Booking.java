@@ -8,6 +8,7 @@ public class Booking {
     private int userId;
     private int restaurantId;
     private int people;
+    private String username;
     private String day;
     private String time;
     @Email
@@ -142,5 +143,13 @@ public class Booking {
 
     public void setRestaurantLank(String restaurantLank) {
         this.restaurantLank = restaurantLank;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

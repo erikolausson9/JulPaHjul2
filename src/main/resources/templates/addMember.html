@@ -30,8 +30,10 @@
 
 
     </form>
-
 <p></p>
+    <span th:if="${memberExists!=null}">Det finns redan en användare med detta användarnamn. Försök igen. </span>
+
+
 
 <div class="memberConfirmation" th:if="${noErrors!=null}"><h2>Välkommen som medlem!</h2>
 <a href="/">Tillbaka till startsidan</a>

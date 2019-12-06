@@ -78,8 +78,15 @@ public class JulPaHjulController {
     String addMember(HttpSession session, Model model, @Valid Member member, BindingResult result) {
         if (result.hasErrors()) {
 
+
             return "addMember";
         }
+
+        if(serviceLayer.getMember(member.getAnvandarNamn())!=null){
+            model.addAttribute("memberExists", true);
+            return "addMember";
+        }
+
         model.addAttribute("member", member);
             serviceLayer.addMember(member);
 
@@ -95,16 +102,20 @@ public class JulPaHjulController {
     }
 
     @GetMapping("/addRestaurant")
-    String form(Model model) {
-        model.addAttribute("restaurant", new Restaurant());
+    String form(HttpSession session, Model model) {
+        if(session.getAttribute("username")!=null){
+            model.addAttribute("restaurant", new Restaurant());
 
-        return "addRestaurant";
+            return "addRestaurant";
+        }
+     return "login";
     }
 
     @PostMapping("/addRestaurant")
     String addRestaurant (HttpSession session, Model model, @Valid Restaurant restaurant, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
+            
             return "addRestaurant";
         }
         model.addAttribute("restaurant", restaurant);
@@ -146,7 +157,8 @@ public class JulPaHjulController {
             return "booking";
         }
         model.addAttribute("booking", booking);
-        serviceLayer.addBooking(booking);
+        String username = (String) session.getAttribute("username");
+        serviceLayer.addBooking(booking, username);
 
         List<Booking> bookings = (List<Booking>)session.getAttribute("bookings");
         if (bookings == null) {
@@ -187,7 +199,7 @@ public class JulPaHjulController {
 
     @GetMapping("/myBookings/{username}")
     String getBookings (@PathVariable String username, Model model){
-        Booking myBooking = serviceLayer.getMyBooking(username);
+        List<Booking> myBooking = serviceLayer.getMyBooking(username);
         model.addAttribute("myBooking", myBooking);
         return "myBookings";
     }

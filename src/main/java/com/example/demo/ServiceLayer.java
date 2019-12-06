@@ -36,8 +36,8 @@ public class ServiceLayer {
         restaurantRepository.addRestaurant(restaurant);
     }
 
-    public void addBooking(Booking booking) {
-        bookingRepository.addBooking(booking);
+    public void addBooking(Booking booking, String username) {
+        bookingRepository.addBooking(booking, username);
     }
 
     public void addMember(Member member) {
@@ -48,7 +48,7 @@ public class ServiceLayer {
         return memberRepository.getMemberByUsername(username);
     }
 
-  public Booking getMyBooking (String username) {
+  public List<Booking> getMyBooking (String username) {
         return bookingRepository.getMyBooking(username);
     }
 
