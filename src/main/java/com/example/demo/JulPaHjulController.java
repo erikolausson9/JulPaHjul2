@@ -101,10 +101,13 @@ public class JulPaHjulController {
     }
 
     @GetMapping("/addRestaurant")
-    String form(Model model) {
-        model.addAttribute("restaurant", new Restaurant());
+    String form(HttpSession session, Model model) {
+        if(session.getAttribute("username")!=null){
+            model.addAttribute("restaurant", new Restaurant());
 
-        return "addRestaurant";
+            return "addRestaurant";
+        }
+     return "login";
     }
 
     @PostMapping("/addRestaurant")
