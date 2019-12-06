@@ -14,7 +14,6 @@ public class Member {
     @Email
     private String emailAdress;
 
-    private ArrayList<String> members = new ArrayList<>();
 
     public Member() {
     }
@@ -55,9 +54,5 @@ public class Member {
 
     public void setEmailAdress(String emailAdress) {
         this.emailAdress = emailAdress;
-    }
-
-    public void clearMemberList() {
-        members.clear();
     }
 }

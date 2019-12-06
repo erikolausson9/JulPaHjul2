@@ -72,7 +72,7 @@ class DemoApplicationTests {
 	void testGetMembers() throws SQLException{
 
 		List<Member> members = memberRepository.getMembers();
-		Assertions.assertEquals(1,members.size());
+		Assertions.assertEquals(6,members.size());
 	}
 
 	@Test
