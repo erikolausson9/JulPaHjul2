@@ -65,7 +65,7 @@ public class MemberRepository {
    }
 
 
-    //get member by usernamen from database
+    //get member by username from database
    public Member getMemberByUsername(String username){
 
        try (Connection conn = dataSource.getConnection();
