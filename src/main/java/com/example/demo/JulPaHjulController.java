@@ -80,6 +80,12 @@ public class JulPaHjulController {
 
             return "addMember";
         }
+
+        if(serviceLayer.getMember(member.getAnvandarNamn())!=null){
+            model.addAttribute("memberExists", true);
+            return "addMember";
+        }
+
         model.addAttribute("member", member);
             serviceLayer.addMember(member);
 
