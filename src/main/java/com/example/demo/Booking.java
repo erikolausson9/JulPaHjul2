@@ -12,7 +12,7 @@ public class Booking {
     private String time;
     @Email
     private String email;
-    @Size(min=2, max=15)
+    @Size(min=0, max=15)
     private String firstname;
     @Size(min=2, max=15)
     private String lastname;
