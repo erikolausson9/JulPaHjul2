@@ -11,14 +11,20 @@ public class ServiceLayer {
 
     @Autowired
     RestaurantRepository restaurantRepository;
+
     @Autowired
     MemberRepository memberRepository;
 
     @Autowired
     BookingRepository bookingRepository;
 
+    //instance methods
+
     public List<Restaurant> getSortedRestaurantList(int pageNr, int itemsPerPage, boolean onlyStrollerFriendly, boolean onlyWheelchairFriendly) {
+
+        //get restaurants from database and store them in RestaurantRepositorys instance variable restaurantList
         restaurantRepository.getRestaurants();
+
         return restaurantRepository.getSortedRestaurantList(pageNr, itemsPerPage, onlyStrollerFriendly, onlyWheelchairFriendly);
     }
 
