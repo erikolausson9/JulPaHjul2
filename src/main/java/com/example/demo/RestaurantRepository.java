@@ -85,10 +85,7 @@ public class RestaurantRepository {
 
     public void addRestaurant(Restaurant restaurantToAdd){
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO Restaurang (RestaurangNamn, " +
-                     "RestaurangBeskrivning, RestaurangLongitud, " +
-                     "RestaurangLatitutd, TomteRating, RestaurangOppettider, " +
-                     "Prisklass, Lank) VALUES(?, ?, ?, ?, ?, ?, ?, ?)")) {
+             PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO Restaurang (RestaurangNamn, RestaurangBeskrivning, RestaurangLongitud, RestaurangLatitutd, TomteRating, RestaurangOppettider, Prisklass, Lank, Barnvagnsvanligt, Rullstolsvanligt) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
             preparedStatement.setString(1, restaurantToAdd.getName());
             preparedStatement.setString(2, restaurantToAdd.getDescription());
             preparedStatement.setDouble(3, restaurantToAdd.getLng());
@@ -97,6 +94,8 @@ public class RestaurantRepository {
             preparedStatement.setString(6, restaurantToAdd.getOppettider());
             preparedStatement.setString(7, restaurantToAdd.getPriskategori());
             preparedStatement.setString(8, restaurantToAdd.getLinkToWebsite());
+            preparedStatement.setBoolean(9,restaurantToAdd.isStrollerOk());
+            preparedStatement.setBoolean(10,restaurantToAdd.isWheelchairOk());
             preparedStatement.executeUpdate();
         }
         catch(SQLException e){

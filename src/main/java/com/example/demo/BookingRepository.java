@@ -63,4 +63,40 @@ public class BookingRepository {
 
         return bookings;
     }
+
+    public Booking getMyBooking(String username) {
+        Booking booking = new Booking();
+
+        String SQLStatement = "SELECT * " +
+                "FROM Bokning " +
+                "INNER JOIN Medlem ON dbo.Bokning.MedlemsId = dbo.Medlem.MedlemsId " +
+                "INNER JOIN Restaurang ON dbo.Bokning.RestaurangId = dbo.Restaurang.RestaurangId " +
+                "WHERE Anvandarnamn = '" + username + "'";
+
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(SQLStatement)){
+            while(rs.next()){
+                booking = rsGetMyBooking(rs);
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return booking;
+    }
+
+    public Booking rsGetMyBooking(ResultSet rs) throws SQLException{
+        Booking booking = new Booking();
+
+        booking.setPeople(rs.getInt("AntalPersoner"));
+        booking.setDay(rs.getString("BokningsDag"));
+        booking.setTime(rs.getString("BokningsTid"));
+        booking.setRestaurant(rs.getString("RestaurangNamn"));
+        booking.setRestaurantLank(rs.getString("Lank"));
+        booking.setEmail(rs.getString("EmailAdress"));
+        booking.setPhonenumber(rs.getString("Telefonnummer"));
+
+        return booking;
+    }
 }

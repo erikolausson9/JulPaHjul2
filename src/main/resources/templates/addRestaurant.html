@@ -34,10 +34,12 @@
     <label for="rating2">🎅🎅</label><br>
     <input id="rating1" type="radio" th:field="*{tomterating}" value="1"/>
     <label for="rating5">🎅</label>
+
+
     <p>Barnvagnsvänligt</p>
-    <input type="checkbox" th:field="*{strollerOk}" value="1">
+    <input type="radio" th:field="*{strollerOk}" value="true">
     <p>Rullstolsvänligt</p>
-    <input type="checkbox" th:field="*{wheelchairOk}" value="1">
+    <input type="radio" th:field="*{wheelchairOk}" value="true">
     <br><br><input type="submit" value="Lägg till restaurang"/>
 
 </form>
@@ -47,15 +49,7 @@
 
 <center>
 <div th:each="restaurant : ${session.restaurants}">
-    <h3>Tack för ditt bidrag!
-    </h3>
-    <span th:text="${'Namn: ' + restaurant.name}"></span><br><br>
-    <span th:text="${'Beskrivning av restaurang: ' + restaurant.description}"></span><br><br>
-    <span th:text="${'Adress: ' + restaurant.adress}"></span><br><br>
-    <span th:text="${'Öppettider: ' + restaurant.oppettider}"></span><br><br>
-    <span th:text="${'Priskategori: ' + restaurant.priskategori}"></span><br><br>
-    <span th:text="${'Länk till hemsida: ' + restaurant.linkToWebsite}"></span><br><br>
-    <span th:text="${'Tomterating: ' + restaurant.tomterating}"></span>
+    <h3>Tack för ditt bidrag!</h3>
 </div>
 </center>
 
