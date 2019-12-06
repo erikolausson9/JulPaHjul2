@@ -42,7 +42,7 @@ public class ServiceLayer {
         return memberRepository.getMemberByUsername(username);
     }
 
-  public Booking getMyBooking (String username) {
+  public List<Booking> getMyBooking (String username) {
         return bookingRepository.getMyBooking(username);
     }
 

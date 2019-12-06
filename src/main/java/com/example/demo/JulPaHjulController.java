@@ -187,7 +187,7 @@ public class JulPaHjulController {
 
     @GetMapping("/myBookings/{username}")
     String getBookings (@PathVariable String username, Model model){
-        Booking myBooking = serviceLayer.getMyBooking(username);
+        List<Booking> myBooking = serviceLayer.getMyBooking(username);
         model.addAttribute("myBooking", myBooking);
         return "myBookings";
     }

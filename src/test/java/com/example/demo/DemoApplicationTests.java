@@ -91,7 +91,7 @@ class DemoApplicationTests {
 	void testGetBooking(){
 		Booking booking = new Booking();
 		String username = "Aga";
-		booking = bookingRepository.getMyBooking(username);
+//		booking = bookingRepository.getMyBooking(username);
 
 		Assertions.assertEquals("agalel@gmail.com", booking.getEmail());
 	}

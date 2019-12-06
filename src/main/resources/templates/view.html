@@ -21,7 +21,9 @@
 
 <div class="title">
     &nbsp;<span><a href="/">Tillbaka till startsidan</a></span><br>
-    &nbsp;<span><a href="/login">Logga in</a></span><br>
+    &nbsp;<span th:if="${session.username == null}"><a href="/login">Logga in</a></span>
+    <span th:if="${session.username != null}"><a href="/logout">Logga ut</a></span>
+    <br>
     &nbsp;<span><a href="/booking">Boka bord</a></span><br>
     <img src="../static/title.jpg" id="title" th:src="${'/title.jpg'}">
 </div>
