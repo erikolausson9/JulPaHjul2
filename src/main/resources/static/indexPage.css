@@ -7,7 +7,7 @@ h2 {
 
 .title {
     width:100%;
-    margin:auto;
+    margin: auto;
     background-color: #c21f1f;
 
     font-size: 20px;
@@ -16,7 +16,10 @@ h2 {
 .title a {
     color: #FFFFFF;
     text-decoration: none;
+    margin-left: 5px;
 }
+
+
 
 #title {
     display:block;
@@ -92,7 +95,7 @@ img {
 .login a {
     color: #FFFFFF;
     text-decoration: none;
-    left: 10%;
+    margin-left: 5px;
 }
 
 #headerlogin {
@@ -108,6 +111,12 @@ img {
         background-color: #c21f1f;
         font-family: "Questa Grande", "Palatino Linotype", serif;
         font-size: 20px;
+}
+
+.addRestaurant {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 5px;
 }
 
 #headeraddrestaurant {
@@ -128,8 +137,12 @@ a {
       background-color: #c21f1f;
       font-family: "Questa Grande", "Palatino Linotype", serif;
       font-size: 20px;
+}
 
-
+.booking a {
+    margin-left: 5px;
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 #headerbooking {
@@ -155,6 +168,12 @@ a {
      #width:100%;
      margin:auto;
      background-color: #c21f1f;
+}
+
+.confirmation a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 5px;
 }
 #headerbooking {
     font-family: "Questa Grande", "Palatino Linotype", serif;
@@ -207,9 +226,7 @@ font-weight:bold;
 position:relative;
 }
 
-#memberForm {
-margin-left:45%;
-padding:10px;
-color:red;
+.memberForm {
+margin-left:44%
 }
 
