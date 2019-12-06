@@ -69,6 +69,7 @@ public class JulPaHjulController {
     @PostMapping("/addMember")
     String addMember(HttpSession session, Model model, @Valid Member member, BindingResult result) {
         if (result.hasErrors()) {
+
             return "addMember";
         }
         model.addAttribute("member", member);
@@ -80,6 +81,7 @@ public class JulPaHjulController {
             session.setAttribute("members", members);
         }
         members.add(member);
+        model.addAttribute("noErrors", true);
 
         return "addMember";
     }

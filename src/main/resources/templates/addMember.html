@@ -19,16 +19,27 @@
 </div>
 
 <p>
-<div id="memberForm">
-    vad hander har?
+<div class="memberForm">
+
     <form action="/addMember" method="POST" th:object="${member}">
-    <input type="text" placeholder="Ditt namn" th:field="*{anvandarNamn}" th:errorclass="fieldError" /><span th:if="${#fields.hasErrors('anvandarNamn')}"> Skriv minst fem tecken</span> <br>
-        <input type="text" placeholder="Lösenord" th:field="*{losenord}" th:errorclass="fieldError"/><span th:if="${#fields.hasErrors('emailAdress')}">Skriv ett lösenord som är mellan 5 och 30 tecken långt.</span><br>
-    <input type="text" placeholder="Email" th:field="*{emailAdress}" th:errorclass="fieldError" />  <span th:if="${#fields.hasErrors('emailAdress')}"> Skriv en giltig e-postadress.</span><br>
-    <input type="submit" value="Bli medlem">
+    <input type="text" placeholder="Ditt namn" th:field="*{anvandarNamn}" th:errorclass="fieldError" /> <span th:if="${#fields.hasErrors('anvandarNamn')}"> Användarnamnet måste vara minst 5 tecken långt.</span><br>
+        <input type="text" placeholder="Lösenord" th:field="*{losenord}" th:errorclass="fieldError"/><span th:if="${#fields.hasErrors('losenord')}">Lösenordet måste vara mellan 5 och 30 tecken långt.</span><br>
+    <input type="text" placeholder="Email" th:field="*{emailAdress}" th:errorclass="fieldError" /><span th:if="${#fields.hasErrors('emailAdress')}"> Skriv en giltig e-postadress.</span><br>
+        <br>
+        <input type="submit" value="Bli medlem">
+
+
     </form>
 
+<p></p>
+
+<div class="memberConfirmation" th:if="${noErrors!=null}"><h2>Välkommen som medlem!</h2>
+<a href="/">Tillbaka till startsidan</a>
+<a href="/addRestaurant">Lägg till restaurang</a></div>
+
 </div>
+
+
 
 
 

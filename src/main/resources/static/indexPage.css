@@ -227,6 +227,23 @@ position:relative;
 }
 
 .memberForm {
+font-size:18px;
 margin-left:44%
+}
+
+.memberForm input {
+margin-right:10px;
+}
+
+.fieldError {
+border: solid #c21f1f 3px;
+}
+
+.memberConfirmation {
+color:#c21f1f;
+font-size:16px;
+}
+.memberConfirmation a {
+color:black;
 }
 
