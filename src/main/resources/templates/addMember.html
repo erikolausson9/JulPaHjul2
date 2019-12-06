@@ -9,9 +9,12 @@
 <body>
 
 <div class="title">
-    <span th:if="${session.username == null}"><a href="/login">Logga in</a></span>
+    <span><a href="/">Tillbaka till startsida</a></span>
+    <br><span th:if="${session.username == null}"><a href="/login">Logga in</a></span>
     <span th:if="${session.username != null}"><a href="/logout">Logga ut</a></span>
     <br><span th:if="${session.username != null}"><a href="/addRestaurant">Lägg till restaurang</a></span>
+
+
     <img src="../static/blimedlem.jpg" id="title" th:src="${'/blimedlem.jpg'}">
 </div>
 
