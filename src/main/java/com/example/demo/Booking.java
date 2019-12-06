@@ -2,6 +2,8 @@ package com.example.demo;
 
 public class Booking {
     private int bookingId;
+    private int userId;
+    private int restaurantId;
     private int people;
     private String day;
     private String time;
@@ -9,12 +11,27 @@ public class Booking {
     private String firstname;
     private String lastname;
     private String phonenumber;
+    private String restaurant;
+    private String restaurantLank;
 
     public Booking() {
     }
 
     public Booking(int bookingId, int people, String day, String time, String email, String firstname, String lastname, String phonenumber) {
         this.bookingId = bookingId;
+        this.people = people;
+        this.day = day;
+        this.time = time;
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phonenumber = phonenumber;
+    }
+
+    public Booking(int bookingId, int userId, int restaurantId, int people, String day, String time, String email, String firstname, String lastname, String phonenumber) {
+        this.bookingId = bookingId;
+        this.userId = userId;
+        this.restaurantId = restaurantId;
         this.people = people;
         this.day = day;
         this.time = time;
@@ -86,5 +103,37 @@ public class Booking {
 
     public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(int restaurantId) {
+        this.restaurantId = restaurantId;
+    }
+
+    public String getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(String restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public String getRestaurantLank() {
+        return restaurantLank;
+    }
+
+    public void setRestaurantLank(String restaurantLank) {
+        this.restaurantLank = restaurantLank;
     }
 }
