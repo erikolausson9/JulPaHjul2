@@ -78,6 +78,7 @@ public class JulPaHjulController {
     String addMember(HttpSession session, Model model, @Valid Member member, BindingResult result) {
         if (result.hasErrors()) {
 
+
             return "addMember";
         }
         model.addAttribute("member", member);
@@ -105,6 +106,7 @@ public class JulPaHjulController {
     String addRestaurant (HttpSession session, Model model, @Valid Restaurant restaurant, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
+            
             return "addRestaurant";
         }
         model.addAttribute("restaurant", restaurant);
