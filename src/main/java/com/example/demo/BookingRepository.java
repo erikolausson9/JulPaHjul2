@@ -42,8 +42,9 @@ public class BookingRepository {
             ps.setString(4, bookingToAdd.getEmail());
             ps.setString(5, bookingToAdd.getPhonenumber());
             ps.setString(6, username);
-            int idM = getUserId(username);
-            ps.setInt(7, idM);
+            if(username!=null){ //this will be null if a booking is made from user who is not logged in
+                ps.setInt(7, getUserId(username));
+            }
             ps.setInt(8, 7);
             ps.executeUpdate();
         }
