@@ -131,6 +131,8 @@ public class RestaurantRepository {
         restaurant.setOppettider(rs.getString("RestaurangOppettider"));
         restaurant.setPriskategori(rs.getString("Prisklass"));
         restaurant.setLinkToWebsite(rs.getString("Lank"));
+        restaurant.setStrollerOk(rs.getBoolean("Barnvagnsvanligt"));
+        restaurant.setWheelchairOk(rs.getBoolean("Rullstolsvanligt"));
 
         return restaurant;
     }

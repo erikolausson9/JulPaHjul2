@@ -127,15 +127,26 @@ public class JulPaHjulController {
     }
 
     @GetMapping("/booking")
-    String getbooking(Model model, @ModelAttribute Booking booking) {
-        model.addAttribute("booking", booking);
+    String getbooking(Model model) {
+        model.addAttribute("booking", new Booking());
         return "booking";
     }
 
     @PostMapping("/booking")
-    String reserve(Model model, @ModelAttribute Booking booking) {
+    String reserve(HttpSession session, Model model, @Valid Booking booking, BindingResult result) {
+        if (result.hasErrors()) {
+            return "booking";
+        }
         model.addAttribute("booking", booking);
         serviceLayer.addBooking(booking);
+
+        List<Booking> bookings = (List<Booking>)session.getAttribute("bookings");
+        if (bookings == null) {
+            bookings = new ArrayList<>();
+            session.setAttribute("bookings", bookings);
+        }
+        bookings.add(booking);
+
         return "confirmation";
     }
 

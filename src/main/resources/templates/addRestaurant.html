@@ -17,7 +17,7 @@
     <input type="text" placeholder="Namn på restaurang" th:field="*{name}"/><span th:if="${#fields.hasErrors('name')}"> Skriv minst fem tecken</span>  <br>
 
     <input id="description" type="text" placeholder="Beskrivning av restaurang" th:field="*{description}"/><br>
-    <input type="text" placeholder="Adress" th:field="*{adress}"/>  <span th:if="${#fields.hasErrors('adress')}"> Skriv minst ett tecke</span><br>
+    <input type="text" placeholder="Adress" th:field="*{adress}"/>  <span th:if="${#fields.hasErrors('adress')}"> Skriv minst ett tecken</span><br>
     <input type="text" placeholder="Öppettider" th:field="*{oppettider}"/><br>
     <input type="text" placeholder="Priskategori" th:field="*{priskategori}"/><br>
     <input type="text" placeholder="Länk till hemsida" th:field="*{linkToWebsite}"/><br>
@@ -33,7 +33,11 @@
     <input id="rating2" type="radio" th:field="*{tomterating}" value="2"/>
     <label for="rating2">🎅🎅</label><br>
     <input id="rating1" type="radio" th:field="*{tomterating}" value="1"/>
-    <label for="rating5">🎅</label><br>
+    <label for="rating5">🎅</label>
+    <p>Barnvagnsvänligt</p>
+    <input type="checkbox" th:field="*{strollerOk}" value="1">
+    <p>Rullstolsvänligt</p>
+    <input type="checkbox" th:field="*{wheelchairOk}" value="1">
     <br><br><input type="submit" value="Lägg till restaurang"/>
 
 </form>
@@ -43,7 +47,8 @@
 
 <center>
 <div th:each="restaurant : ${session.restaurants}">
-    <h3>Tack för ditt bidrag!<br> Vi återkommer strax med en uppdaterad lista. </h3>
+    <h3>Tack för ditt bidrag!
+    </h3>
     <span th:text="${'Namn: ' + restaurant.name}"></span><br><br>
     <span th:text="${'Beskrivning av restaurang: ' + restaurant.description}"></span><br><br>
     <span th:text="${'Adress: ' + restaurant.adress}"></span><br><br>
