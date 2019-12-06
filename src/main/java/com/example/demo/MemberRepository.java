@@ -15,12 +15,15 @@ public class MemberRepository {
     @Autowired
     DataSource dataSource;
 
+    //instance variables
     private List<Member> members;
 
+    //constructor
     public MemberRepository () {
         members = new ArrayList<>();
     }
 
+    //helper function to map field namnes to variable anvandarNamn
     public Member rsMember(ResultSet rs) throws SQLException{
         Member member = new Member();
         member.setId(rs.getInt("MedlemsId"));
@@ -31,6 +34,7 @@ public class MemberRepository {
         return member;
     }
 
+    //add member to database
     public void addMember(Member memberToAdd) {
         try (Connection conn = dataSource.getConnection();
         PreparedStatement ps = conn.prepareStatement("INSERT INTO Medlem(AnvandarNamn, Losenord, EmailAdress) VALUES(?, ?, ?)")) {
@@ -44,6 +48,7 @@ public class MemberRepository {
         }
     }
 
+    //get members from database
    public List<Member> getMembers(){
         members.clear();
        try (Connection conn = dataSource.getConnection();
@@ -59,19 +64,8 @@ public class MemberRepository {
        return members;
    }
 
-   public List<Member> getMemberList(){
-        return members;
-   }
 
-   public Member getMember(int id) {
-        for (Member member : members) {
-            if (member.getId()==id) {
-                return member;
-            }
-        }
-        return null;
-   }
-
+    //get member by usernamen from database
    public Member getMemberByUsername(String username){
 
        try (Connection conn = dataSource.getConnection();
