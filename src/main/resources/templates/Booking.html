@@ -67,22 +67,25 @@
     </br>
 
 
-<h2>Avsluta reservation</h2>
-
     Namn:<br>
-    <input th:field="*{firstname}" type="text" placeholder="Namn (obligatoriskt)">
+    <input th:field="*{firstname}" type="text" placeholder="Namn (obligatoriskt)"  th:errorclass="fieldError" />
     <br>
     Efternamn:<br>
-    <input id="efternamn" th:field="*{lastname}"type="tel" placeholder="Efternamn (obligatoriskt)">
+    <input id="efternamn" th:field="*{lastname}"type="tel" placeholder="Efternamn (obligatoriskt)" th:errorclass="fieldError" />
     <br>
     E-post:<br>
-    <input id="e-post" th:field="*{email}"type="tel" placeholder="e-post (obligatoriskt)">
+    <input id="e-post" th:field="*{email}"type="tel" placeholder="e-post (obligatoriskt)" th:errorclass="fieldError" />
     <br>
     Telefonnummer: <br>
-    <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="telefonnummer">
+    <input id="telNo" th:field="*{phonenumber}" type="tel" placeholder="telefonnummer" th:errorclass="fieldError" />
      <br>
         <input type="hidden" th:field="*{username}" th:value="${session.username}">
     <input type="submit" value="Boka"/> <br>
+
+       <span th:if="${#fields.hasErrors('firstname')}"> Namnet måste vara minst 2 tecken långt.</span><br>
+        <span th:if="${#fields.hasErrors('lastname')}"> Efternamnet måste vara minst 2 tecken långt.</span><br>
+       <span th:if="${#fields.hasErrors('email')}"> Skriv en giltig e-postadress.</span><br>
+        <span th:if="${#fields.hasErrors('phonenumber')}"> Telefonnummer måste vara minst 9 tecken långt.</span><br>
 
 </form>
 </center></div>
