@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>addMember</title>
 
-    <link rel="stylesheet" href="../static/indexPage.css" th:href="'/indexPage.css'">
+    <link rel="stylesheet" type="text/css" href="../static/indexPage.css" th:href="${'/indexPage.css'}">
 </head>
 <body>
 
@@ -16,18 +16,19 @@
 </div>
 
 <p>
-<div class="memberForm">
+<div id="memberForm">
+    vad hander har?
     <form action="/addMember" method="POST" th:object="${member}">
-    <input type="text" placeholder="Ditt namn" th:field="*{anvandarNamn}"/><span th:if="${#fields.hasErrors('anvandarNamn')}"> Skriv minst fem tecken</span> <br>
-        <input type="text" placeholder="Lösenord" th:field="*{losenord}"/><span th:if="${#fields.hasErrors('emailAdress')}">Skriv ett lösenord som är mellan 5 och 30 tecken långt.</span><br>
-    <input type="text" placeholder="Email" th:field="*{emailAdress}"/>  <span th:if="${#fields.hasErrors('emailAdress')}"> Skriv en giltig e-postadress.</span><br>
+    <input type="text" placeholder="Ditt namn" th:field="*{anvandarNamn}" th:errorclass="fieldError" /><span th:if="${#fields.hasErrors('anvandarNamn')}"> Skriv minst fem tecken</span> <br>
+        <input type="text" placeholder="Lösenord" th:field="*{losenord}" th:errorclass="fieldError"/><span th:if="${#fields.hasErrors('emailAdress')}">Skriv ett lösenord som är mellan 5 och 30 tecken långt.</span><br>
+    <input type="text" placeholder="Email" th:field="*{emailAdress}" th:errorclass="fieldError" />  <span th:if="${#fields.hasErrors('emailAdress')}"> Skriv en giltig e-postadress.</span><br>
     <input type="submit" value="Bli medlem">
+    </form>
+
+</div>
 
 
-</form>
 
-
-<br>
 
 
 
