@@ -10,8 +10,8 @@
 <body>
 
 <div class="addRestaurant">
-    &nbsp;<span><a href="/">Tillbaka till startsidan</a></span>
-    &nbsp;<center><h1 id="headeraddrestaurant"> Lägg till restaurang</h1></center></div>
+    <span><a href="/">Tillbaka till startsidan</a></span>
+    <center><h1 id="headeraddrestaurant"> Lägg till restaurang</h1></center></div>
 
 <center><form action="/addRestaurant" method="POST" th:object="${restaurant}">
     <input type="text" placeholder="Namn på restaurang" th:field="*{name}"/><br>
