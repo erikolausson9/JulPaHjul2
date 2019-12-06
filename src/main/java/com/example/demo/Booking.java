@@ -1,13 +1,20 @@
 package com.example.demo;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
+
 public class Booking {
     private int bookingId;
     private int people;
     private String day;
     private String time;
+    @Email
     private String email;
+    @Size(min=2, max=15)
     private String firstname;
+    @Size(min=2, max=15)
     private String lastname;
+    @Size(min=9, max=15)
     private String phonenumber;
 
     public Booking() {
