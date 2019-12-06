@@ -7,13 +7,13 @@ import java.util.ArrayList;
 
 public class Restaurant implements Comparable {
 
+    //instance variable
     private int id;
 
     @Size(min=3, max=30)
     private String name;
 
     private String description;
-
     private Double tomterating;
     private int numberOfVotes;
 
@@ -22,36 +22,18 @@ public class Restaurant implements Comparable {
 
     private String oppettider;
     private String priskategori;
-
     private String linkToWebsite;
-
     private ArrayList<String> tomtar = new ArrayList<>();
 
     private boolean strollerOk;
     private boolean wheelchairOk;
 
     private double lat;
-
     private double lng;
 
+    //constructors
     public Restaurant() {
     }
-
-    public Restaurant(String name) {
-        this.name = name;
-    }
-
-    public Restaurant(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
-
-    public Restaurant(String name, String description, Double tomterating) {
-        this.name = name;
-        this.description = description;
-        this.tomterating = tomterating;
-    }
-
 
     public Restaurant(String name, String description, String adress, String oppettider, String priskategori, String linkToWebsite, Double tomterating) {
         this.name = name;
@@ -73,7 +55,6 @@ public class Restaurant implements Comparable {
         this.lat = lat;
         this.lng = lng;
     }
-
 
     //getters and setters
     public String getName() {
@@ -132,10 +113,7 @@ public class Restaurant implements Comparable {
         this.linkToWebsite = linkToWebsite;
     }
 
-    public double getLat() {
-        return lat;
-
-    }
+    public double getLat() { return lat;}
 
     public ArrayList<String> getTomtar() {
         return tomtar;
@@ -143,11 +121,6 @@ public class Restaurant implements Comparable {
 
     public double getLng() {
         return lng;
-        //instance methods
-    }
-
-    public void addTomte() {
-        tomtar.add("\\uD83C\\uDF85");
     }
 
     public void setLatLng(double lat, double lng) {
@@ -155,10 +128,21 @@ public class Restaurant implements Comparable {
         this.lng = lng;
     }
 
-    public void clearTomteList() {
-        tomtar.clear();
+    public String getOppettider() {
+        return oppettider;
     }
 
+    public void setTomtar(ArrayList<String> tomtar) {
+        this.tomtar = tomtar;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
 
     public void setOppettider(String oppettider) {
         this.oppettider = oppettider;
@@ -188,8 +172,19 @@ public class Restaurant implements Comparable {
         this.numberOfVotes = numberOfVotes;
     }
 
+
+    //instance methods
+    public void addTomte() {
+        tomtar.add("\\uD83C\\uDF85");
+    }
+
+    public void clearTomteList() {
+        tomtar.clear();
+    }
+
     @Override
     public int compareTo(Object o) {
+        //used for sorting restaurants by tomterating
         Restaurant restaurant = (Restaurant) o;
         if (this.tomterating < restaurant.tomterating) {
             return 1;
@@ -201,21 +196,6 @@ public class Restaurant implements Comparable {
     }
 
 
-    public String getOppettider() {
-        return oppettider;
-    }
-
-    public void setTomtar(ArrayList<String> tomtar) {
-        this.tomtar = tomtar;
-    }
-
-    public void setLat(double lat) {
-        this.lat = lat;
-    }
-
-    public void setLng(double lng) {
-        this.lng = lng;
-    }
 }
 
 
