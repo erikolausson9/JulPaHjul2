@@ -8,11 +8,12 @@ public class Booking {
     private int userId;
     private int restaurantId;
     private int people;
+    private String username;
     private String day;
     private String time;
     @Email
     private String email;
-    @Size(min=2, max=15)
+    @Size(min=0, max=15)
     private String firstname;
     @Size(min=2, max=15)
     private String lastname;
@@ -142,5 +143,13 @@ public class Booking {
 
     public void setRestaurantLank(String restaurantLank) {
         this.restaurantLank = restaurantLank;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

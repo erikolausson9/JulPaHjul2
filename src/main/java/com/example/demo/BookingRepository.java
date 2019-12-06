@@ -32,20 +32,42 @@ public class BookingRepository {
         return booking;
     }
 
-    public void addBooking(Booking bookingToAdd) {
+    public void addBooking(Booking bookingToAdd, String username) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("INSERT INTO Bokning(AntalPersoner, BokningsDag, " +
-                     "BokningsTid, EmailAdress, Telefonnummer) VALUES(?, ?, ?, ?, ?)")) {
+                     "BokningsTid, EmailAdress, Telefonnummer, Username, MedlemsId, RestaurangId) VALUES(?, ?, ?, ?, ?, ?, ?, ?)")) {
             ps.setInt(1, bookingToAdd.getPeople());
             ps.setString(2, bookingToAdd.getDay());
             ps.setString(3, bookingToAdd.getTime());
             ps.setString(4, bookingToAdd.getEmail());
             ps.setString(5, bookingToAdd.getPhonenumber());
+            ps.setString(6, username);
+            if(username!=null){ //this will be null if a booking is made from user who is not logged in
+                ps.setInt(7, getUserId(username));
+            }
+            ps.setInt(8, 7);
             ps.executeUpdate();
         }
         catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    private Integer getUserId(String username) {
+        String SQLQuery = "Select MedlemsId From Medlem WHERE Anvandarnamn = '"+username+"'";
+        Integer id = 0;
+        try (Connection conn = dataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Bokning")){
+            while(rs.next()){
+                id = rs.getInt(1);
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        return id;
     }
 
     public List<Booking> getBookings(){
@@ -64,8 +86,8 @@ public class BookingRepository {
         return bookings;
     }
 
-    public Booking getMyBooking(String username) {
-        Booking booking = new Booking();
+    public List<Booking> getMyBooking(String username) {
+        List<Booking> booking = new ArrayList<>();
 
         String SQLStatement = "SELECT * " +
                 "FROM Bokning " +
@@ -77,7 +99,7 @@ public class BookingRepository {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(SQLStatement)){
             while(rs.next()){
-                booking = rsGetMyBooking(rs);
+                booking.add(rsGetMyBooking(rs));
             }
         }
         catch(SQLException e){
