@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.method.annotation.AbstractMappingJacksonResponseBodyAdvice;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -43,12 +44,22 @@ public class JulPaHjulController {
     }
 
     @PostMapping("/login")
-    String postLogin(HttpSession session, @RequestParam String username, @RequestParam String password) {
-        if (username.equals("admin") && password.equals("12345")) {
-            session.setAttribute("username", username);
-            System.out.println("You are now logged in");
-            return "redirect:/";
+    String postLogin(HttpSession session, Model model, @RequestParam String username, @RequestParam String password) {
+
+        Member memberInDatabase = serviceLayer.getMember(username);
+
+        if(memberInDatabase!=null){
+            if(memberInDatabase.getLosenord().equals(password)){
+                session.setAttribute("username", username);
+                System.out.println("You are now logged in");
+                return "redirect:/";
+            }
+            System.out.println("wrong password");
+            model.addAttribute("wrongPassword", true);
+            return "login";
         }
+        System.out.println("no such member in database");
+        model.addAttribute("noSuchMember", true);
         return "login";
     }
 

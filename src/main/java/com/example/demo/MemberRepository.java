@@ -72,5 +72,19 @@ public class MemberRepository {
         return null;
    }
 
+   public Member getMemberByUsername(String username){
+
+       try (Connection conn = dataSource.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM MEDLEM WHERE Anvandarnamn='" + username + "'")){
+           if(rs.next()){
+               return rsMember(rs);
+           }
+       }
+       catch(SQLException e){
+           e.printStackTrace();
+       }
+        return null;
+   }
 
 }

@@ -17,9 +17,12 @@
     </div>
 
    <center><form action="/login" method="POST">
-        <input type="text" name="username" placeholder="username"/>
-        <input type="password" name="password" placeholder="password"/>
+        <input type="text" name="username" placeholder="username"/> <br>
+        <input type="password" name="password" placeholder="password"/><br>
         <input type="submit" value="Logga in"/>
+       <br>
+       <span th:if="${noSuchMember!=null}">Det finns ingen användare med det namnet i databasen. Försök igen. </span><br>
+       <span th:if="${wrongPassword!=null}">. Fel lösenord. Försök igen. </span>
     </form>
 </center>
 

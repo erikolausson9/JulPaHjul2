@@ -38,4 +38,8 @@ public class ServiceLayer {
         memberRepository.addMember(member);
     }
 
+    public Member getMember(String username) {
+        return memberRepository.getMemberByUsername(username);
+    }
+
 }
