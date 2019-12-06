@@ -45,5 +45,5 @@ public class ServiceLayer {
   public Booking getMyBooking (String username) {
         return bookingRepository.getMyBooking(username);
     }
-}
+
 }
