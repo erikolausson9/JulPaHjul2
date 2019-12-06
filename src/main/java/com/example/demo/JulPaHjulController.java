@@ -4,12 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.AbstractMappingJacksonResponseBodyAdvice;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -43,12 +41,22 @@ public class JulPaHjulController {
     }
 
     @PostMapping("/login")
-    String postLogin(HttpSession session, @RequestParam String username, @RequestParam String password) {
-        if (username.equals("admin") && password.equals("12345")) {
-            session.setAttribute("username", username);
-            System.out.println("You are now logged in");
-            return "redirect:/";
+    String postLogin(HttpSession session, Model model, @RequestParam String username, @RequestParam String password) {
+
+        Member memberInDatabase = serviceLayer.getMember(username);
+
+        if(memberInDatabase!=null){
+            if(memberInDatabase.getLosenord().equals(password)){
+                session.setAttribute("username", username);
+                System.out.println("You are now logged in");
+                return "redirect:/";
+            }
+            System.out.println("wrong password");
+            model.addAttribute("wrongPassword", true);
+            return "login";
         }
+        System.out.println("no such member in database");
+        model.addAttribute("noSuchMember", true);
         return "login";
     }
 
@@ -175,6 +183,13 @@ public class JulPaHjulController {
         model.addAttribute("restaurant", serviceLayer.getRestaurant(id));
         model.addAttribute("id", id);
     return "view";
+    }
+
+    @GetMapping("/myBookings/{username}")
+    String getBookings (@PathVariable String username, Model model){
+        Booking myBooking = serviceLayer.getMyBooking(username);
+        model.addAttribute("myBooking", myBooking);
+        return "myBookings";
     }
 
 }
